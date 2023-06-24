@@ -33,16 +33,17 @@ public class SignupSteps {
     @And("^click on Login/Signup$")
     public void clickLoginSignup() {
         mainPage.loginSignup.click();
-//        BrowserUtils.wait(1);
+
     }
 
 
     @And("click on Join")
     public void clickOnJoin() {
 
-        WebDriver driver = WebDriverRunner.getWebDriver();
-        JavascriptExecutor js = (JavascriptExecutor)driver;
-        js.executeScript("arguments[0].click();", mainPage.joinOption);
+//        WebDriver driver = WebDriverRunner.getWebDriver();
+//        JavascriptExecutor js = (JavascriptExecutor)driver;
+//        js.executeScript("arguments[0].click();", mainPage.joinOption);
+        BrowserUtils.clickWithJS(mainPage.joinOption);
         BrowserUtils.wait(3);
     }
 
@@ -65,6 +66,7 @@ public class SignupSteps {
         String date = dtf.format(new Date());
         ConfigurationReader.setProperty("date",date);
         dateMail = ConfigurationReader.getProperty("date")+"@yopmail.com";
+        System.out.println(dateMail);
         signupPage.emailField.sendKeys(dateMail);
     }
 
@@ -76,13 +78,12 @@ public class SignupSteps {
     @And("click Signup")
     public void clickSignup() {
         signupPage.signUpButton.click();
-//        BrowserUtils.wait(5);
+
     }
 
     @Then("Create account page appear")
     public void createAccountPageAppear() {
         signupPage.createAccountTitle.shouldBe(Condition.visible,Duration.ofSeconds(10));
-//        signupPage.step1from3.shouldBe(Condition.visible);
         Assert.assertEquals(firstname, signupPage.firstnameAppear.attr("ng-reflect-model"));
         Assert.assertEquals(lastname, signupPage.lastnameAppear.attr("ng-reflect-model"));
 
@@ -91,10 +92,10 @@ public class SignupSteps {
 
     @And("user select Individual Type {int} on type selection")
     public void userSelectInvidualTypeOnTypeSelection(int arg0) {
-        WebDriver driver = WebDriverRunner.getWebDriver();
-        JavascriptExecutor js = (JavascriptExecutor)driver;
-        js.executeScript("arguments[0].click();", signupPage.typeSelector);
-        //        signupPage.typeSelector.click();
+//        WebDriver driver = WebDriverRunner.getWebDriver();
+//        JavascriptExecutor js = (JavascriptExecutor)driver;
+//        js.executeScript("arguments[0].click();", signupPage.typeSelector);
+        BrowserUtils.clickWithJS(signupPage.typeSelector);
         signupPage.typeIndividualType3.click();
 
     }
@@ -102,23 +103,21 @@ public class SignupSteps {
 
     @And("user select Home Address")
     public void userSelectHomeAddressOnAdresses() {
-        WebDriver driver = WebDriverRunner.getWebDriver();
-        JavascriptExecutor js = (JavascriptExecutor)driver;
-        js.executeScript("arguments[0].click();", signupPage.homeAddressRadio);
+//        WebDriver driver = WebDriverRunner.getWebDriver();
+//        JavascriptExecutor js = (JavascriptExecutor)driver;
+//        js.executeScript("arguments[0].click();", signupPage.homeAddressRadio);
+//        BrowserUtils.clickWithJS(signupPage.homeAddressRadio);
 
         String addres1 = ConfigurationReader.getProperty("address1");
         String city = ConfigurationReader.getProperty("city");
         String zipcode = ConfigurationReader.getProperty("zipcode");
 
-        signupPage.address1Input.sendKeys(addres1);
-        signupPage.cityInput.sendKeys(city);
-        signupPage.zipCodeInput.sendKeys(zipcode);
+        signupPage.address1Input.shouldBe(Condition.visible,Duration.ofSeconds(5)).sendKeys(addres1);
+        signupPage.cityInput.shouldBe(Condition.visible,Duration.ofSeconds(5)).sendKeys(city);
+        signupPage.zipCodeInput.shouldBe(Condition.visible,Duration.ofSeconds(5)).sendKeys(zipcode);
 
-        JavascriptExecutor js2 = (JavascriptExecutor)driver;
-        js2.executeScript("arguments[0].click();", signupPage.countrySelect);
-        signupPage.USAoption.click();
-
-
+        signupPage.countrySelect.shouldBe(Condition.visible,Duration.ofSeconds(5)).click();
+        signupPage.USAoption.shouldBe(Condition.visible,Duration.ofSeconds(5)).click();
 
     }
 
@@ -128,29 +127,27 @@ public class SignupSteps {
 
     @And("user select Phone home on Phone Numbers and type {string}")
     public void userSelectPhoneHomeOnPhoneNumbersAndType(String phone) {
-        WebDriver driver = WebDriverRunner.getWebDriver();
-        JavascriptExecutor js = (JavascriptExecutor)driver;
-        js.executeScript("arguments[0].click();", signupPage.phoneNumberRadio);
-//        signupPage.phoneNumberRadio.selectRadio("phone-number-MomsPhone-input");
+//        WebDriver driver = WebDriverRunner.getWebDriver();
+//        JavascriptExecutor js = (JavascriptExecutor)driver;
+//        js.executeScript("arguments[0].click();", signupPage.phoneNumberRadio);
+//        $(signupPage.phoneNumberRadio).scrollIntoView(true);
+        BrowserUtils.clickWithJS(signupPage.phoneNumberRadio);
         signupPage.phoneNumberText.sendKeys(phone);
     }
 
     @And("click on Next")
     public void clickOnNext() {
         signupPage.nextButton.shouldBe(Condition.visible, Duration.ofSeconds(10));
-        WebDriver driver = WebDriverRunner.getWebDriver();
-        JavascriptExecutor js = (JavascriptExecutor)driver;
-        js.executeScript("arguments[0].click();", signupPage.nextButton);
-//        signupPage.nextButton.click();
-        BrowserUtils.wait(5);
+//        WebDriver driver = WebDriverRunner.getWebDriver();
+//        JavascriptExecutor js = (JavascriptExecutor)driver;
+//        js.executeScript("arguments[0].click();", signupPage.nextButton);
+        BrowserUtils.clickWithJS(signupPage.nextButton);
+        BrowserUtils.wait(2);
     }
 
     @Then("Organization Information appear")
     public void organizationInformationAppear() {
         signupPage.organizationInformationTitle.shouldBe(Condition.visible,Duration.ofSeconds(10));
-//        signupPage.step2from3.shouldBe(Condition.visible);
-//        Assert.assertEquals(firstname, signupPage.firstnameAppear.attr("ng-reflect-model"));
-//        Assert.assertEquals(lastname, signupPage.lastnameAppear.attr("ng-reflect-model"));
 
     }
 
@@ -161,12 +158,14 @@ public class SignupSteps {
 
     @And("choose {string} on organization role")
     public void chooseOnOrganizationRole(String arg0) {
-        WebDriver driver = WebDriverRunner.getWebDriver();
-        JavascriptExecutor js = (JavascriptExecutor)driver;
-        js.executeScript("arguments[0].click();", signupPage.selectOrgRole);
-        $(By.xpath("//td[.=' 102 org ']")).click();
+//        WebDriver driver = WebDriverRunner.getWebDriver();
+//        JavascriptExecutor js = (JavascriptExecutor)driver;
+//        js.executeScript("arguments[0].click();", signupPage.selectOrgRole);
+        BrowserUtils.clickWithJS(signupPage.selectOrgRole);
+        $(By.xpath("//td[.=' Purple Organization ']")).click();
         BrowserUtils.wait(5);
-        js.executeScript("arguments[0].click();", signupPage.selectOrgRole);
+//        js.executeScript("arguments[0].click();", signupPage.selectOrgRole);
+        BrowserUtils.clickWithJS(signupPage.selectOrgRole);
         signupPage.memberContactOption.click();
         BrowserUtils.wait(5);
     }
@@ -177,7 +176,7 @@ public class SignupSteps {
         Assert.assertTrue(signupPage.confirmationMessage.getText().contains(dateMail));
         signupPage.purchaseIndividualMembership.shouldBe(Condition.visible);
         signupPage.purchaseOrganizationMembership.shouldBe(Condition.visible);
-        BrowserUtils.wait(3);
+        BrowserUtils.wait(1);
         signupPage.returnToHomeButton.click();
     }
 
@@ -201,7 +200,9 @@ public class SignupSteps {
 
     @And("user type {string} on Age field")
     public void userInputAge(String arg0){
-        signupPage.ageInput.sendKeys(arg0);
+        if (signupPage.ageInput.exists()){
+            signupPage.ageInput.sendKeys(arg0);
+        }
     }
 
     @And("don't type mail")
@@ -213,5 +214,36 @@ public class SignupSteps {
     public void emailIsRequiredMessageAppear() {
         signupPage.errorEmailMessage.shouldBe(Condition.visible);
         Assert.assertEquals("sign-up-button-disabled",signupPage.signUpButton.getAttribute("ng-reflect-ng-class"));
+    }
+
+    @Then("user should be able to login with same email and password")
+    public void userShouldBeAbleToLoginWithSameEmailAndPassword() {
+        mainPage.loginSignup.click();
+
+//        WebDriver driver = WebDriverRunner.getWebDriver();
+//        JavascriptExecutor js = (JavascriptExecutor) driver;
+//        js.executeScript("arguments[0].click();", mainPage.loginOption);
+        BrowserUtils.clickWithJS(mainPage.loginOption);
+        BrowserUtils.wait(3);
+
+        mainPage.emailInput.sendKeys(dateMail);
+        mainPage.passInput.sendKeys("Password1!");
+
+//        js.executeScript("arguments[0].click();", mainPage.signinButton);
+        BrowserUtils.clickWithJS(mainPage.signInButton);
+    }
+
+    @And("user select not affiliated with an Organization")
+    public void userSelectNotAffiliatedWithAnOrganization() {
+        signupPage.radioNotAffiliated.click();
+    }
+
+    @Then("a confirmation screen appear without Organization Membership")
+    public void aConfirmationScreenAppearWithoutOrganizationMembership() {
+        signupPage.thankYouMessage.shouldBe(Condition.visible,Duration.ofSeconds(10));
+        Assert.assertTrue(signupPage.confirmationMessage.getText().contains(dateMail));
+        signupPage.purchaseIndividualMembership.shouldBe(Condition.visible);
+        BrowserUtils.wait(1);
+        signupPage.returnToHomeButton.click();
     }
 }

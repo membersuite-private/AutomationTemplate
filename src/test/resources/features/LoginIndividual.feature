@@ -5,6 +5,9 @@ Feature: Login Individual
   As a user
   I should be able to login with correct credentials
 
+  Background:
+    Given are on the application's page
+
   Scenario: In order to verify Login Functionality
 
     When user should be able to login into users page

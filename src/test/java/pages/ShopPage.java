@@ -1,87 +1,39 @@
 package pages;
 
-import utils.Driver;;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-
-public class ShopPage extends BasePage{
+import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.By;
 
 
-    @FindBy(xpath = "//div[contains(text(),'Shop')]")
-    public WebElement shopOnMain;
+import static com.codeborne.selenide.Selenide.$;
 
-    @FindBy(xpath = "//div[contains(text(),'Subscriptions')]")
-    public WebElement subscriptionOnShop;
-
-    @FindBy(xpath = "//div[contains(text(),'Subscribe to a Publication')]")
-    public WebElement subsToPublication;
-
-    @FindBy(id = "subscription-sub-span5-Publication1")
-    public WebElement familyHandymanIncrease;
-
-    @FindBy(id = "subscription-sub-button1-Publication1")
-    public WebElement addToCartFamilyHandyman;
-
-    @FindBy(id = "subscription-094280ec-bd9d-4fbf-8b83-b8cd209e497d")
-    public WebElement continueToCartFamilyHandyman;
-
-    @FindBy(xpath = "//button[@data-test='checkout-button']")
-    public WebElement checkoutFamilyHandyman;
-
-    @FindBy(xpath = "//label[@for='mat-radio-7-input']//div[@class='mat-radio-inner-circle']")
-    public WebElement electronicCheckPayment;
-
-    @FindBy(xpath = "//label[@for='mat-radio-5-input']//div[@class='mat-radio-inner-circle']")
-    public WebElement existingAddress;
-
-    @FindBy(xpath = "//button[normalize-space()='Checkout']")
-    public WebElement lastCheckOut;
-
-    @FindBy(xpath = "//button[normalize-space()='Okay']")
-    public WebElement okayConfirmation;
-
-    @FindBy(xpath = "//button[normalize-space()='Close']")
-    public WebElement closeButton;
-
-    @FindBy(xpath="(//div[@class='mat-radio-inner-circle'])[9]")
-    public WebElement payLaterOnCheckout;
-
-    @FindBy(xpath="(//div[@class='mat-radio-inner-circle'])[10]")
-    public WebElement newPaymentOnCheckout;
-
-    @FindBy(id = "mat-input-1")
-    public WebElement creditCard;
-
-    @FindBy(id = "mat-input-2")
-    public WebElement nameOnCreditCard;
-
-    @FindBy(id = "mat-select-1")
-    public WebElement expMonth;
-
-    @FindBy(id = "mat-option-6")
-    public WebElement mayExpireMonth;
-
-    @FindBy(id = "mat-select-2")
-    public WebElement expYear;
-
-    @FindBy(id = "mat-option-18")
-    public WebElement tweentysixExpireYear;
-
-    @FindBy(id = "mat-input-3")
-    public WebElement securityCode;
-
-    @FindBy(xpath = "//div[contains(text(),'View My Subscriptions')]")
-    public WebElement viewMySubscriptions;
-
-
-    public ShopPage() {
-        //it's mandatory if you want to use @FindBy annotation
-        //this means LoginPage class
-        //Driver.get() return webdriver object
-        PageFactory.initElements(Driver.get(), this);
-    }
-
+public class ShopPage {
+    
+    public SelenideElement shopOnMain = $(By.xpath("//div[contains(text(),'Shop')]"));
+    public SelenideElement subscriptionOnShop = $(By.xpath("//div[contains(text(),'Subscriptions')]"));
+    public SelenideElement subsToPublication = $(By.xpath("//div[contains(text(),'Subscribe to a Publication')]"));
+    public SelenideElement familyHandymanIncrease = $(By.xpath("//h4[.='The Family Handyman - LBA']"));
+    public SelenideElement familyHandymanIncreaseTitle = $(By.xpath("//p[@class='publication-name']"));
+    public SelenideElement addToCartFamilyHandyman = $(By.xpath("//button"));
+    public SelenideElement continueToCartFamilyHandyman = $(By.xpath("//button[.=' Continue to Cart ']"));
+    public SelenideElement checkoutFamilyHandyman = $(By.xpath("//button[@data-test='checkout-button']"));
+    public SelenideElement electronicCheckPayment = $(By.xpath("//label[@for='mat-radio-7-input']//div[@class='mat-radio-inner-circle']"));
+    public SelenideElement existingAddress = $(By.xpath("(//div[@class='mat-radio-label-content'])[3]"));
+    public SelenideElement lastCheckOut = $(By.xpath("//button[.=' Checkout ']"));
+    public SelenideElement thankYouMessage = $(By.xpath("(//div[.=' Thank you! '])[2]"));
+    public SelenideElement orderSuccessfulMessage = $(By.xpath("//div[@class='title ng-star-inserted']"));
+    public SelenideElement okayConfirmation = $(By.xpath("//button[normalize-space()='Okay']"));
+    public SelenideElement closeButton = $(By.xpath("//button[.=' Close ']"));
+    public SelenideElement payLaterOnCheckout = $(By.xpath("(//div[@class='mat-radio-label-content'])[2]"));
+    public SelenideElement newPaymentOnCheckout = $(By.xpath("(//div[@class='mat-radio-inner-circle'])[10]"));
+    public SelenideElement creditCard = $(By.id("mat-input-1"));
+    public SelenideElement nameOnCreditCard = $(By.id("mat-input-2"));
+    public SelenideElement expMonth = $(By.id("mat-select-1"));
+    public SelenideElement mayExpireMonth = $(By.id("mat-option-6"));
+    public SelenideElement expYear = $(By.id("mat-select-2"));
+    public SelenideElement tweentysixExpireYear = $(By.id("mat-option-18"));
+    public SelenideElement securityCode = $(By.id("mat-input-3"));
+    public SelenideElement viewMySubscriptions = $(By.xpath("//div[contains(text(),'View My Subscriptions')]"));
+    
 
     /**
      * reusable login method

@@ -25,23 +25,17 @@ public class CareerCenterStepDefs {
 
     @Then("user should be able to select IT and apply for search")
     public void user_should_be_able_to_select_IT_and_apply_for_search() {
-
         communityPage.ITAvailableItemsOnCareerCenterJobBoard.click();
-        BrowserUtils.wait(2);
         communityPage.firstArrowOnCategoriesOnCareerCenter.click();
-        BrowserUtils.wait(1);
-        communityPage.applyButtonOnCareerCenterJobBoard.click();
-        BrowserUtils.wait(4);
+        BrowserUtils.clickWithJS(communityPage.applyButtonOnCareerCenterJobBoard);
+        BrowserUtils.wait(5);
     }
 
 
     @Then("user should be able to click on Employers and search resumes on Employers")
     public void user_should_be_able_to_click_on_Employers_and_search_resumes_on_Employers() {
-
         communityPage.employersOnCareerCenter.click();
-        BrowserUtils.wait(2);
         communityPage.searchButtonOnCareerCenter.click();
-        BrowserUtils.wait(2);
     }
 
     @Then("user should be able to see Resume results")
@@ -52,15 +46,11 @@ public class CareerCenterStepDefs {
 
     @Then("user should be able to apply one of the job post")
     public void user_should_be_able_to_apply_one_of_the_job_post() {
-
-        BrowserUtils.wait(2);
-//        communityPage.orgDotCom1049ApplyJob.click();
-        BrowserUtils.clickWithJS(communityPage.orgDotCom1049ApplyJob);
-        BrowserUtils.wait(3);
+        communityPage.orgDotCom130ApplyJob.click();
+        BrowserUtils.wait(5);
         communityPage.applyNow1049OnCareerCenterJobPost.click();
         BrowserUtils.wait(2);
         communityPage.applyOnApplyNowOnCareerCenter.click();
-        BrowserUtils.wait(5);
     }
 
 

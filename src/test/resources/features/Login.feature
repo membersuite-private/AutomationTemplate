@@ -3,17 +3,15 @@
 @TestAutomationDemo
 Feature: Login
 
-  Background:
-    Given are on the application's page
+#  Background:
+#    Given are on the application's page
 
-  @login
+  @login @validLogin
   Scenario: Login with valid username and password
-    And type Username field
-    And type Password field
-    And click on LoginButton
+    When user should be able to login into users page
     And main page appear
 
-  @login
+  @login @invalidLogin
   Scenario: Login with invalid username
     And type not valid Username
     And type Password field

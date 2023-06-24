@@ -1,13 +1,13 @@
 #language: en
 #encoding: UTF-8
-@TestAutomationDemo
+@Signup
 Feature: Signup
 
   Background:
     Given are on the association's page
 
-  @signup
-  Scenario: Sign up new user
+  @signupNewUser
+  Scenario: Sign up new user affiliated to a Organization
     And click on Login/Signup
     And click on Join
     And type "Levi" on First Name field
@@ -16,19 +16,38 @@ Feature: Signup
     And type "Password1!" Password
     And click Signup
     Then Create account page appear
-    And user select Individual Type 1 on type selection
+    And user select Individual Type 3 on type selection
     And user select Phone home on Phone Numbers and type "4045512121"
     And user select Home Address
-    And user type "30" on Age field
     And click on Next
     Then Organization Information appear
-    And user type "music city hall" on affiliated name
+    And user type "Purple Organization" on affiliated name
     And choose " Member Contact" on organization role
     And click on Next
     Then Communication Preferences appear
     And click on Next
     Then a confirmation screen appear
 
+  @signupNewUser
+  Scenario: Sign up new user  not affiliated to a Organization
+    And click on Login/Signup
+    And click on Join
+    And type "Levi" on First Name field
+    And type "Santos" on Last Name field
+    And type mail
+    And type "Password1!" Password
+    And click Signup
+    Then Create account page appear
+    And user select Individual Type 3 on type selection
+    And user select Phone home on Phone Numbers and type "4045512121"
+    And user select Home Address
+    And click on Next
+    Then Organization Information appear
+    And user select not affiliated with an Organization
+    And click on Next
+    Then Communication Preferences appear
+    And click on Next
+    Then a confirmation screen appear without Organization Membership
 
   @signup @error
   Scenario: Sign up without First Name

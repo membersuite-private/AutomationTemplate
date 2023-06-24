@@ -18,18 +18,18 @@ public class DonationStepDefs {
     MainPage mainPage= new MainPage();
     DonationPage donationPage= new DonationPage();
 
-    @When("user should be able to login into users page")
-    public void user_should_be_able_to_login_into_users_page() {
-        mainPage.loginSignup.click();
-
-        WebDriver driver = WebDriverRunner.getWebDriver();
-        JavascriptExecutor js = (JavascriptExecutor)driver;
-        js.executeScript("arguments[0].click();", mainPage.loginOption);
-        BrowserUtils.wait(3);
-
-        mainPage.emailInput.sendKeys("14060159@voomail.com");
-        mainPage.passInput.sendKeys("Password1!");
-        mainPage.signinButton.click();
+//    @When("user should be able to login into users page")
+//    public void user_should_be_able_to_login_into_users_page() {
+//        mainPage.loginSignup.click();
+//
+//        WebDriver driver = WebDriverRunner.getWebDriver();
+//        JavascriptExecutor js = (JavascriptExecutor)driver;
+//        js.executeScript("arguments[0].click();", mainPage.loginOption);
+//        BrowserUtils.wait(3);
+//
+//        mainPage.emailInput.sendKeys("14060159@voomail.com");
+//        mainPage.passInput.sendKeys("Password1!");
+//        mainPage.signinButton.click();
 
 //
 //        BrowserUtils.wait(2);
@@ -60,7 +60,7 @@ public class DonationStepDefs {
 //    BrowserUtils.wait(12);
 //    mainPage.tuesdayCooper.click();
 //    BrowserUtils.wait(3);
-    }
+//    }
 
     @Then("user should be able to click make donation")
     public void user_should_be_able_to_click_make_donation() {

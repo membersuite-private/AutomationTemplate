@@ -9,10 +9,11 @@ Feature: Committees page
 
     When user should be able to login into users page
     Then user should be able to click community
+    And user should be able to click committees
     And user should be able to click browse committees
     Then user should be able to verify one of the committees
 
-
+  @CommitteesVerifyMyCommittees
   Scenario: In order to verify view my Committees page
 
     When user should be able to login into users page

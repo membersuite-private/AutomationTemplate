@@ -22,8 +22,8 @@ public class SignupPage {
     public SelenideElement firstnameAppear = $(By.xpath("//input[@ng-reflect-name='firstName']"));
     public SelenideElement lastnameAppear = $(By.xpath("//input[@ng-reflect-name='lastName']"));
     public SelenideElement typeSelector = $(By.xpath("//div[@class= 'mat-select-value ng-tns-c158-4']"));
-    public SelenideElement typeIndividualType3 = $(By.xpath("//span[.= 'Individual type 3']"));
-    public SelenideElement phoneNumberRadio = $(By.id("phone-number-MomsPhone-input"));
+    public SelenideElement typeIndividualType3 = $(By.xpath("//span[.= 'Individual Type 3']"));
+    public SelenideElement phoneNumberRadio = $(By.xpath("//label[@for='phone-number-HomePhone-input']//div[@class='mat-radio-inner-circle']"));
     public SelenideElement phoneNumberText = $(By.id("phone"));
     public SelenideElement homeAddressRadio = $(By.xpath("(//*[@type='radio'])[5]"));
     public SelenideElement address1Input = $(By.xpath("//*[@placeholder='Address 1']"));
@@ -33,6 +33,7 @@ public class SignupPage {
     public SelenideElement USAoption = $(By.xpath("//*[@ng-reflect-value='US']"));
     public SelenideElement nextButton = $(By.xpath("//button[.=' Next ']"));
     public SelenideElement inputSelectOrg = $(By.xpath("//*[@data-test='input-selected-org']"));
+    public SelenideElement radioNotAffiliated = $(By.xpath("(//mat-radio-button)[3]"));
     public SelenideElement selectOrgRole = $(By.xpath("//*[@name='orgRole']"));
     public SelenideElement memberContactOption = $(By.xpath("//span[.=' Member Contact']"));
     public SelenideElement thankYouMessage = $(By.xpath("//h3[.='Thank You!']"));
