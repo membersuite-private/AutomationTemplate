@@ -14,6 +14,6 @@ public class LoginPage {
     public SelenideElement perfilBtn = $(By.xpath("//span[.='Login to MemberSuite']"));
     public SelenideElement WelcomeBanner = $(By.xpath("//h1[.='Welcome!']"));
     public SelenideElement message = $(By.xpath("//div[@id='ctl00_divMessage']"));
-    public SelenideElement nameHead = $(By.xpath("//span[@id='ctl00_lCurrentAssociation']"));
+    public SelenideElement nameHead = $(By.xpath("//span[.=' Hi, Levi Santos ']"));
 
 }

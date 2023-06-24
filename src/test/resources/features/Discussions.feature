@@ -20,5 +20,3 @@ Feature: Discussions page
     Then user should be able to click community
     And user should be able to click view my Topic Subscriptions
     Then user should be able to verify view my Topic Subscriptions
-
-

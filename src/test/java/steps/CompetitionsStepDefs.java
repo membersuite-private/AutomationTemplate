@@ -48,7 +48,8 @@ public class CompetitionsStepDefs {
         BrowserUtils.wait(1);
         communityPage.entryType1OnEntryTypeEntryFee.click();
         BrowserUtils.wait(1);
-        communityPage.nextOnEntryFee.click();
+//        communityPage.nextOnEntryFee.click();
+        BrowserUtils.clickWithJS(communityPage.nextOnEntryFee);
         BrowserUtils.wait(2);
 
     }
@@ -59,11 +60,12 @@ public class CompetitionsStepDefs {
 
         communityPage.nameOnEntryForm.sendKeys("Test");
         BrowserUtils.wait(1);
-        communityPage.whatColorSocksOnEntry.sendKeys("Dark Blue");
+//        communityPage.whatColorSocksOnEntry.sendKeys("Dark Blue");
+//        BrowserUtils.wait(1);
+//        communityPage.enterTheAlphateOnEntryFee.sendKeys("MemberSuite");
         BrowserUtils.wait(1);
-        communityPage.enterTheAlphateOnEntryFee.sendKeys("MemberSuite");
-        BrowserUtils.wait(1);
-        communityPage.saveAsDraftOnEntryFee.click();
+//        communityPage.saveAsDraftOnEntryFee.click();
+        BrowserUtils.clickWithJS(communityPage.saveAsDraftOnEntryFee);
         BrowserUtils.wait(1);
         communityPage.goHomeOnEntryConfirm.click();
         BrowserUtils.wait(2);

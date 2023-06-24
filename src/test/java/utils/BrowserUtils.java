@@ -1,6 +1,7 @@
 package utils;
 
 import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.WebDriverRunner;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.*;
@@ -17,6 +18,7 @@ public class BrowserUtils {
 
     //It will be used to pause our test execution
     //just provide number of seconds as a parameter
+
     public static void wait(int seconds) {
         try {
             Thread.sleep(1000 * seconds);
@@ -64,7 +66,9 @@ public class BrowserUtils {
      */
 
     public static void clickWithJS(WebElement element){
-        element.click();
+        WebDriver driver = WebDriverRunner.getWebDriver();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", element);
     }
 
 

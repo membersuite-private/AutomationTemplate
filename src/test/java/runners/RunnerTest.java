@@ -14,7 +14,8 @@ import org.junit.runner.RunWith;
         },
         features = "classpath:features",
         glue = {"steps"},
-        tags = "@CareerCenterFindJob or @signup",
+        tags = "@Signup or @Subscriptions or @LoginIndividualPositive or @CareerCenter or @Committees or @Competitions or @Discussions or @Events",
+//        tags = "@Events",
         snippets = SnippetType.CAMELCASE,
         monochrome = true,
         publish = true,
@@ -26,7 +27,6 @@ public class RunnerTest {
     @AfterClass
     public static void tearDown() {
 
-//        Selenide.closeWebDriver();
     }
 
 }

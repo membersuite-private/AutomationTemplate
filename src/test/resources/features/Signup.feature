@@ -1,12 +1,12 @@
 #language: en
 #encoding: UTF-8
-@TestAutomationDemo
+@Signup
 Feature: Signup
 
   Background:
     Given are on the association's page
 
-  @signup
+  @signupNewUser
   Scenario: Sign up new user
     And click on Login/Signup
     And click on Join
@@ -28,6 +28,7 @@ Feature: Signup
     Then Communication Preferences appear
     And click on Next
     Then a confirmation screen appear
+
 
 
   @signup @error

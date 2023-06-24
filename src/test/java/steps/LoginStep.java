@@ -7,6 +7,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
 import org.junit.Assert;
+import pages.MainPage;
 import utils.ConfigurationReader;
 
 import pages.LoginPage;
@@ -15,6 +16,7 @@ import pages.LoginPage;
 public class LoginStep {
 
     LoginPage login = new LoginPage();
+    MainPage mainPage = new MainPage();
 
 
     @And("wait {int}sec")
@@ -24,8 +26,7 @@ public class LoginStep {
 
     @And("click on LoginButton")
     public void clickOnLoginBtn() {
-
-        login.btnLogin.click();
+//        mainPage.loginSignup.click();
     }
 
     @And("type not valid Username")
@@ -51,7 +52,14 @@ public class LoginStep {
 
     @Given("are on the application's page")
     public void areOnTheApplicationSLoginPage() {
-        login.perfilBtn.shouldBe(Condition.visible);
+        Assert.assertTrue(mainPage.homeOnMainPage.getText().equals("Home"));
+        Assert.assertTrue(mainPage.eventsOnMainPage.getText().equals("Events"));
+        Assert.assertTrue(mainPage.communityOnMainPage.getText().equals("Community"));
+        Assert.assertTrue(mainPage.shopOnMainPage.getText().equals("Shop"));
+        Assert.assertTrue(mainPage.donationsOnMainPage.getText().equals("Donations"));
+        Assert.assertTrue(mainPage.certificationsOnMainPage.getText().equals("Certifications123"));
+        Assert.assertNotNull(mainPage.cartOnMainPage);
+        Assert.assertTrue(mainPage.welcomeOnMainPage.getText().equals("Welcome!"));
     }
 
     @Given("are on the association's page")
@@ -71,7 +79,7 @@ public class LoginStep {
 
     @And("main page appear")
     public void mainPageAppear() {
-        Assert.assertEquals(login.nameHead.getText(),"QA Levi Purple");
+        Assert.assertEquals(login.nameHead.getText(),"Hi, Levi Santos");
 
     }
 }
