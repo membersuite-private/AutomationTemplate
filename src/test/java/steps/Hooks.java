@@ -3,6 +3,8 @@ package steps;
 import static utils.Utils.*;
 
 import java.util.ArrayList;
+
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import io.cucumber.java.AfterStep;
 import io.qameta.allure.AllureLifecycle;
@@ -19,9 +21,12 @@ public class Hooks {
 	@Before
 	public void setUp(Scenario scenario) throws Exception {
 
+//		Configuration.browser = "safari";
+		Configuration.headless= false;
 		Selenide.open(ConfigurationReader.getProperty("url"));
-		Selenide.sleep(5000);
-//		Selenide.open("https://google.com/");
+		Selenide.clearBrowserLocalStorage();
+		Selenide.clearBrowserCookies();
+
 	}
 
 	@BeforeAll
@@ -35,8 +40,8 @@ public class Hooks {
 	@AfterStep
 	public void afterStep(Scenario context){
 		capturarScreenshot(context);
-//		byte[] content = capturarScreenshot();
-//		new AllureLifecycle().addAttachment("Failed Screenshot", "application/png", content);
+
+
 	}
 
 
@@ -45,5 +50,32 @@ public class Hooks {
 		Selenide.closeWebDriver();
 
 	}
+
+	//    @Before
+//    public void setup(){
+//        System.out.println("##############################");
+//        System.out.println("MemberSuite Demo Started");
+//        Driver.get().manage().window().maximize();
+//
+//        Driver.get().get(ConfigurationReader.getProperty("url"));
+//    }
+//
+//    @After
+//    public void teardown(Scenario scenario){
+//        //if test failed - do this
+//        if(scenario.isFailed()){
+//            byte[] screenshot = ((TakesScreenshot)Driver.get()).getScreenshotAs(OutputType.BYTES);
+////            scenario.embed(screenshot,"image/png","Screenshot");
+//            //scenario.embed(screenshot, "image/png");
+//            System.out.println("Test failed!");
+//
+//        }else{
+//            System.out.println("Cleanup!");
+//            System.out.println("Test completed!");
+//        }
+//        System.out.println("##############################");
+//        //after every test, we gonna close browser
+//        Driver.close();
+//    }
 
 }

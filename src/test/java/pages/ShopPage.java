@@ -24,7 +24,7 @@ public class ShopPage {
     public SelenideElement okayConfirmation = $(By.xpath("//button[normalize-space()='Okay']"));
     public SelenideElement closeButton = $(By.xpath("//button[.=' Close ']"));
     public SelenideElement payLaterOnCheckout = $(By.xpath("(//div[@class='mat-radio-label-content'])[2]"));
-    public SelenideElement newPaymentOnCheckout = $(By.xpath("(//div[@class='mat-radio-inner-circle'])[10]"));
+    public SelenideElement newPaymentOnCheckout = $(By.xpath("(//input[@name='paymentOption'])[1]"));
     public SelenideElement creditCard = $(By.id("mat-input-1"));
     public SelenideElement nameOnCreditCard = $(By.id("mat-input-2"));
     public SelenideElement expMonth = $(By.id("mat-select-1"));

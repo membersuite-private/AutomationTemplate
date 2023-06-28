@@ -21,7 +21,7 @@ public class MainPage{
     public SelenideElement communityOnMainPage = $(By.xpath("//span[normalize-space()='Community']"));
     public SelenideElement shopOnMainPage = $(By.xpath("//span[normalize-space()='Shop']"));
     public SelenideElement donationsOnMainPage = $(By.xpath("//span[normalize-space()='Donations']"));
-    public SelenideElement certificationsOnMainPage = $(By.xpath("//span[normalize-space()='Certifications123']"));
+    public SelenideElement certificationsOnMainPage = $(By.xpath("//span[normalize-space()='Certifications']"));
     public SelenideElement newFormOnMainPage = $(By.xpath("//span[normalize-space()='831 new form']"));
     public SelenideElement newFormLinkOnMainPage = $(By.xpath("//span[normalize-space()='new form link']"));
     public SelenideElement cartOnMainPage = $(By.xpath("//nav-cart[@class='cart-icon']//span[@class='icon-cart']"));

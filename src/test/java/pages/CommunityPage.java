@@ -55,7 +55,7 @@ public class CommunityPage{
     public SelenideElement saveAsDraftOnEntryFee = $(By.xpath("(//*[contains(text(),'Save As Draft')])[1]"));
     public SelenideElement goHomeOnEntryConfirm = $(By.xpath("(//*[contains(text(),'Go Home')])[1]"));
     public SelenideElement viewFirstOnMyCompetitionEntriesOnCompetitions = $(By.xpath("(//*[contains(text(),'Tum on at 10 competition')])[2]"));
-    public SelenideElement viewScoresOnJudginCenter = $(By.xpath("(//*[contains(text(),'View Scores')])[1]"));
+    public SelenideElement viewScoresOnJudginCenter = $(By.xpath("//div[@class='col-md-12 competition-name']"));
     public SelenideElement committeesMenu = $(By.xpath("(//*[contains(text(),'Committees')])[1]"));
 
 

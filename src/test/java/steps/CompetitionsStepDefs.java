@@ -1,8 +1,12 @@
 package steps;
 
+import com.codeborne.selenide.Condition;
+import org.junit.Assert;
 import pages.CommunityPage;
 import utils.BrowserUtils;
 import io.cucumber.java.en.Then;
+
+import java.time.Duration;
 
 public class CompetitionsStepDefs {
 
@@ -42,15 +46,15 @@ public class CompetitionsStepDefs {
 
         communityPage.enterNowOnFancyCompetition.click();
         BrowserUtils.wait(4);
-        communityPage.addCompetitionFee.click();
-        BrowserUtils.wait(2);
-        communityPage.entryTypeOnEntryFee.click();
-        BrowserUtils.wait(1);
-        communityPage.entryType1OnEntryTypeEntryFee.click();
-        BrowserUtils.wait(1);
+//        communityPage.addCompetitionFee.click();
+//        BrowserUtils.wait(2);
+//        communityPage.entryTypeOnEntryFee.click();
+//        BrowserUtils.wait(1);
+//        communityPage.entryType1OnEntryTypeEntryFee.click();
+//        BrowserUtils.wait(1);
 //        communityPage.nextOnEntryFee.click();
-        BrowserUtils.clickWithJS(communityPage.nextOnEntryFee);
-        BrowserUtils.wait(2);
+//        BrowserUtils.clickWithJS(communityPage.nextOnEntryFee);
+//        BrowserUtils.wait(2);
 
     }
 
@@ -107,8 +111,9 @@ public class CompetitionsStepDefs {
     @Then("user should be able to see one of the judgin bucket")
     public void user_should_be_able_to_see_one_of_the_judgin_bucket() {
 
-        communityPage.viewScoresOnJudginCenter.click();
-        BrowserUtils.wait(5);
+//        communityPage.viewScoresOnJudginCenter.click();
+        Assert.assertEquals("Tum on at 10 competition", communityPage.viewScoresOnJudginCenter.shouldBe(Condition.visible, Duration.ofSeconds(5)).getText());
+//        BrowserUtils.wait(5);
     }
 
 

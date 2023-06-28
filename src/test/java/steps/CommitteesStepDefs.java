@@ -20,7 +20,8 @@ public class CommitteesStepDefs {
 
     @When("user should be able to login into users page")
     public void user_should_be_able_to_login_into_users_page() {
-        mainPage.loginSignup.click();
+        mainPage.allowCookies.shouldBe(Condition.visible,Duration.ofSeconds(10)).click();
+        mainPage.loginSignup.shouldBe(Condition.visible,Duration.ofSeconds(10)).click();
 
         BrowserUtils.clickWithJS(mainPage.loginOption);
         BrowserUtils.wait(3);

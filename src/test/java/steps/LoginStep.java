@@ -12,6 +12,8 @@ import utils.ConfigurationReader;
 
 import pages.LoginPage;
 
+import java.time.Duration;
+
 
 public class LoginStep {
 
@@ -52,14 +54,14 @@ public class LoginStep {
 
     @Given("are on the application's page")
     public void areOnTheApplicationSLoginPage() {
-        Assert.assertTrue(mainPage.homeOnMainPage.getText().equals("Home"));
-        Assert.assertTrue(mainPage.eventsOnMainPage.getText().equals("Events"));
-        Assert.assertTrue(mainPage.communityOnMainPage.getText().equals("Community"));
-        Assert.assertTrue(mainPage.shopOnMainPage.getText().equals("Shop"));
-        Assert.assertTrue(mainPage.donationsOnMainPage.getText().equals("Donations"));
-        Assert.assertTrue(mainPage.certificationsOnMainPage.getText().equals("Certifications123"));
+        Assert.assertTrue(mainPage.homeOnMainPage.shouldBe(Condition.visible, Duration.ofSeconds(10)).getText().equals("Home"));
+        Assert.assertTrue(mainPage.eventsOnMainPage.shouldBe(Condition.visible, Duration.ofSeconds(10)).getText().equals("Events"));
+        Assert.assertTrue(mainPage.communityOnMainPage.shouldBe(Condition.visible, Duration.ofSeconds(10)).getText().equals("Community"));
+        Assert.assertTrue(mainPage.shopOnMainPage.shouldBe(Condition.visible, Duration.ofSeconds(10)).getText().equals("Shop"));
+        Assert.assertTrue(mainPage.donationsOnMainPage.shouldBe(Condition.visible, Duration.ofSeconds(10)).getText().equals("Donations"));
+        Assert.assertTrue(mainPage.certificationsOnMainPage.shouldBe(Condition.visible, Duration.ofSeconds(10)).getText().equals("Certifications"));
         Assert.assertNotNull(mainPage.cartOnMainPage);
-        Assert.assertTrue(mainPage.welcomeOnMainPage.getText().equals("Welcome!"));
+        Assert.assertTrue(mainPage.welcomeOnMainPage.shouldBe(Condition.visible, Duration.ofSeconds(10)).getText().equals("Welcome!"));
     }
 
     @Given("are on the association's page")

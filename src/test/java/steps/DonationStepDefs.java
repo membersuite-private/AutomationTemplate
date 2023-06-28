@@ -1,5 +1,6 @@
 package steps;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -12,6 +13,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.cucumber.java.eo.Do;
 import org.junit.Assert;
+
+import java.time.Duration;
 
 public class DonationStepDefs {
 
@@ -64,17 +67,17 @@ public class DonationStepDefs {
 
     @Then("user should be able to click make donation")
     public void user_should_be_able_to_click_make_donation() {
-    donationPage.donationsOnMain.click();
-    BrowserUtils.wait(1);
-    BrowserUtils.clickWithJS(donationPage.makeDonation);
-    BrowserUtils.wait(2);
+        donationPage.donationsOnMain.click();
+        BrowserUtils.wait(1);
+        BrowserUtils.clickWithJS(donationPage.makeDonation);
+        BrowserUtils.wait(2);
 
     }
 
     @Then("user should be able to choose donation fund")
     public void user_should_be_able_to_choose_donation_fund() {
-    BrowserUtils.clickWithJS(donationPage.funnyMoneyFundExample);
-    BrowserUtils.wait(1);
+        BrowserUtils.clickWithJS(donationPage.funnyMoneyFundExample);
+        BrowserUtils.wait(1);
     }
 
     @Then("user should be able to fill out address and payment for fund")
@@ -107,7 +110,7 @@ public class DonationStepDefs {
     BrowserUtils.wait(2);
     donationPage.securityCode.sendKeys(ConfigurationReader.getProperty("SecurityCode"));
     BrowserUtils.wait(2);
-    donationPage.continueOnDonation.click();
+    donationPage.continueOnDonation.shouldBe(Condition.visible, Duration.ofSeconds(10)).click();
     BrowserUtils.wait(2);
     donationPage.processDonation.click();
     BrowserUtils.wait(22);
