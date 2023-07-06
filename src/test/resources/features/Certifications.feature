@@ -1,6 +1,6 @@
 #@Smoke
 @Certifications
-Feature: Competitions page
+Feature: Certifications page
 #  In order to perform sucessful login
 #  As a user
 #  I should be able to login with correct credentials
@@ -34,12 +34,14 @@ Feature: Competitions page
     Then user should be able to click Certifications
     And user should be able to click and see View My Certification Components
 
+
   Scenario: In order to View Apply for Certification
 
     When user should be able to login into users page
     Then user should be able to click Certifications
     And user should be able to click and see Apply for Certification
 
+  @rerun
   Scenario: In order to View Certification Application History
 
     When user should be able to login into users page

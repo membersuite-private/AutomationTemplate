@@ -17,7 +17,7 @@ public class CertificationsPage{
     public SelenideElement reportComponentOnCertifications = $(By.xpath("(//*[contains(text(),'Report Component')])[1]"));
     public SelenideElement viewMyCertificationComponentsOnCertifications = $(By.xpath("(//*[contains(text(),'View My Certification')])[1]"));
     public SelenideElement applyForOnCertifications = $(By.xpath("(//*[contains(text(),'Apply for Certification')])[1]"));
-    public SelenideElement viewCertificationApplicationOnCertifications = $(By.xpath("(//*[contains(text(),'View Certification Application')])[1]"));
+    public SelenideElement viewCertificationApplicationOnCertifications = $(By.xpath("(//*[contains(text(),'View My Certification History')])[1]"));
     public SelenideElement certificationsOnMainPage = $(By.xpath("//span[normalize-space()='Certifications']"));
 
 }

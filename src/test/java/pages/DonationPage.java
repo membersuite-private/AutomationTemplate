@@ -22,10 +22,10 @@ public class DonationPage{
     public SelenideElement giftAmountOnView = $(By.xpath("(//*[contains(text(),'Gift Amount')])[1]"));
     public SelenideElement giftDateOnView = $(By.xpath("(//*[contains(text(),'Gift Date')])[1]"));
     public SelenideElement typeOnView = $(By.xpath("(//*[contains(text(),'Type')])[1]"));
-    public SelenideElement giftArrowOnView = $(By.xpath("//div[@class='mat-sort-header-stem ng-tns-c245-10']"));
-    public SelenideElement giftFundArrowOnView = $(By.xpath("//div[@class='mat-sort-header-stem ng-tns-c245-11']"));
-    public SelenideElement giftAmountArrowOnView = $(By.xpath("//div[@class='mat-sort-header-stem ng-tns-c245-12']"));
-    public SelenideElement giftDateArrowOnView = $(By.xpath("//div[@class='mat-sort-header-stem ng-tns-c245-13']"));
+    public SelenideElement giftArrowOnView = $(By.xpath("//button[@aria-label='Change sorting for giftId']"));
+    public SelenideElement giftFundArrowOnView = $(By.xpath("//button[@aria-label='Change sorting for giftFund']"));
+    public SelenideElement giftAmountArrowOnView = $(By.xpath("//button[@aria-label='Change sorting for giftAmount']"));
+    public SelenideElement giftDateArrowOnView = $(By.xpath("//button[@aria-label='Change sorting for giftDate']"));
     public SelenideElement giftTypeArrowOnView = $(By.xpath("//div[@class='mat-sort-header-stem ng-tns-c245-14']"));
     public SelenideElement openPledgesOnView = $(By.xpath("//h2[normalize-space()='My Open Pledges and Recurring Gifts']"));
     public SelenideElement funnyMoneyFundExample = $(By.xpath("//input[@type='radio']"));

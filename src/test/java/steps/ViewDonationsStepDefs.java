@@ -45,15 +45,15 @@ public class ViewDonationsStepDefs {
     @Then("user should be able to change sorting on giving history")
     public void user_should_be_able_to_change_sorting_on_giving_history() {
 
-        BrowserUtils.wait(3);
+//        BrowserUtils.wait(3);
         BrowserUtils.clickWithJS(donationPage.giftArrowOnView);
-        BrowserUtils.wait(2);
+//        BrowserUtils.wait(2);
         BrowserUtils.clickWithJS(donationPage.giftFundArrowOnView);
-        BrowserUtils.wait(2);
+//        BrowserUtils.wait(2);
         BrowserUtils.clickWithJS(donationPage.giftAmountArrowOnView);
-        BrowserUtils.wait(2);
+//        BrowserUtils.wait(2);
         BrowserUtils.clickWithJS(donationPage.giftDateArrowOnView);
-        BrowserUtils.wait(3);
+//        BrowserUtils.wait(3);
 
 
     }

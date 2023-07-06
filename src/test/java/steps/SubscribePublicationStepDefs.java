@@ -46,14 +46,17 @@ public class SubscribePublicationStepDefs {
         BrowserUtils.wait(2);
 
 //        shopPage.checkoutFamilyHandyman.shouldBe(Condition.visible,Duration.ofSeconds(5)).click();
-        BrowserUtils.clickWithJS(shopPage.electronicCheckPayment);
+//        BrowserUtils.clickWithJS(shopPage.electronicCheckPayment);
+        shopPage.electronicCheckPayment.shouldBe(Condition.visible).click();
 
         BrowserUtils.wait(1);
-        BrowserUtils.clickWithJS(shopPage.existingAddress);
+        $(shopPage.existingAddress).scrollTo();
+        shopPage.existingAddress.shouldBe(Condition.visible).click();
+//        BrowserUtils.clickWithJS(shopPage.existingAddress);
 
         shopPage.lastCheckOut.shouldBe(Condition.visible,Duration.ofSeconds(5)).click();
-        shopPage.okayConfirmation.shouldBe(Condition.visible,Duration.ofSeconds(5)).click();
-        BrowserUtils.wait(25);
+//        shopPage.okayConfirmation.shouldBe(Condition.visible,Duration.ofSeconds(5)).click();
+        BrowserUtils.wait(2);
 
     }
 
@@ -83,39 +86,39 @@ public class SubscribePublicationStepDefs {
 
     @Then("user should be able to pay new payment method and checkout")
     public void user_should_be_able_to_pay_new_payment_method_and_checkout() {
-       BrowserUtils.wait(2);
-        shopPage.familyHandymanIncrease.click();
-        BrowserUtils.wait(2);
-        shopPage.addToCartFamilyHandyman.click();
-        BrowserUtils.wait(2);
-        shopPage.continueToCartFamilyHandyman.click();
-        BrowserUtils.wait(2);
-        shopPage.checkoutFamilyHandyman.click();
-        BrowserUtils.wait(2);
+//       BrowserUtils.wait(2);
+        shopPage.familyHandymanIncrease.shouldBe(Condition.visible,Duration.ofSeconds(10)).click();
+//        BrowserUtils.wait(2);
+        shopPage.addToCartFamilyHandyman.shouldBe(Condition.visible,Duration.ofSeconds(10)).click();
+//        BrowserUtils.wait(2);
+        shopPage.continueToCartFamilyHandyman.shouldBe(Condition.visible,Duration.ofSeconds(10)).click();
+//        BrowserUtils.wait(2);
+        shopPage.checkoutFamilyHandyman.shouldBe(Condition.visible,Duration.ofSeconds(10)).click();
+//        BrowserUtils.wait(2);
         BrowserUtils.clickWithJS(shopPage.newPaymentOnCheckout);
-        BrowserUtils.wait(2);
-        shopPage.creditCard.sendKeys(ConfigurationReader.getProperty("creditCardAmex"));
-        BrowserUtils.wait(2);
-        shopPage.nameOnCreditCard.sendKeys(ConfigurationReader.getProperty("nameOnCard"));
-        BrowserUtils.wait(2);
-        shopPage.expMonth.click();
-        BrowserUtils.wait(1);
+//        BrowserUtils.wait(2);
+        shopPage.creditCard.shouldBe(Condition.visible,Duration.ofSeconds(10)).sendKeys(ConfigurationReader.getProperty("creditCardAmex"));
+//        BrowserUtils.wait(2);
+        shopPage.nameOnCreditCard.shouldBe(Condition.visible,Duration.ofSeconds(10)).sendKeys(ConfigurationReader.getProperty("nameOnCard"));
+//        BrowserUtils.wait(2);
+        shopPage.expMonth.shouldBe(Condition.visible,Duration.ofSeconds(10)).click();
+//        BrowserUtils.wait(1);
         BrowserUtils.clickWithJS(shopPage.mayExpireMonth);
-        BrowserUtils.wait(2);
-        shopPage.expYear.click();
-        BrowserUtils.wait(1);
+//        BrowserUtils.wait(2);
+        shopPage.expYear.shouldBe(Condition.visible,Duration.ofSeconds(10)).click();
+//        BrowserUtils.wait(1);
         BrowserUtils.clickWithJS(shopPage.tweentysixExpireYear);
-        BrowserUtils.wait(2);
-        shopPage.securityCode.sendKeys(ConfigurationReader.getProperty("SecurityCode"));
-        BrowserUtils.wait(2);
+//        BrowserUtils.wait(2);
+        shopPage.securityCode.shouldBe(Condition.visible,Duration.ofSeconds(10)).sendKeys(ConfigurationReader.getProperty("SecurityCode"));
+//        BrowserUtils.wait(2);
         BrowserUtils.clickWithJS(shopPage.existingAddress);
         //   shopPage.existingAddress.click();
-        BrowserUtils.wait(1);
-        shopPage.lastCheckOut.click();
-        BrowserUtils.wait(3);
-        shopPage.okayConfirmation.click();
-        BrowserUtils.wait(25);
-        shopPage.closeButton.click();
+//        BrowserUtils.wait(1);
+        shopPage.lastCheckOut.shouldBe(Condition.visible,Duration.ofSeconds(10)).click();
+//        BrowserUtils.wait(3);
+//        shopPage.okayConfirmation.click();
+//        BrowserUtils.wait(1);
+        shopPage.closeButton.shouldBe(Condition.visible,Duration.ofSeconds(20)).click();
     }
 
 

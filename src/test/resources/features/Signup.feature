@@ -28,7 +28,7 @@ Feature: Signup
     And click on Next
     Then a confirmation screen appear
 
-  @signupNewUser
+  @signupNewUserNotAffiliated
   Scenario: Sign up new user  not affiliated to a Organization
     And click on Login/Signup
     And click on Join

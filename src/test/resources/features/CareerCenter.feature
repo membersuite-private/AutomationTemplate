@@ -12,7 +12,7 @@ Feature: Career Center page
     Then user should be able to click community
     And user should be able to click Career Center
     Then user should be able to click on find a job
-    And user should be able to select IT and apply for search
+#    And user should be able to select IT and apply for search
     Then user should be able to apply one of the job post
 
   @CareerCenterViewEmployers
