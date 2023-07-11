@@ -92,8 +92,7 @@ public class CompetitionsStepDefs {
     @Then("user should be able to see one of the competitions")
     public void user_should_be_able_to_see_one_of_the_competitions() {
 
-        communityPage.viewFirstOnMyCompetitionEntriesOnCompetitions.click();
-        BrowserUtils.wait(3);
+        communityPage.viewFirstOnMyCompetitionEntriesOnCompetitions.shouldBe(Condition.visible,Duration.ofSeconds(10)).click();
 
     }
 
@@ -101,10 +100,8 @@ public class CompetitionsStepDefs {
     @Then("user should be able to click judging center on competitions")
     public void user_should_be_able_to_click_judging_center_on_competitions() {
 
-        communityPage.competitionsOnCommunity.click();
-        BrowserUtils.wait(1);
-        communityPage.judgingCenterOnCompetition.click();
-        BrowserUtils.wait(5);
+        communityPage.competitionsOnCommunity.shouldBe(Condition.visible,Duration.ofSeconds(10)).click();
+        communityPage.judgingCenterOnCompetition.shouldBe(Condition.visible,Duration.ofSeconds(10)).click();
 
     }
 

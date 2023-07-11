@@ -1,5 +1,5 @@
 #@Smoke
-@LoginIndividualPositive
+@LoginIndividualPositive @Green @Purple @Production
 Feature: Login Individual
   In order to perform sucessful login
   As a user

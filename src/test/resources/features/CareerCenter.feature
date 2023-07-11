@@ -5,7 +5,7 @@ Feature: Career Center page
   As a user
   I should be able to login with correct credentials
 
-  @CareerCenterFindJob
+  @CareerCenterFindJob @Green @Purple @Production
   Scenario: In order to verify find job on Career Center page
 
     When user should be able to login into users page
@@ -15,7 +15,7 @@ Feature: Career Center page
 #    And user should be able to select IT and apply for search
     Then user should be able to apply one of the job post
 
-  @CareerCenterViewEmployers
+  @CareerCenterViewEmployers @Green @Purple @Production
   Scenario: In order to verify view Employers page
 
     When user should be able to login into users page

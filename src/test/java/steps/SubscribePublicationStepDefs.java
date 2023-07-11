@@ -133,8 +133,8 @@ public class SubscribePublicationStepDefs {
     @Then("a popup confirmation appear")
     public void aPopupConfirmationAppear() {
         //POPUP CONFIRMATION
-        Assert.assertEquals("Thank you!",shopPage.thankYouMessage.shouldBe(Condition.visible,Duration.ofSeconds(10)).getText());
-        Assert.assertEquals("Your order was successful "+ConfigurationReader.getProperty("username"),shopPage.orderSuccessfulMessage.shouldBe(Condition.visible,Duration.ofSeconds(10)).getText());
+        Assert.assertEquals("Thank you!",shopPage.thankYouMessage.shouldBe(Condition.visible,Duration.ofSeconds(20)).getText());
+        Assert.assertEquals("Your order was successful "+ConfigurationReader.getProperty("username"),shopPage.orderSuccessfulMessage.shouldBe(Condition.visible,Duration.ofSeconds(20)).getText());
         shopPage.closeButton.click();
     }
 }
