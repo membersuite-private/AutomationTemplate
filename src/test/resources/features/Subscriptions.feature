@@ -23,7 +23,7 @@ Feature: Subscribe to a Publication
     And user should be able to pay existing electronic payment and checkout
     Then a popup confirmation appear
 
-    @rerun @Green @Purple @Production
+    @SubscribeNewPayment @Green @Purple @Production
   Scenario: In order to verify new payment Subscribe Publication
 
     When user should be able to login into users page
