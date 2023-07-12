@@ -14,7 +14,7 @@ Feature: Donations page
     Then user should be able to fill out address and payment for fund
     And user should be able to get successful donation message
 
-  @Green @Purple @Production
+  @DonationHistory @Green @Purple @Production
   Scenario: In order to verify view Donations page
 
     When user should be able to login into users page

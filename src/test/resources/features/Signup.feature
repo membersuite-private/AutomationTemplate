@@ -6,7 +6,7 @@ Feature: Signup
   Background:
     Given are on the association's page
 
-  @signupNewUser @Green @Purple @Production
+  @SignupNewUser @Green @Purple @Production
   Scenario: Sign up new user affiliated to a Organization
     And click on Login/Signup
     And click on Join
@@ -28,7 +28,7 @@ Feature: Signup
     And click on Next
     Then a confirmation screen appear
 
-  @signupNewUserNotAffiliated @Green @Purple @Production
+  @SignupNewUserNotAffiliated @Green @Purple @Production
   Scenario: Sign up new user  not affiliated to a Organization
     And click on Login/Signup
     And click on Join
@@ -49,7 +49,7 @@ Feature: Signup
     And click on Next
     Then a confirmation screen appear without Organization Membership
 
-  @signup @error @Green @Purple @Production
+  @SignupWithoutFirstName @error @Green @Purple @Production
   Scenario: Sign up without First Name
     And click on Login/Signup
     And click on Join
@@ -59,7 +59,7 @@ Feature: Signup
     And type "Password1!" Password
     Then First Name is required. message appear
 
-  @signup @error @Green @Purple @Production
+  @SignupWithoutLastName @error @Green @Purple @Production
   Scenario: Sign up without Last Name
     And click on Login/Signup
     And click on Join
@@ -69,7 +69,7 @@ Feature: Signup
     And type "Password1!" Password
     Then Last Name is required. message appear
 
-  @signup @error @Green @Purple @Production
+  @SignupWithoutEmail @error @Green @Purple @Production
   Scenario: Sign up without email
     And click on Login/Signup
     And click on Join

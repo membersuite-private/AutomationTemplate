@@ -5,7 +5,7 @@ Feature: Committees page
   As a user
   I should be able to login with correct credentials
 
-  @Green @Purple
+  @CommitteesBrowse @Green @Purple
   Scenario: In order to verify browse Committees page
 
     When user should be able to login into users page

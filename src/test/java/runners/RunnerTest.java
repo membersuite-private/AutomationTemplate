@@ -15,7 +15,7 @@ import org.junit.runner.RunWith;
         features = "classpath:features",
         glue = {"steps"},
 //        tags = "@Signup or @Subscriptions or @LoginIndividualPositive or @CareerCenter or @Committees or @Competitions or @Discussions or @Events",
-        tags = "@Green",
+        tags = "@Production",
         snippets = SnippetType.CAMELCASE,
         monochrome = true,
         publish = true,
