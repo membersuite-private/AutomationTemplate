@@ -82,38 +82,38 @@ public class DonationStepDefs {
 
     @Then("user should be able to fill out address and payment for fund")
     public void user_should_be_able_to_fill_out_address_and_payment_for_fund() {
-    donationPage.fivedollarDonation.click();
-    BrowserUtils.wait(2);
-    donationPage.streetOne.sendKeys(ConfigurationReader.getProperty("address1"));
-    BrowserUtils.wait(1);
-    donationPage.streetTwo.sendKeys(ConfigurationReader.getProperty("address2"));
-    BrowserUtils.wait(2);
-    donationPage.city.sendKeys(ConfigurationReader.getProperty("city"));
-    BrowserUtils.wait(2);
-    donationPage.state.click();
-    BrowserUtils.wait(2);
+    donationPage.fivedollarDonation.shouldBe(Condition.visible,Duration.ofSeconds(10)).click();
+//    BrowserUtils.wait(2);
+    donationPage.streetOne.shouldBe(Condition.visible,Duration.ofSeconds(10)).sendKeys(ConfigurationReader.getProperty("address1"));
+//    BrowserUtils.wait(1);
+    donationPage.streetTwo.shouldBe(Condition.visible,Duration.ofSeconds(10)).sendKeys(ConfigurationReader.getProperty("address2"));
+//    BrowserUtils.wait(2);
+    donationPage.city.shouldBe(Condition.visible,Duration.ofSeconds(10)).sendKeys(ConfigurationReader.getProperty("city"));
+//    BrowserUtils.wait(2);
+    donationPage.state.shouldBe(Condition.visible,Duration.ofSeconds(10)).click();
+//    BrowserUtils.wait(2);
     BrowserUtils.clickWithJS(donationPage.georgiaState);
-    BrowserUtils.wait(2);
-    donationPage.zipCode.sendKeys(ConfigurationReader.getProperty("zipcode"));
-    BrowserUtils.wait(2);
-    donationPage.creditCard.sendKeys(ConfigurationReader.getProperty("creditCardVisa"));
-    BrowserUtils.wait(2);
-    donationPage.nameOnCreditCard.sendKeys(ConfigurationReader.getProperty("nameOnCard"));
-    BrowserUtils.wait(2);
-    donationPage.expMonth.click();
-    BrowserUtils.wait(1);
+//    BrowserUtils.wait(2);
+    donationPage.zipCode.shouldBe(Condition.visible,Duration.ofSeconds(10)).sendKeys(ConfigurationReader.getProperty("zipcode"));
+//    BrowserUtils.wait(2);
+    donationPage.creditCard.shouldBe(Condition.visible,Duration.ofSeconds(10)).sendKeys(ConfigurationReader.getProperty("creditCardVisa"));
+//    BrowserUtils.wait(2);
+    donationPage.nameOnCreditCard.shouldBe(Condition.visible,Duration.ofSeconds(10)).sendKeys(ConfigurationReader.getProperty("nameOnCard"));
+//    BrowserUtils.wait(2);
+    donationPage.expMonth.shouldBe(Condition.visible,Duration.ofSeconds(10)).click();
+//    BrowserUtils.wait(1);
     BrowserUtils.clickWithJS(donationPage.mayExpireMonth);
-    BrowserUtils.wait(2);
-    donationPage.expYear.click();
+//    BrowserUtils.wait(2);
+    donationPage.expYear.shouldBe(Condition.visible,Duration.ofSeconds(10)).click();
     BrowserUtils.wait(1);
     BrowserUtils.clickWithJS(donationPage.tweentysixExpireYear);
-    BrowserUtils.wait(2);
-    donationPage.securityCode.sendKeys(ConfigurationReader.getProperty("SecurityCode"));
-    BrowserUtils.wait(2);
+//    BrowserUtils.wait(2);
+    donationPage.securityCode.shouldBe(Condition.visible,Duration.ofSeconds(10)).sendKeys(ConfigurationReader.getProperty("SecurityCode"));
+//    BrowserUtils.wait(2);
     donationPage.continueOnDonation.shouldBe(Condition.visible, Duration.ofSeconds(10)).click();
-    BrowserUtils.wait(2);
-    donationPage.processDonation.click();
-    BrowserUtils.wait(22);
+//    BrowserUtils.wait(2);
+    donationPage.processDonation.shouldBe(Condition.visible,Duration.ofSeconds(10)).click();
+//    BrowserUtils.wait(22);
 
 
 
@@ -125,7 +125,7 @@ public class DonationStepDefs {
     //    Assert.assertTrue(donationPage.donationSuccessful.getText().equals("Donation Successful"));
     //    Assert.assertTrue(donationPage.thankYouMessage.getText().equals("Thank you for donating to the funny money fund."));
         BrowserUtils.wait(3);
-        donationPage.closeButtonOnDonation.click();
+        donationPage.closeButtonOnDonation.shouldBe(Condition.visible,Duration.ofSeconds(20)).click();
         BrowserUtils.wait(2);
     }
 

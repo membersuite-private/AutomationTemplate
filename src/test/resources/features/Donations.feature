@@ -5,7 +5,7 @@ Feature: Donations page
   As a user
   I should be able to login with correct credentials
 
-  @Green @Purple
+  @DonationSuccess @Green @Purple
   Scenario: In order to verify Donations page
 
     When user should be able to login into users page
