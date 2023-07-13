@@ -27,7 +27,6 @@ public class CompetitionsStepDefs {
     public void user_should_be_able_to_choose_competition_type_on_view_competitions() {
 
         BrowserUtils.clickWithJS(communityPage.competitionTypeOnBrowseCompetitions);
- //       communityPage.competitionTypeOnBrowseCompetitions.click();
         BrowserUtils.wait(1);
         communityPage.competitionType1OnCompTypeOnBrowseCompetitions.click();
         BrowserUtils.wait(4);
@@ -43,77 +42,42 @@ public class CompetitionsStepDefs {
 
     @Then("user should be able to enter and arrange entry fee")
     public void user_should_be_able_to_enter_and_arrange_entry_fee() {
-
-        communityPage.enterNowOnFancyCompetition.click();
-        BrowserUtils.wait(4);
-//        communityPage.addCompetitionFee.click();
-//        BrowserUtils.wait(2);
-//        communityPage.entryTypeOnEntryFee.click();
-//        BrowserUtils.wait(1);
-//        communityPage.entryType1OnEntryTypeEntryFee.click();
-//        BrowserUtils.wait(1);
-//        communityPage.nextOnEntryFee.click();
-//        BrowserUtils.clickWithJS(communityPage.nextOnEntryFee);
-//        BrowserUtils.wait(2);
-
+        communityPage.enterNowOnFancyCompetition.shouldBe(Condition.visible,Duration.ofSeconds(10)).click();
     }
 
     @Then("user should be able to fill out information and save as draft on competition")
     public void user_should_be_able_to_fill_out_information_and_save_as_draft_on_competition() {
-
-
-        communityPage.nameOnEntryForm.sendKeys("Test");
+        communityPage.nameOnEntryForm.shouldBe(Condition.visible,Duration.ofSeconds(10)).sendKeys("Test");
         BrowserUtils.wait(1);
-//        communityPage.whatColorSocksOnEntry.sendKeys("Dark Blue");
-//        BrowserUtils.wait(1);
-//        communityPage.enterTheAlphateOnEntryFee.sendKeys("MemberSuite");
-        BrowserUtils.wait(1);
-//        communityPage.saveAsDraftOnEntryFee.click();
         BrowserUtils.clickWithJS(communityPage.saveAsDraftOnEntryFee);
         BrowserUtils.wait(1);
-        communityPage.goHomeOnEntryConfirm.click();
+        communityPage.goHomeOnEntryConfirm.shouldBe(Condition.visible,Duration.ofSeconds(10)).click();
         BrowserUtils.wait(2);
 
     }
 
-
-
     @Then("user should be able to click view my competitions on competitions")
     public void user_should_be_able_to_click_view_my_competitions_on_competitions() {
-
-
         communityPage.competitionsOnCommunity.click();
         BrowserUtils.wait(2);
-//        communityPage.viewMyCompetitionEntriesOnCompetitions.click();
         BrowserUtils.clickWithJS(communityPage.viewMyCompetitionEntriesOnCompetitions);
-//        BrowserUtils.waitForClickablility(communityPage.viewFirstOnMyCompetitionEntriesOnCompetitions,15);
     }
 
     @Then("user should be able to see one of the competitions")
     public void user_should_be_able_to_see_one_of_the_competitions() {
-
         communityPage.viewFirstOnMyCompetitionEntriesOnCompetitions.shouldBe(Condition.visible,Duration.ofSeconds(10)).click();
-
     }
 
 
     @Then("user should be able to click judging center on competitions")
     public void user_should_be_able_to_click_judging_center_on_competitions() {
-
         communityPage.competitionsOnCommunity.shouldBe(Condition.visible,Duration.ofSeconds(10)).click();
         communityPage.judgingCenterOnCompetition.shouldBe(Condition.visible,Duration.ofSeconds(10)).click();
-
     }
 
     @Then("user should be able to see one of the judgin bucket")
     public void user_should_be_able_to_see_one_of_the_judgin_bucket() {
-
-//        communityPage.viewScoresOnJudginCenter.click();
         Assert.assertEquals("Tum on at 10 competition", communityPage.viewScoresOnJudginCenter.shouldBe(Condition.visible, Duration.ofSeconds(5)).getText());
-//        BrowserUtils.wait(5);
     }
-
-
-
 
 }
