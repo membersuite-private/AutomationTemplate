@@ -39,10 +39,6 @@ public class SignupSteps {
 
     @And("click on Join")
     public void clickOnJoin() {
-
-//        WebDriver driver = WebDriverRunner.getWebDriver();
-//        JavascriptExecutor js = (JavascriptExecutor)driver;
-//        js.executeScript("arguments[0].click();", mainPage.joinOption);
         BrowserUtils.clickWithJS(mainPage.joinOption);
         BrowserUtils.wait(3);
     }
@@ -92,9 +88,6 @@ public class SignupSteps {
 
     @And("user select Individual Type {int} on type selection")
     public void userSelectInvidualTypeOnTypeSelection(int arg0) {
-//        WebDriver driver = WebDriverRunner.getWebDriver();
-//        JavascriptExecutor js = (JavascriptExecutor)driver;
-//        js.executeScript("arguments[0].click();", signupPage.typeSelector);
         BrowserUtils.clickWithJS(signupPage.typeSelector);
         signupPage.typeIndividualType3.click();
 
@@ -103,11 +96,6 @@ public class SignupSteps {
 
     @And("user select Home Address")
     public void userSelectHomeAddressOnAdresses() {
-//        WebDriver driver = WebDriverRunner.getWebDriver();
-//        JavascriptExecutor js = (JavascriptExecutor)driver;
-//        js.executeScript("arguments[0].click();", signupPage.homeAddressRadio);
-//        BrowserUtils.clickWithJS(signupPage.homeAddressRadio);
-
         String addres1 = ConfigurationReader.getProperty("address1");
         String city = ConfigurationReader.getProperty("city");
         String zipcode = ConfigurationReader.getProperty("zipcode");
@@ -127,10 +115,6 @@ public class SignupSteps {
 
     @And("user select Phone home on Phone Numbers and type {string}")
     public void userSelectPhoneHomeOnPhoneNumbersAndType(String phone) {
-//        WebDriver driver = WebDriverRunner.getWebDriver();
-//        JavascriptExecutor js = (JavascriptExecutor)driver;
-//        js.executeScript("arguments[0].click();", signupPage.phoneNumberRadio);
-//        $(signupPage.phoneNumberRadio).scrollIntoView(true);
         BrowserUtils.clickWithJS(signupPage.phoneNumberRadio);
         signupPage.phoneNumberText.sendKeys(phone);
     }
@@ -138,9 +122,6 @@ public class SignupSteps {
     @And("click on Next")
     public void clickOnNext() {
         signupPage.nextButton.shouldBe(Condition.visible, Duration.ofSeconds(10));
-//        WebDriver driver = WebDriverRunner.getWebDriver();
-//        JavascriptExecutor js = (JavascriptExecutor)driver;
-//        js.executeScript("arguments[0].click();", signupPage.nextButton);
         BrowserUtils.clickWithJS(signupPage.nextButton);
         BrowserUtils.wait(2);
     }
@@ -158,13 +139,10 @@ public class SignupSteps {
 
     @And("choose {string} on organization role")
     public void chooseOnOrganizationRole(String arg0) {
-//        WebDriver driver = WebDriverRunner.getWebDriver();
-//        JavascriptExecutor js = (JavascriptExecutor)driver;
-//        js.executeScript("arguments[0].click();", signupPage.selectOrgRole);
+
         BrowserUtils.clickWithJS(signupPage.selectOrgRole);
         $(By.xpath("//td[.=' Purple Organization ']")).click();
         BrowserUtils.wait(5);
-//        js.executeScript("arguments[0].click();", signupPage.selectOrgRole);
         BrowserUtils.clickWithJS(signupPage.selectOrgRole);
         signupPage.memberContactOption.click();
         BrowserUtils.wait(5);
@@ -219,17 +197,11 @@ public class SignupSteps {
     @Then("user should be able to login with same email and password")
     public void userShouldBeAbleToLoginWithSameEmailAndPassword() {
         mainPage.loginSignup.click();
-
-//        WebDriver driver = WebDriverRunner.getWebDriver();
-//        JavascriptExecutor js = (JavascriptExecutor) driver;
-//        js.executeScript("arguments[0].click();", mainPage.loginOption);
         BrowserUtils.clickWithJS(mainPage.loginOption);
         BrowserUtils.wait(3);
 
         mainPage.emailInput.sendKeys(dateMail);
         mainPage.passInput.sendKeys("Password1!");
-
-//        js.executeScript("arguments[0].click();", mainPage.signinButton);
         BrowserUtils.clickWithJS(mainPage.signInButton);
     }
 

@@ -50,9 +50,7 @@ public class CareerCenterStepDefs {
     @Then("user should be able to apply one of the job post")
     public void user_should_be_able_to_apply_one_of_the_job_post() {
         communityPage.orgDotCom130ApplyJob.shouldBe(Condition.visible, Duration.ofSeconds(10)).click();
-//        BrowserUtils.wait(5);
         communityPage.applyNow1049OnCareerCenterJobPost.shouldBe(Condition.visible, Duration.ofSeconds(10)).click();
-//        BrowserUtils.wait(2);
         communityPage.applyOnApplyNowOnCareerCenter.shouldBe(Condition.visible, Duration.ofSeconds(10)).click();
     }
 

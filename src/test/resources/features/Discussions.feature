@@ -16,7 +16,6 @@ Feature: Discussions page
 
   @DiscussionsSubscriptions @Green @Purple @Production
   Scenario: In order to verify view my Topic Subscriptions
-
     When user should be able to login into users page
     Then user should be able to click community
     And user should be able to click view my Topic Subscriptions

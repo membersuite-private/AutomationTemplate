@@ -49,9 +49,6 @@ public class CommitteesStepDefs {
 
     @Then("user should be able to verify one of the committees")
     public void user_should_be_able_to_verify_one_of_the_committees() {
-//        communityPage.committeeTypesOnBrowseCommittees.shouldBe(Condition.visible,Duration.ofSeconds(10)).click();
-//        BrowserUtils.wait(3);
-//        BrowserUtils.clickWithJS(communityPage.typeBOnCommitteeTypes);
         BrowserUtils.wait(2);
         Assert.assertEquals("New testing committee",communityPage.committeeTwoOnBrowseAllCommittees.getText());
 
@@ -65,8 +62,6 @@ public class CommitteesStepDefs {
 
     @Then("user should be able to verify one of the my committees")
     public void user_should_be_able_to_verify_one_of_the_my_committees() {
-
-//        Assert.assertTrue(communityPage.closedcommittesOnCommittee.getText().equals("Closed committee"));
         Assert.assertTrue(communityPage.currentCommitteeMembershipOnCommittees.getText().equals("Current Committee Membership"));
         BrowserUtils.wait(1);
         communityPage.browseAllCommittees.click();
