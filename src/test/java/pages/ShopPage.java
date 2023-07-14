@@ -10,9 +10,12 @@ public class ShopPage {
     
     public SelenideElement shopOnMain = $(By.xpath("//div[contains(text(),'Shop')]"));
     public SelenideElement subscriptionOnShop = $(By.xpath("//div[contains(text(),'Subscriptions')]"));
+    public SelenideElement browseOnShop = $(By.xpath("//div[contains(text(),'Browse')]"));
     public SelenideElement subsToPublication = $(By.xpath("//div[contains(text(),'Subscribe to a Publication')]"));
     public SelenideElement familyHandymanIncrease = $(By.xpath("//h4[.='The Family Handyman - LBA']"));
+    public SelenideElement bluePayProduct = $(By.xpath("//span[.='BluePay']"));
     public SelenideElement familyHandymanIncreaseTitle = $(By.xpath("//p[@class='publication-name']"));
+    public SelenideElement BluePayTitle = $(By.xpath("//div[@data-test='product-name-desktop']"));
     public SelenideElement addToCartFamilyHandyman = $(By.xpath("//button"));
     public SelenideElement continueToCartFamilyHandyman = $(By.xpath("//button[.=' Continue to Cart ']"));
     public SelenideElement checkoutFamilyHandyman = $(By.xpath("//button[@data-test='checkout-button']"));
