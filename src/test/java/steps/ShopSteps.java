@@ -6,6 +6,7 @@ import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import pages.ShopPage;
 import utils.BrowserUtils;
+import utils.ConfigurationReader;
 
 import java.time.Duration;
 
@@ -41,5 +42,13 @@ public class ShopSteps {
 
         shopPage.lastCheckOut.shouldBe(Condition.visible,Duration.ofSeconds(5)).click();
         BrowserUtils.wait(2);
+    }
+
+    @Then("a Thank You message appear")
+    public void aThankYouMessageAppear() {
+        //POPUP CONFIRMATION
+        Assert.assertEquals("Thank you!",shopPage.thankYouMessageShop.shouldBe(Condition.visible,Duration.ofSeconds(20)).getText());
+        Assert.assertEquals("Order Successful "+ ConfigurationReader.getProperty("username"),shopPage.orderSuccessfulMessageShop.shouldBe(Condition.visible,Duration.ofSeconds(20)).getText());
+        shopPage.closeButton.click();
     }
 }

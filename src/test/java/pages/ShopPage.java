@@ -23,7 +23,9 @@ public class ShopPage {
     public SelenideElement existingAddress = $(By.xpath("(//div[@class='mat-radio-inner-circle'])[4]"));
     public SelenideElement lastCheckOut = $(By.xpath("//button[.=' Checkout ']"));
     public SelenideElement thankYouMessage = $(By.xpath("(//div[.=' Thank you! '])[2]"));
+    public SelenideElement thankYouMessageShop = $(By.xpath("//div[.='Thank you! ']"));
     public SelenideElement orderSuccessfulMessage = $(By.xpath("//div[@class='title ng-star-inserted']"));
+    public SelenideElement orderSuccessfulMessageShop = $(By.xpath("//div[@class='col-12 no-padding message ng-star-inserted']"));
     public SelenideElement okayConfirmation = $(By.xpath("//button[normalize-space()='Okay']"));
     public SelenideElement closeButton = $(By.xpath("//button[.=' Close ']"));
     public SelenideElement payLaterOnCheckout = $(By.xpath("(//div[@class='mat-radio-label-content'])[3]"));
