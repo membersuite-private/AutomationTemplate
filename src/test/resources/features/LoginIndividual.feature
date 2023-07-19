@@ -24,6 +24,14 @@ Feature: Login Individual
 
     When user should be able to login into users page with invalid username and password
 
+  Scenario: In order to change password from multiple Associations
+    When user should be able to login with an account that exists in many associations
+    And click to change password
+    And fill the form with the new password
+    And click Update
+    Then an Attention message should appear
+
+
 
 
 

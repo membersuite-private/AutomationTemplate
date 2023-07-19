@@ -36,5 +36,20 @@ public class MainPage{
     public SelenideElement chooseOrg = $(By.xpath("(//div//img[@id='profile-102org'])[1]"));
     public SelenideElement invalidEmailMessage = $(By.xpath("//p[contains(text(),'Please')]"));
     public SelenideElement invalidCredentialMessage = $(By.xpath("//p[contains(text(),'invalid.')]"));
+    public SelenideElement userIcon = $(By.xpath("(//img[@data-test='profile-icon'])[2]"));
+    public SelenideElement changePasswordMenu = $(By.xpath("(//a[@data-test='menu-reset'])[2]"));
+    public SelenideElement updatePasswordTitle = $(By.xpath("(//div[@class='reset-title'])[2]"));
+    public SelenideElement currentPasswordTextField = $(By.xpath("(//input[@data-test='reset-current'])[2]"));
+    public SelenideElement newPasswordTextField = $(By.xpath("(//input[@data-test='reset-new'])[2]"));
+    public SelenideElement repeatNewPasswordTextField = $(By.xpath("(//input[@data-test='reset-retype'])[2]"));
+    public SelenideElement updateButton = $(By.xpath("(//div[.='Update'])[2]"));
+    public SelenideElement attentionMessageTitle = $(By.xpath("//h3"));
+    public SelenideElement attentionFirstLineMessage = $(By.xpath("//p[@class='info-text']"));
+    public SelenideElement firstAssociation = $(By.xpath("(//ul[@class='domain-name ng-star-inserted']//li//div)[1]"));
+    public SelenideElement secondAssociation = $(By.xpath("(//ul[@class='domain-name ng-star-inserted']//li//div)[2]"));
+    public SelenideElement continueButton = $(By.xpath("//button[.=' Continue ']"));
+    public SelenideElement buttonOkay = $(By.xpath("//button[.=' Okay ']"));
+
+
 
 }

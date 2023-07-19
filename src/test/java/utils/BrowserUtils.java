@@ -71,9 +71,11 @@ public class BrowserUtils {
         js.executeScript("arguments[0].click();", element);
     }
 
-
-
-
+    public static void typeWithJS(WebElement element, String message){
+        WebDriver driver = WebDriverRunner.getWebDriver();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].value='"+message+"'", element);
+    }
 
     //    PLEASE INSERT THIS METHOD INTO BROWSER UTILS
     /*
