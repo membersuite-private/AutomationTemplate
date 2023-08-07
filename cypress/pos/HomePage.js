@@ -81,8 +81,7 @@ class HomePage {
       }
 
       clickCommittees(){
-        cy.get('div').contains('Committees').click()
-        cy.wait(3)
+        cy.get(':nth-child(3) > .nav-modal-link-bar > .nav-modal-link').click()
       }
 
       clickCompetitions(){
@@ -106,7 +105,7 @@ class HomePage {
       }
 
       clickBrowseCommittees(){
-        cy.get('div').contains('Browse Committees').click()
+        cy.get(':nth-child(2) > .nav-modal-link').click()
         cy.wait(3)
       }
 
@@ -154,4 +153,4 @@ class HomePage {
       }
 
 }
-export default HomePage
+export default new HomePage
