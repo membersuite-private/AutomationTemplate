@@ -9,6 +9,7 @@ module.exports = defineConfig({
     url:"https://mrpbpap.users.purple.membersuite.com/home",
   },
 
+
   e2e: {
     setupNodeEvents(on, config) {
       allureWriter(on, config);
@@ -17,6 +18,8 @@ module.exports = defineConfig({
     defaultCommandTimeout: 20000,
     // baseUrl: "https://mrpbpap.users.purple.membersuite.com/home",
     baseUrl:"https://mrpbpap.users.purple.membersuite.com/home",
+    retries:1,
     specPattern: 'cypress/integration/*.spec.js'
   },
+
 });

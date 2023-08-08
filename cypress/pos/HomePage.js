@@ -1,5 +1,5 @@
 class HomePage {
-    
+
     clickAllowCoockies(){
         cy.get('.cc-btn').click()
     }
@@ -24,12 +24,12 @@ class HomePage {
     navHere() {
         return cy.visit('/home');
       }
-    
+
       checkProfileIcon(label) {
         const elem = '.profile-text';
         return cy.contains(elem, label);
       }
-    
+
       clickProfileIcon(label, options) {
         const elem = '.profile-text';
         cy.contains(elem, label).click();
@@ -39,24 +39,24 @@ class HomePage {
           && cy.get('[data-test="menu-join"]').should('be.visible')
         );
       }
-    
+
       checkGreeting(label) {
         const elem = '.centered-text > h1:nth-child(1)';
         return cy.contains(elem, label);
       }
-    
+
       checkHomeNav(links) {
         links.forEach((link) => {
           const elem = 'li.item > a';
           return cy.contains(elem, link);
         });
       }
-    
+
       checkFeatured(label) {
         const elem = 'div.featured > section > .card-tile > .tile-title > .pointer';
         return cy.contains(elem, label);
       }
-    
+
       checkEventsYouLike(label) {
         const elem = 'div.noFeature > section.events-may-like';
         return cy.contains(elem, label);
@@ -125,12 +125,17 @@ class HomePage {
       }
 
       clickDonations(){
-        cy.get('span').contains('Donations').click()
+        cy.get(':nth-child(5) > a > [data-test="community-tab"] > .inner-text').click()
       }
 
       clickViewMyGivingDonations(){
         cy.wait(2)
         cy.get('[class*="nav-modal-link"]').eq(3).click()
+      }
+
+      clickMakingDonations(){
+        cy.wait(2)
+        cy.get('[class*="nav-modal-link"]').eq(1).click()
       }
 
       checkUserProfile(){
