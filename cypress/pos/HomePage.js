@@ -157,5 +157,23 @@ class HomePage {
         cy.wait(3)
       }
 
+      clickShop(){
+        cy.get(':nth-child(4) > a > [data-test="community-tab"] > .inner-text').click()
+      }
+
+      clickSubscribetoaPublication(){
+        cy.get(':nth-child(2) > .nav-modal-link-bar > .nav-modal-link').click()
+        cy.get(':nth-child(1) > .nav-modal-link').click()
+      }
+
+      clickViewSubscription(){
+        cy.get(':nth-child(2) > .nav-modal-link-bar > .nav-modal-link').click()
+        cy.get(':nth-child(2) > .nav-modal-link').click()
+      }
+
+      clickBrowseShop(){
+        cy.get(':nth-child(1) > .nav-modal-link-bar > .nav-modal-link').click()
+      }
+
 }
 export default new HomePage

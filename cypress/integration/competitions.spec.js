@@ -7,13 +7,7 @@ import  Utils from '../support/utils'
 // const loginPage = new LoginPage()
 // const careerCenterpage = new CareerCenterPage()
 
-describe('Home Page loads when user opens application in browser',
-  {
-    retries: {
-      runMode: 2,
-      openMode: 0, },
-  },
-  () => {
+describe('Home Page loads when user opens application in browser',() => {
     beforeEach(() => {
         const credentials = {
             realuser: {

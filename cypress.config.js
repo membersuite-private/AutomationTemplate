@@ -18,8 +18,12 @@ module.exports = defineConfig({
     defaultCommandTimeout: 20000,
     // baseUrl: "https://mrpbpap.users.purple.membersuite.com/home",
     baseUrl:"https://mrpbpap.users.purple.membersuite.com/home",
-    retries:1,
+    retries: {
+      runMode: 3,
+      openMode: 0,
+    },
     specPattern: 'cypress/integration/*.spec.js'
+
   },
 
 });

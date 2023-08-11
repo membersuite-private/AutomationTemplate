@@ -3,10 +3,6 @@ import  LoginPage from '../pos/loginpage'
 import  DonationsPage  from '../pos/donationspage'
 import  Utils from '../support/utils'
 
-// const page = new HomePage()
-// const loginPage = new LoginPage()
-// const careerCenterpage = new CareerCenterPage()
-
 describe('Home Page loads when user opens application in browser', () => {
     beforeEach(() => {
         const credentials = {
@@ -25,14 +21,17 @@ describe('Home Page loads when user opens application in browser', () => {
       });
 
 
-    // it('In order to verify view Donations page', () => {
-    //   HomePage.clickViewMyGivingDonations()
-    //   DonationsPage.checkDonationsHistory()
-    // });
+    it('In order to verify view Donations page', () => {
+      HomePage.clickViewMyGivingDonations()
+      DonationsPage.checkDonationsHistory()
+    });
 
     it('In order to verify Making Donations', () => {
       HomePage.clickMakingDonations()
       DonationsPage.clickFundraisingProduct01()
+      DonationsPage.fillDonationForm()
+      DonationsPage.checkCheckoutPage()
+      DonationsPage.donationSuccessfulPopUp()
 
     });
 
