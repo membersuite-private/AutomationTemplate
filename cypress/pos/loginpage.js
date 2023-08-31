@@ -58,12 +58,12 @@ class LoginPage {
     }
 
     clickLogin(){
-        cy.get('span').eq(6).click()
+        cy.get('span').eq(7).click()
         cy.get('[data-test="menu-login"]').eq(1).click()
     }
 
     clickSignup(){
-        cy.get('span').eq(6).click()
+        cy.get('span').eq(7).click()
         cy.get('[data-test="menu-join"]').eq(1).click()
     }
   }
