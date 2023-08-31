@@ -10,8 +10,8 @@ class CompetitionsPage{
   checkTumonat10competitionDetail(){
       cy.get("h4").contains("Tum on at 10 competition").should("be.visible")
       cy.get("button").contains("Enter Now").should("be.visible")
-      cy.get("div").contains(" May 31, 2023 ").should("be.visible")
-      cy.get("div").contains(" September 28, 2028 ").should("be.visible")
+      cy.get("div").contains(" June 01, 2023 ").should("be.visible")
+      cy.get("div").contains(" September 29, 2028 ").should("be.visible")
       cy.get("div").contains("1 / 999").should("be.visible")
   }
 
