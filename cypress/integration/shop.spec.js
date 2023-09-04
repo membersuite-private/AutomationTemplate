@@ -3,9 +3,6 @@ import  LoginPage from '../pos/loginpage'
 import ShopPage from '../pos/shoppage'
 import  Utils from '../support/utils'
 
-// const page = new HomePage()
-// const loginPage = new LoginPage()
-// const careerCenterpage = new CareerCenterPage()
 
 describe('Home Page loads when user opens application in browser',() => {
     beforeEach(() => {
@@ -31,12 +28,27 @@ describe('Home Page loads when user opens application in browser',() => {
         ShopPage.clickBluePay()
         ShopPage.checkBluepayPage()
         ShopPage.clickAddToCart()
-        ShopPage.checkPopUpCart()
+        ShopPage.checkPopUpCart('Qty: 1',' (1 Item)')
         ShopPage.clickContinueToCart()
-        ShopPage.clickCheckout()
+        ShopPage.clickCheckout(' $5.00 ')
+        ShopPage.checkSummary(' $5.00  x  1 ',' $5.00 ',' $0.00 ')
         ShopPage.fillFormUsingExistingValues()
         ShopPage.checkThankYouPopUp()
 
+      });
+
+      it('In order to verify add two itens in Shop Cart', () => {
+        HomePage.clickBrowseShop()
+        ShopPage.checkBrowseShopPage()
+        ShopPage.clickBluePay()
+        ShopPage.checkBluepayPage()
+        ShopPage.clickAddTwoItensToCart()
+        ShopPage.checkPopUpCart('Qty: 2',' (2 Items)')
+        ShopPage.clickContinueToCart()
+        ShopPage.clickCheckout(' $10.00 ')
+        ShopPage.checkSummary(' $5.00  x  2 ',' $10.00 ',' $0.00 ')
+        ShopPage.fillFormUsingExistingValues()
+        ShopPage.checkThankYouPopUp()
       });
 
 });
