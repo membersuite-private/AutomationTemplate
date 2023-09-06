@@ -3,7 +3,7 @@ import  LoginPage from '../pos/loginpage'
 import  EventsPage  from '../pos/eventspage'
 import  Utils from '../support/utils'
 
-describe('Home Page loads when user opens application in browser', () => {
+describe('Events', () => {
     beforeEach(() => {
         const credentials = {
             realuser: {
@@ -29,6 +29,7 @@ describe('Home Page loads when user opens application in browser', () => {
 
     it('In order to verify my Exhibits', () => {
         // HomePage.clickCommunity()
+        Utils.wait(5)
         HomePage.clickEvents()
         HomePage.clickMyExhibits()
 

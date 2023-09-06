@@ -3,7 +3,7 @@ import  LoginPage from '../pos/loginpage'
 import  Utils from '../support/utils'
 
 
-describe('Home Page loads when user opens application in browser', () => {
+describe('Login Individual', () => {
 
   const credentials = {
       realuser: {

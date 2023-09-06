@@ -3,7 +3,7 @@ import  LoginPage from '../pos/loginpage'
 import  DiscussionsPage  from '../pos/discussionspage'
 import  Utils from '../support/utils'
 
-describe('Home Page loads when user opens application in browser', () => {
+describe('Discussions', () => {
     beforeEach(() => {
         const credentials = {
             realuser: {

@@ -1,9 +1,8 @@
 import  HomePage  from '../pos/homepage'
 import  LoginPage from '../pos/loginpage'
 import  DonationsPage  from '../pos/donationspage'
-import  Utils from '../support/utils'
 
-describe('Home Page loads when user opens application in browser', () => {
+describe('Donations', () => {
     beforeEach(() => {
         const credentials = {
             realuser: {

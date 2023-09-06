@@ -1,10 +1,9 @@
 import  HomePage  from '../pos/homepage'
 import  LoginPage from '../pos/loginpage'
 import ShopPage from '../pos/shoppage'
-import  Utils from '../support/utils'
 
 
-describe('Home Page loads when user opens application in browser',() => {
+describe('Shop',() => {
     beforeEach(() => {
         const credentials = {
             realuser: {
@@ -12,6 +11,8 @@ describe('Home Page loads when user opens application in browser',() => {
                 passwd: 'Password1!',
             },
         }
+
+
         LoginPage.navHere()
         LoginPage.acceptCookies()
         LoginPage.clickLogin()

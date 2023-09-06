@@ -3,7 +3,7 @@ import  LoginPage from '../pos/loginpage'
 import  SignupPage  from '../pos/signuppage'
 import  Utils from '../support/utils'
 
-describe('Sign Up test cases', () => {
+describe('Sign Up', () => {
     beforeEach(() => {
         LoginPage.navHome()
         LoginPage.acceptCookies()

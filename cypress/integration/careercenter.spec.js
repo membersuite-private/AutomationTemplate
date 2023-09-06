@@ -3,11 +3,8 @@ import  LoginPage from '../pos/loginpage'
 import  CareerCenterPage  from '../pos/careercenterpage'
 import  Utils from '../support/utils'
 
-// const page = new HomePage()
-// const loginPage = new LoginPage()
-// const careerCenterpage = new CareerCenterPage()
 
-describe('Home Page loads when user opens application in browser', () => {
+describe('Carrer Center', () => {
     beforeEach(() => {
         const credentials = {
             realuser: {

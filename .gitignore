@@ -27,11 +27,12 @@ replay_pid*
 /target/
 .eclipse/
 .idea/
+/allure-report/
 /allure-results/
 /build/
 .settings/
 debug.log%
 /node_modules/
 package-lock.json
-cypress/videos/
-cypress/screenshots/
+/cypress/videos/*
+/cypress/screenshots/

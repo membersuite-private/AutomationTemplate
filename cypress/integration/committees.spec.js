@@ -3,7 +3,7 @@ import  LoginPage from '../pos/loginpage'
 import  CommitteesPage  from '../pos/committeespage'
 import  Utils from '../support/utils'
 
-describe('Home Page loads when user opens application in browser', () => {
+describe('Committees', () => {
     beforeEach(() => {
         const credentials = {
             realuser: {
