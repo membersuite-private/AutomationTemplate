@@ -3,6 +3,10 @@ class Utils {
         cy.wait(timer)
     }
 
+    randomNumber(){
+      return Math.random()
+    }
+
     createMail(){
       const currentDate = new Date();
 
@@ -15,7 +19,8 @@ class Utils {
       const seconds = currentDate.getSeconds();    // e.g., 45
 
       const mail = month+day+year+hours+minutes;
-      return mail+"@yopmail.com"
+      const random = this.randomNumber();
+      return mail+random+"@yopmail.com"
     }
 }
 
