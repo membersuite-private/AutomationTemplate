@@ -28,9 +28,7 @@ describe('Events', () => {
     })
 
     it('In order to verify my Exhibits', () => {
-        // HomePage.clickCommunity()
-        Utils.wait(5)
-        HomePage.clickEvents()
+        // HomePage.clickEvents()
         HomePage.clickMyExhibits()
 
     })

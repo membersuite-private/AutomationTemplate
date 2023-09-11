@@ -19,7 +19,6 @@ class ShopPage{
   }
 
   clickAddTwoItensToCart(){
-    // cy.get('span').should('have.class','incr-btn plus-group').eq(2).click({force: true})
     cy.get('.incr-btn.plus-group').eq(1).click()
     cy.get('.incr-val').eq(1).should('have.text','2')
     cy.get('.add-button-style > [data-test="add-button"]').click()
@@ -29,22 +28,11 @@ class ShopPage{
     cy.get('.ng-star-inserted').should('contain', ' The following item was added to the cart  ')
     cy.get('.added-product-name').should('contain', ' BluePay ')
     cy.get('.incr-val').should('contain', quantity)
-    // cy.get('.incr-val').should('contain', 'Qty: 1')
     cy.get('.ng-star-inserted').should('contain', ' $5.00 ')
     cy.get('.ng-star-inserted').should('contain', items)
     cy.get('.button-white').should('contain', ' Keep Shopping ')
     cy.get('.continue-to-cart').should('be.visible')
   }
-
-  // checkPopUpCart(){
-  //   cy.get('.ng-star-inserted').should('contain', ' The following item was added to the cart  ')
-  //   cy.get('.added-product-name').should('contain', ' BluePay ')
-  //   cy.get('.incr-val').should('contain', 'Qty: 1')
-  //   cy.get('.ng-star-inserted').should('contain', ' $5.00 ')
-  //   cy.get('.ng-star-inserted').should('contain', ' (1 Item)')
-  //   cy.get('.button-white').should('contain', ' Keep Shopping ')
-  //   cy.get('.continue-to-cart').should('be.visible')
-  // }
 
   clickContinueToCart(){
     cy.get('.continue-to-cart').click()
@@ -58,19 +46,64 @@ class ShopPage{
 
   fillFormUsingExistingValues(){
     cy.get('.mat-radio-label-content').eq(0).click({force: true})
-    // cy.get('input').eq(0).trigger("click")
     cy.get('[data-test="shipping-address-existing-0"]').click()
-    // cy.get('.billing-address-view-section').eq(4).click({force: true})
-    // cy.get('input').eq(4).trigger("click")
-    // cy.get('input').eq(0).click({force: true})
     cy.get('button').eq(1).should('have.text',' Checkout ').click({force: true})
   }
 
   fillFormUsingPaylater(){
-    cy.get('input').eq(2).check({force: true})
-    cy.get('input').eq(4).check({force: true})
-    cy.get('input').eq(2).click({force: true})
-    cy.get('#footer-b81bac0a-2757-4356-a4b8-61b6f0fac3cd').click()
+    cy.get('.mat-radio-label-content').eq(2).click({force: true})
+    cy.get('[data-test="shipping-address-existing-0"]').click()
+    cy.get('button').eq(1).should('have.text',' Checkout ').click({force: true})
+  }
+
+  fillFormUsingNewPayment(){
+    cy.get('.mat-radio-label-content').eq(1).click({force: true})
+    cy.wait(2)
+    cy.get('[data-test="input-card-number"]').type('4242424242424242', { force: true })
+    cy.get('[data-test="input-holder-name"]').type('MemberSuite Test', { force: true })
+    cy.get('[data-test="input-exp-month"] > .mat-select-trigger > .mat-select-value > .mat-select-placeholder').click({ force: true })
+    cy.get('#mat-option-4 > .mat-option-text').click({ force: true })
+    cy.get('[data-test="input-exp-year"] > .mat-select-trigger > .mat-select-value > .mat-select-placeholder').click({ force: true })
+    cy.get('#mat-option-19 > .mat-option-text').click({ force: true })
+    cy.get('[data-test="input-sec-code"]').type('123', { force: true })
+    cy.get('[data-test="shipping-address-existing-0"] > .mat-radio-label > .mat-radio-container > .mat-radio-outer-circle').click({ force: true })
+    cy.get('button').eq(2).should('have.text',' Checkout ').click({force: true})
+  }
+
+  fillFormUsingInvalidExpiration(){
+    cy.get('.mat-radio-label-content').eq(1).click({force: true})
+    cy.wait(2)
+    cy.get('[data-test="input-card-number"]').type('4242424242424242', { force: true })
+    cy.get('[data-test="input-holder-name"]').type('MemberSuite Test', { force: true })
+    cy.get('[data-test="input-exp-month"] > .mat-select-trigger > .mat-select-value > .mat-select-placeholder').click({ force: true })
+    cy.get('#mat-option-4 > .mat-option-text').click({ force: true })
+    cy.get('[data-test="input-exp-year"] > .mat-select-trigger > .mat-select-value > .mat-select-placeholder').click({ force: true })
+    cy.get('#mat-option-14 > .mat-option-text').click({ force: true })
+    cy.get('[data-test="input-sec-code"]').type('123', { force: true })
+    cy.get('[data-test="shipping-address-existing-0"] > .mat-radio-label > .mat-radio-container > .mat-radio-outer-circle').click({ force: true })
+    cy.get('button').eq(2).should('have.text',' Checkout ').click({force: true})
+  }
+
+  fillFormUsingInvalidCard(){
+    cy.get('.mat-radio-label-content').eq(1).click({force: true})
+    cy.wait(2)
+    cy.get('[data-test="input-card-number"]').type('4242424242424242ABC', { force: true })
+    cy.get('[data-test="input-holder-name"]').type('MemberSuite Test', { force: true })
+    cy.get('[data-test="input-exp-month"] > .mat-select-trigger > .mat-select-value > .mat-select-placeholder').click({ force: true })
+    cy.get('#mat-option-4 > .mat-option-text').click({ force: true })
+    cy.get('[data-test="input-exp-year"] > .mat-select-trigger > .mat-select-value > .mat-select-placeholder').click({ force: true })
+    cy.get('#mat-option-19 > .mat-option-text').click({ force: true })
+    cy.get('[data-test="input-sec-code"]').type('123', { force: true })
+    cy.get('[data-test="shipping-address-existing-0"] > .mat-radio-label > .mat-radio-container > .mat-radio-outer-circle').click({ force: true })
+    cy.get('button').eq(2).should('have.text',' Checkout ').click({force: true})
+  }
+
+  checkInvalidCardNumber(){
+    cy.get('.mat-error.ng-tns-c82-7').should('have.text',' Please enter a valid card number \\d* ')
+  }
+
+  checkPopUpFailedProcessing(){
+    cy.get('.error-title.ng-star-inserted').should('be.visible')
   }
 
   checkThankYouPopUp(){
