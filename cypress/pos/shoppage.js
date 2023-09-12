@@ -50,6 +50,18 @@ class ShopPage{
     cy.get('button').eq(1).should('have.text',' Checkout ').click({force: true})
   }
 
+  fillFormUsingDiscountCode(){
+    cy.get('.mat-radio-label-content').eq(0).click({force: true})
+    cy.get('[data-test="input-promo-code"]').type('CODEDISCOUNT')
+    cy.get('.button-promo-code.column > .button').click()
+    cy.get('.icon-checkmark-circle').should('be.visible')
+    cy.get('.product-name.promo.col-8').should('be.visible')
+    cy.get('.product-name.promo.col-8').should('have.text','Promo Code: CODEDISCOUNT')
+    cy.get('.price.promo.col-4').should('have.text','(-$5.00)')
+    cy.get('[data-test="shipping-address-existing-0"]').click()
+    cy.get('button').eq(1).should('have.text',' Checkout ').click({force: true})
+  }
+
   fillFormUsingPaylater(){
     cy.get('.mat-radio-label-content').eq(2).click({force: true})
     cy.get('[data-test="shipping-address-existing-0"]').click()
@@ -68,6 +80,17 @@ class ShopPage{
     cy.get('[data-test="input-sec-code"]').type('123', { force: true })
     cy.get('[data-test="shipping-address-existing-0"] > .mat-radio-label > .mat-radio-container > .mat-radio-outer-circle').click({ force: true })
     cy.get('button').eq(2).should('have.text',' Checkout ').click({force: true})
+  }
+
+  fillFormUsingNewPaymentACH(){
+    cy.get('.mat-radio-label-content').eq(1).click({force: true})
+    cy.wait(2)
+    cy.get(':nth-child(3) > :nth-child(3)').click({force: true})
+    cy.get('[data-test="input-ach-routing"]').type('091000019',{force: true})
+    cy.get('[data-test="input-ach-account"]').type('1234567',{force: true})
+    cy.get('.save-button').click({force: true})
+    cy.get('[data-test="shipping-address-existing-0"]').click()
+    cy.get('button').eq(1).should('have.text',' Checkout ').click({force: true})
   }
 
   fillFormUsingInvalidExpiration(){

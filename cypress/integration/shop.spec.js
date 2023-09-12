@@ -68,4 +68,25 @@ describe('Shop',() => {
         ShopPage.checkInvalidCardNumber()
       });
 
+      it('In order to use a valid discount code', () =>{
+        ShopPage.clickAddToCart()
+        ShopPage.checkPopUpCart('Qty: 1',' (1 Item)')
+        ShopPage.clickContinueToCart()
+        ShopPage.clickCheckout(' $5.00 ')
+        ShopPage.checkSummary(' $5.00  x  1 ',' $5.00 ',' $0.00 ')
+        ShopPage.fillFormUsingDiscountCode()
+        ShopPage.checkThankYouPopUp()
+      });
+
+      it('In order to pay using ACH', () => {
+        ShopPage.clickAddToCart()
+        ShopPage.checkPopUpCart('Qty: 1',' (1 Item)')
+        ShopPage.clickContinueToCart()
+        ShopPage.clickCheckout(' $5.00 ')
+        ShopPage.checkSummary(' $5.00  x  1 ',' $5.00 ',' $0.00 ')
+        ShopPage.fillFormUsingNewPaymentACH()
+        ShopPage.checkThankYouPopUp()
+
+      });
+
 });

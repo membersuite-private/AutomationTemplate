@@ -58,13 +58,13 @@ class LoginPage {
     }
 
     clickLogin(){
-        cy.get('span').eq(7).click()
-        cy.get('[data-test="menu-login"]').eq(1).click()
+        cy.get('.profile-text').click()
+        cy.get('[data-test="menu-login"]').click()
     }
 
     clickSignup(){
-        cy.get('span').eq(7).click()
-        cy.get('[data-test="menu-join"]').eq(1).click()
+      cy.get('.profile-text').click()
+        cy.get('[data-test="menu-join"]').click()
     }
   }
   export default new LoginPage
