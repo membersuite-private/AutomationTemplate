@@ -2,7 +2,8 @@
 
 class LoginPage {
     navHere() {
-      return cy.visit('/auth/portal-login');
+      // return cy.visit('/auth/portal-login');
+      return cy.visit('/home');
     }
 
     navHome(){
@@ -65,6 +66,10 @@ class LoginPage {
     clickSignup(){
       cy.get('.profile-text').click()
         cy.get('[data-test="menu-join"]').click()
+    }
+
+    goToProfile(){
+      cy.visit('/profile')
     }
   }
   export default new LoginPage

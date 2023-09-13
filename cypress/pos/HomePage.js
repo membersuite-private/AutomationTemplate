@@ -110,17 +110,20 @@ class HomePage {
       }
 
       clickEvents(){
-        cy.get('span').contains('Events').click()
+        // cy.get(':nth-child(3) > a > [data-test="community-tab"] > .inner-text').click()
+        cy.get('.inner-text').eq(2).click()
         // cy.get('div').contains('Browse Events').click()
       }
 
       clickMyEvents(){
-        cy.get('div').contains('My Events').click()
+        this.clickEvents()
+        cy.get(':nth-child(2) > .nav-modal-link-bar > .nav-modal-link').click()
         cy.wait(3)
       }
 
       clickMyExhibits (){
-        cy.get('div').contains('My Exhibits').click()
+        cy.visit('/events/myExhibits')
+        cy.get('h2').should('have.text','My Exhibits').click()
         cy.wait(3)
       }
 
