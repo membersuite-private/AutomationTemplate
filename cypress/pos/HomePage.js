@@ -178,5 +178,9 @@ class HomePage {
         cy.get(':nth-child(1) > .nav-modal-link-bar > .nav-modal-link').click()
       }
 
+      clickNotifications(){
+        cy.get('[ng-reflect-ng-class="fa-lg"]').click()
+      }
+
 }
 export default new HomePage

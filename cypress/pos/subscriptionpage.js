@@ -23,6 +23,12 @@ class SubscriptionPage{
 
   }
 
+  thankyoupopupInvoice(){
+    cy.get('.title.ng-star-inserted').should('have.text',' Thank you! ')
+    cy.get('.message.ng-star-inserted').should('have.text',' Order Successful ')
+    cy.get('.col-12.button.button-blue.ng-star-inserted').should('have.text',' Close ').click()
+  }
+
   checkMySubscription(){
     cy.get('.view-my-subscription-header > p').should('have.text','My Subscriptions')
     cy.get(':nth-child(1) > .detail').should('have.text','The Family Handyman - LBA')

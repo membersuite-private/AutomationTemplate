@@ -50,6 +50,12 @@ class ShopPage{
     cy.get('button').eq(1).should('have.text',' Checkout ').click({force: true})
   }
 
+  fillFormUsingExistingValuesInvoice(){
+    cy.get('.mat-radio-label-content').eq(0).click({force: true})
+    cy.get('[data-test="shipping-address-existing-0"]').click()
+    cy.get('.button.button-blue').should('have.text',' Checkout ').click({force: true})
+  }
+
   fillFormUsingDiscountCode(){
     cy.get('.mat-radio-label-content').eq(0).click({force: true})
     cy.get('[data-test="input-promo-code"]').type('CODEDISCOUNT')
@@ -135,6 +141,11 @@ class ShopPage{
     cy.get('.buttons > .button').click()
   }
 
+  checkThankYouPopUpWithoutMail(){
+    cy.get('.title').should('have.text',' Thank you!  ')
+    cy.get('.col-12 button.button-blue.ng-star-inserted').click()
+  }
+
   checkSummary(productPrice,productTotal,taxPrice){
     cy.get('[data-test="product-name-0"]').should('have.text',' BluePay ')
     cy.get('.product-price').should('have.text',productPrice)
@@ -142,6 +153,7 @@ class ShopPage{
     cy.get('[data-test="tax-price"]').should('have.text',taxPrice)
     cy.get('.total-price').eq(1).should('have.text',productTotal)
   }
+
   
 }
 

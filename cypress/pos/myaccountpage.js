@@ -12,6 +12,10 @@ class MyAccountPage {
       cy.get('#mat-tab-label-0-2 > .mat-tab-label-content').click()
     }
 
+    clickMyInfo(){
+      cy.get('#mat-tab-label-0-0 > .mat-tab-label-content').click()
+    }
+
     AddnewmethodPaymentCreditCard(){
       cy.get('h3').eq(1).should('have.text','Saved Payment Options').click()
       cy.get('[data-test-id="add-new-credit-card"] > .row > .row-invoice > .payment-new-option').click()
@@ -35,7 +39,18 @@ class MyAccountPage {
       cy.get('.mat-select-placeholder').click()
       cy.get('.mat-option-text').click()
       cy.get('.save-button').click()
+    }
 
+    PayFirstInvoiceHalfValue(){
+      cy.get('.mat-checkbox-inner-container.mat-checkbox-inner-container-no-side-margin').eq(0).click()
+      cy.get(':nth-child(3) > :nth-child(1) > .row.ng-star-inserted > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix > [data-test="reset-current"]').type('{backspace}')
+      cy.get(':nth-child(3) > :nth-child(1) > .row.ng-star-inserted > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix > [data-test="reset-current"]').type('1')
+      cy.get('.d-none > .mat-raised-button').click()
+    }
+
+    PayFirstInvoiceFullValue(){
+      cy.get('.mat-checkbox-inner-container.mat-checkbox-inner-container-no-side-margin').eq(0).click()
+      cy.get('.d-none > .mat-raised-button').click()
     }
 
   }
