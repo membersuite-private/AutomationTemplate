@@ -1,2 +1,0 @@
-# AutomationTemplate
-Functional automation template
