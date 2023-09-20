@@ -1,7 +1,7 @@
 name: Cypress Test
 on:
   push:
-    branches: [main]
+    branches: [main,MRP_E2E]
 jobs:
   test:
     runs-on: ubuntu-latest
