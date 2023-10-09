@@ -161,7 +161,7 @@ class HomePage {
       }
 
       clickShop(){
-        cy.get(':nth-child(4) > a > [data-test="community-tab"] > .inner-text').click()
+        cy.get('span').contains('Shop').click()
       }
 
       clickSubscribetoaPublication(){

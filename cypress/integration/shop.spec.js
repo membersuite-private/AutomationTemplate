@@ -5,18 +5,10 @@ import ShopPage from '../pos/shoppage'
 
 describe('Shop',() => {
     beforeEach(() => {
-        const credentials = {
-            realuser: {
-                email: 'testautomation@yoip.com',
-                passwd: 'Password1!',
-            },
-        }
-
-
         LoginPage.navHere()
         LoginPage.acceptCookies()
         LoginPage.clickLogin()
-        LoginPage.doLogin(credentials.realuser)
+        LoginPage.doLogin()
         HomePage.checkHomeNav(['Home', 'Community', 'Events', 'Shop', 'Donations', 'Certifications'])
         HomePage.clickShop()
         HomePage.clickBrowseShop()
@@ -31,7 +23,7 @@ describe('Shop',() => {
         ShopPage.clickAddToCart()
         ShopPage.checkPopUpCart('Qty: 1',' (1 Item)')
         ShopPage.clickContinueToCart()
-        ShopPage.clickCheckout(' $5.00 ')
+        ShopPage.clickCheckout('BluePay',' $5.00 ')
         ShopPage.checkSummary(' $5.00  x  1 ',' $5.00 ',' $0.00 ')
         ShopPage.fillFormUsingExistingValues()
         ShopPage.checkThankYouPopUp()
@@ -42,7 +34,7 @@ describe('Shop',() => {
         ShopPage.clickAddTwoItensToCart()
         ShopPage.checkPopUpCart('Qty: 2',' (2 Items)')
         ShopPage.clickContinueToCart()
-        ShopPage.clickCheckout(' $10.00 ')
+        ShopPage.clickCheckout('BluePay',' $10.00 ')
         ShopPage.checkSummary(' $5.00  x  2 ',' $10.00 ',' $0.00 ')
         ShopPage.fillFormUsingExistingValues()
         ShopPage.checkThankYouPopUp()
@@ -52,7 +44,7 @@ describe('Shop',() => {
         ShopPage.clickAddToCart()
         ShopPage.checkPopUpCart('Qty: 1',' (1 Item)')
         ShopPage.clickContinueToCart()
-        ShopPage.clickCheckout(' $5.00 ')
+        ShopPage.clickCheckout('BluePay',' $5.00 ')
         ShopPage.checkSummary(' $5.00  x  1 ',' $5.00 ',' $0.00 ')
         ShopPage.fillFormUsingInvalidExpiration()
         ShopPage.checkPopUpFailedProcessing()
@@ -62,7 +54,7 @@ describe('Shop',() => {
         ShopPage.clickAddToCart()
         ShopPage.checkPopUpCart('Qty: 1',' (1 Item)')
         ShopPage.clickContinueToCart()
-        ShopPage.clickCheckout(' $5.00 ')
+        ShopPage.clickCheckout('BluePay',' $5.00 ')
         ShopPage.checkSummary(' $5.00  x  1 ',' $5.00 ',' $0.00 ')
         ShopPage.fillFormUsingInvalidCard()
         ShopPage.checkInvalidCardNumber()
@@ -72,7 +64,7 @@ describe('Shop',() => {
         ShopPage.clickAddToCart()
         ShopPage.checkPopUpCart('Qty: 1',' (1 Item)')
         ShopPage.clickContinueToCart()
-        ShopPage.clickCheckout(' $5.00 ')
+        ShopPage.clickCheckout('BluePay',' $5.00 ')
         ShopPage.checkSummary(' $5.00  x  1 ',' $5.00 ',' $0.00 ')
         ShopPage.fillFormUsingDiscountCode()
         ShopPage.checkThankYouPopUp()
@@ -82,7 +74,7 @@ describe('Shop',() => {
         ShopPage.clickAddToCart()
         ShopPage.checkPopUpCart('Qty: 1',' (1 Item)')
         ShopPage.clickContinueToCart()
-        ShopPage.clickCheckout(' $5.00 ')
+        ShopPage.clickCheckout('BluePay',' $5.00 ')
         ShopPage.checkSummary(' $5.00  x  1 ',' $5.00 ',' $0.00 ')
         ShopPage.fillFormUsingNewPaymentACH()
         ShopPage.checkThankYouPopUp()

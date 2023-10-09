@@ -6,6 +6,13 @@ class SubscriptionPage{
     cy.get('#subscription-sub-label1-TheFamilyHandymanLBA').should('have.text','$3.00 ')
   }
 
+  checkPublicationPagePPS(){
+    // cy.get('#subscription-3e884907-e267-4139-9ced-40fcf81557fe').should('have.text','Publications')
+    cy.get('#subscription-sub-h4-QAMonthly').should('have.text',' QA Monthly ')
+    cy.get('#subscription-sub-span1-QAMonthly').should('have.text','Subscription Fee 01')
+    cy.get('#subscription-sub-label1-QAMonthly').should('have.text','$0.01 ')
+  }
+
   clickAddtoCart(){
     cy.get('#subscription-sub-button1-TheFamilyHandymanLBA').click()
     cy.get('#subscription-67acc9ae-eef0-4fd1-bed5-beb07e1554c9').should('be.visible')
@@ -13,6 +20,13 @@ class SubscriptionPage{
     cy.get('#subscription-094280ec-bd9d-4fbf-8b83-b8cd209e497d').click()
     cy.get('[data-test="checkout-button"]').click()
   }
+
+  // clickAddtoCartPPS(){
+  //   cy.get('#subscription-sub-button1-QAMonthly').click()
+  //   cy.get('.added-product-name').contains(' QA Monthly ').should('be.visible')
+  //   cy.get('button').eq(7).should('have.text', ' Continue to Cart ').click()
+  //   cy.get('[data-test="checkout-button"]').click()
+  // }
 
   thankyoupopup(){
     cy.get('.header-note').should('have.text',' Thank you! ')

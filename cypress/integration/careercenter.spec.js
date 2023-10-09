@@ -6,16 +6,10 @@ import  Utils from '../support/utils'
 
 describe('Carrer Center', () => {
     beforeEach(() => {
-        const credentials = {
-            realuser: {
-                email: 'testautomation@yoip.com',
-                passwd: 'Password1!',
-            },
-        }
         LoginPage.navHere()
         LoginPage.acceptCookies()
         LoginPage.clickLogin()
-        LoginPage.doLogin(credentials.realuser)
+        LoginPage.doLogin()
         HomePage.checkHomeNav(['Home', 'Community', 'Events', 'Shop', 'Donations', 'Certifications'])
         CareerCenterPage.chooseCareerCenterinMenu()
         CareerCenterPage.checkCareerCenterPageElements()

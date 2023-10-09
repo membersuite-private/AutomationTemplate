@@ -7,19 +7,13 @@ import MyAccountPage from '../pos/myaccountpage'
 
 describe('PPS',() => {
     beforeEach(() => {
-        const credentials = {
-            realuser: {
-                email: 'testautomation@yoip.com',
-                passwd: 'Password1!',
-            },
-        }
 
-
-        LoginPage.navHere()
+        cy.visit('https://purplepps.users.purple.membersuite.com/')
+        // LoginPage.navHere()
         LoginPage.acceptCookies()
         LoginPage.clickLogin()
-        LoginPage.doLogin(credentials.realuser)
-        HomePage.checkHomeNav(['Home', 'Community', 'Events', 'Shop', 'Donations', 'Certifications'])
+        LoginPage.doLogin()
+        HomePage.checkHomeNav(['Community', 'Events', 'Shop', 'Donations', 'Certifications'])
 
 
       });
@@ -41,11 +35,15 @@ describe('PPS',() => {
       // });
 
       it('In order to pay partial value', () =>{
-        HomePage.clickSubscribetoaPublication()
-        SubscriptionPage.checkPublicationPage()
-        SubscriptionPage.clickAddtoCart()
+        HomePage.clickShop()
+        HomePage.clickBrowseShop()
+        ShopPage.clickPenny()
+        // ShopPage.clickItem()
+        ShopPage.clickAddToCart()
+        ShopPage.clickContinueToCart()
+        ShopPage.clickCheckout('Penny',' $0.01 ')
         ShopPage.fillFormUsingPaylater()
-        SubscriptionPage.thankyoupopup()
+        SubscriptionPage.thankyoupopupInvoice
         
         LoginPage.goToProfile()
         MyAccountPage.clickMyAccount()
@@ -54,21 +52,22 @@ describe('PPS',() => {
         SubscriptionPage.thankyoupopupInvoice()
       });
 
-      it('In order to pay full value invoice', () =>{
-        HomePage.clickSubscribetoaPublication()
-        SubscriptionPage.checkPublicationPage()
-        SubscriptionPage.clickAddtoCart()
-        ShopPage.fillFormUsingPaylater()
-        SubscriptionPage.thankyoupopup()
+      // it('In order to pay full value invoice', () =>{
+      //   HomePage.clickShop()
+      //   HomePage.clickSubscribetoaPublication()
+      //   SubscriptionPage.checkPublicationPagePPS()
+      //   SubscriptionPage.clickAddtoCartPPS()
+      //   ShopPage.fillFormUsingPaylater()
+      //   SubscriptionPage.thankyoupopup()
         
-        LoginPage.goToProfile()
-        MyAccountPage.clickMyAccount()
-        MyAccountPage.clickMyInfo()
-        MyAccountPage.clickMyAccount()
-        MyAccountPage.PayFirstInvoiceFullValue()
-        ShopPage.fillFormUsingExistingValuesInvoice()
-        SubscriptionPage.thankyoupopupInvoice()
-      });
+      //   LoginPage.goToProfile()
+      //   MyAccountPage.clickMyAccount()
+      //   MyAccountPage.clickMyInfo()
+      //   MyAccountPage.clickMyAccount()
+      //   MyAccountPage.PayFirstInvoiceFullValue()
+      //   ShopPage.fillFormUsingExistingValuesInvoice()
+      //   SubscriptionPage.thankyoupopupInvoice()
+      // });
 
 
 

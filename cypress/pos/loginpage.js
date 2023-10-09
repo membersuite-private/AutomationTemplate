@@ -1,4 +1,5 @@
 // LoginPage Class
+import example from '../fixtures/example.json';
 
 class LoginPage {
     navHere() {
@@ -24,13 +25,13 @@ class LoginPage {
       );
     }
 
-    fillEmail(email) {
-      return cy.get('input[type="text"]').type(email);
+    fillEmail() {
+      return cy.get('input[type="text"]').type(example.realuser.email);
     }
 
-    fillPassword(passwd) {
+    fillPassword() {
 
-      return cy.get('input[type="password"]').type(passwd);
+      return cy.get('input[type="password"]').type(example.realuser.passwd);
     }
 
     submitLoginForm() {
@@ -48,8 +49,8 @@ class LoginPage {
 
     doLogin(form) {
 
-      this.fillEmail(form.email);
-      this.fillPassword(form.passwd);
+      this.fillEmail();
+      this.fillPassword();
       this.submitLoginForm();
       return cy.url().should('include', '/auth/login');
     }
@@ -69,7 +70,7 @@ class LoginPage {
     }
 
     goToProfile(){
-      cy.visit('/profile')
+      cy.visit('https://purplepps.users.purple.membersuite.com/profile')
     }
   }
   export default new LoginPage

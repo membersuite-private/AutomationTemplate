@@ -33,7 +33,7 @@ class MyAccountPage {
     AddnewmethodPaymentACH(){
       cy.get('h3').eq(1).should('have.text','Saved Payment Options').click()
       cy.get('[data-test-id="add-new-bank-account"] > .row > .row-invoice > .payment-new-option').click({force:true})
-      cy.wait(3000)
+      cy.get('[data-test-id="add-new-bank-account"] > .row > .row-invoice > .payment-new-option').click({force:true})
       cy.get('[data-test="input-ach-routing"]').type('021000021')
       cy.get('[data-test="input-ach-account"]').type('9876543210')
       cy.get('.mat-select-placeholder').click()

@@ -5,16 +5,10 @@ import ShopPage from '../pos/shoppage'
 
 describe('Subscriptions', () => {
     beforeEach(() => {
-        const credentials = {
-            realuser: {
-                email: 'testautomation@yoip.com',
-                passwd: 'Password1!',
-            },
-        }
         LoginPage.navHere()
         LoginPage.acceptCookies()
         LoginPage.clickLogin()
-        LoginPage.doLogin(credentials.realuser)
+        LoginPage.doLogin()
         HomePage.checkHomeNav(['Home', 'Community', 'Events', 'Shop', 'Donations', 'Certifications'])
         HomePage.clickShop()
 

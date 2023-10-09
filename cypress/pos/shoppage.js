@@ -8,6 +8,20 @@ class ShopPage{
     cy.get('[data-test="product-name"]').eq(5).click()
   }
 
+  clickPenny(){
+    cy.get('[data-test="product-name"]').eq(21).should('have.text','Penny').click()
+  }
+
+  clickItem(){
+    cy.get('[data-test="product-name"]').as('productName')
+    cy.get('@productName').each(($el,index,$list) => {
+      const textProduct=$el.find('span.product-name').text()
+      if(textProduct.includes('Penny')){
+        cy.wrap($el).click()
+      }
+    })
+  }
+
   checkBluepayPage(){
     cy.get('[data-test="product-name-desktop"]').should('have.text',' BluePay ')
     cy.get('.price-qty-container > [data-test="product-price"]').should('have.text',' $5.00 ')
@@ -38,8 +52,8 @@ class ShopPage{
     cy.get('.continue-to-cart').click()
   }
 
-  clickCheckout(price){
-    cy.get('[data-test="product-name"]').should('have.text', 'BluePay')
+  clickCheckout(name,price){
+    cy.get('[data-test="product-name"]').should('have.text', name)
     cy.get('[data-test="product-price"]').should('have.text', price)
     cy.get('[data-test="checkout-button"]').click()
   }
