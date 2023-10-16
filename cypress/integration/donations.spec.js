@@ -4,11 +4,7 @@ import  DonationsPage  from '../pos/donationspage'
 
 describe('Donations', () => {
     beforeEach(() => {
-        LoginPage.navHere()
-        LoginPage.acceptCookies()
-        LoginPage.clickLogin()
         LoginPage.doLogin()
-        HomePage.checkHomeNav(['Home', 'Community', 'Events', 'Shop', 'Donations', 'Certifications'])
         HomePage.clickDonations()
 
       });

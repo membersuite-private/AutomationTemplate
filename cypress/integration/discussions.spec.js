@@ -5,11 +5,7 @@ import  Utils from '../support/utils'
 
 describe('Discussions', () => {
     beforeEach(() => {
-        LoginPage.navHere()
-        LoginPage.acceptCookies()
-        LoginPage.clickLogin()
         LoginPage.doLogin()
-        HomePage.checkHomeNav(['Home', 'Community', 'Events', 'Shop', 'Donations', 'Certifications'])
         HomePage.clickCommunity()
         HomePage.clickDiscussions()
       });

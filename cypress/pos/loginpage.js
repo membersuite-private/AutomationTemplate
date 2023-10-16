@@ -1,5 +1,6 @@
 // LoginPage Class
 import example from '../fixtures/example.json';
+import  HomePage  from '../pos/homepage'
 
 class LoginPage {
     navHere() {
@@ -48,11 +49,44 @@ class LoginPage {
     }
 
     doLogin(form) {
-
+      this.navHere()
+      this.acceptCookies()
+      this.clickLogin()
       this.fillEmail();
       this.fillPassword();
       this.submitLoginForm();
+      HomePage.checkHomeNav(['Home', 'Community', 'Events', 'Shop', 'Donations', 'Certifications'])
       return cy.url().should('include', '/auth/login');
+    }
+
+    checkInvalidPassword(){
+      this.navHere()
+      this.acceptCookies()
+      this.clickLogin()
+      cy.get('input[type="text"]').type(example.realuser.email);
+      cy.get('input[type="password"]').type('FakePassword');
+      this.submitLoginForm();
+      cy.get('.has-error').should('have.text','Login credentials were invalid.')
+    }
+
+    checkInvalidUsername(){
+      this.navHere()
+      this.acceptCookies()
+      this.clickLogin()
+      cy.get('input[type="text"]').type('testautomation123@yoip.com');
+      cy.get('input[type="password"]').type(example.realuser.passwd);
+      this.submitLoginForm();
+      cy.get('.has-error').should('have.text','User not found')
+    }
+
+    checkInvalidUsernamePassword(){
+      this.navHere()
+      this.acceptCookies()
+      this.clickLogin()
+      cy.get('input[type="text"]').type('testautomation123@yoip.com');
+      cy.get('input[type="password"]').type('FakePassword');
+      this.submitLoginForm();
+      cy.get('.has-error').should('have.text','User not found')
     }
 
     acceptCookies(){

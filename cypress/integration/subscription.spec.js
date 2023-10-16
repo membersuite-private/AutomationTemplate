@@ -5,11 +5,7 @@ import ShopPage from '../pos/shoppage'
 
 describe('Subscriptions', () => {
     beforeEach(() => {
-        LoginPage.navHere()
-        LoginPage.acceptCookies()
-        LoginPage.clickLogin()
         LoginPage.doLogin()
-        HomePage.checkHomeNav(['Home', 'Community', 'Events', 'Shop', 'Donations', 'Certifications'])
         HomePage.clickShop()
 
       });

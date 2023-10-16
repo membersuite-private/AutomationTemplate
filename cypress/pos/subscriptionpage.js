@@ -21,12 +21,7 @@ class SubscriptionPage{
     cy.get('[data-test="checkout-button"]').click()
   }
 
-  // clickAddtoCartPPS(){
-  //   cy.get('#subscription-sub-button1-QAMonthly').click()
-  //   cy.get('.added-product-name').contains(' QA Monthly ').should('be.visible')
-  //   cy.get('button').eq(7).should('have.text', ' Continue to Cart ').click()
-  //   cy.get('[data-test="checkout-button"]').click()
-  // }
+
 
   thankyoupopup(){
     cy.get('.header-note').should('have.text',' Thank you! ')

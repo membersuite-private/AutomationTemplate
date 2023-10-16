@@ -12,31 +12,22 @@ describe('Login Individual', () => {
       },
   }
 
-    beforeEach(() => {
-
-        LoginPage.navHere()
-        LoginPage.acceptCookies()
-        LoginPage.clickLogin()
-
-
-      });
-
 
     it('In order to verify Login Functionality', () => {
-      LoginPage.doLogin(credentials.realuser)
-      HomePage.checkHomeNav(['Home', 'Community', 'Events', 'Shop', 'Donations', 'Certifications'])
+      LoginPage.doLogin()
+      // HomePage.checkHomeNav(['Home', 'Community', 'Events', 'Shop', 'Donations', 'Certifications'])
     });
 
     it('In order to verify invalid password', () => {
-
+      LoginPage.checkInvalidPassword()
     });
 
     it('In order to verify invalid username', () => {
-
+      LoginPage.checkInvalidUsername()
     });
 
     it('In order to verify invalid username and password', () => {
-
+      LoginPage.checkInvalidUsernamePassword()
     });
 
     it('In order to change password from multiple Associations', () => {

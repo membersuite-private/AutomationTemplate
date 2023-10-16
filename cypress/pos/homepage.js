@@ -62,17 +62,21 @@ class HomePage {
         return cy.contains(elem, label);
       }
 
-      checkHomepage(){
-        cy.get('span').contains('Home').should('be.visible')
-        cy.get('span').contains('Community').should('be.visible')
-        cy.get('span').contains('Events').should('be.visible')
-        cy.get('span').contains('Shop').should('be.visible')
-        cy.get('span').contains('Donations').should('be.visible')
-        cy.get('span').contains('Certifications').should('be.visible')
-      }
+      // checkHomepage(){
+      //   cy.get('span').contains('Home').should('be.visible')
+      //   cy.get('span').contains('Community').should('be.visible')
+      //   cy.get('span').contains('Events').should('be.visible')
+      //   cy.get('span').contains('Shop').should('be.visible')
+      //   cy.get('span').contains('Donations').should('be.visible')
+      //   cy.get('span').contains('Certifications').should('be.visible')
+      // }
 
       clickCommunity(){
         cy.get('span').contains('Community').click()
+      }
+
+      clickCertifications(){
+        cy.get('span').contains('Certifications').click()
       }
 
       clickCarrerCenter(){
@@ -80,28 +84,38 @@ class HomePage {
         cy.wait(3)
       }
 
+      clickReportCEUCredits(){
+        cy.get(':nth-child(2) > .nav-modal-link-bar > .nav-modal-link').click()
+        cy.url().should('include', '/certification/credits-list/create-ceu-report')
+      }
+
       clickCommittees(){
+        cy.get(':nth-child(3) > .nav-modal-link-bar > .fa').as('moreCommittees')
+        cy.get('@moreCommittees').should('be.visible')
         cy.get(':nth-child(3) > .nav-modal-link-bar > .nav-modal-link').click()
       }
 
       clickCompetitions(){
         cy.get('div').contains('Competitions').click()
-        cy.wait(3)
+        cy.get(':nth-child(1) > .nav-modal-link').should('be.visible')
+        cy.get(':nth-child(2) > .nav-modal-link').should('be.visible')
+        cy.get(':nth-child(3) > .nav-modal-link').should('be.visible')
+        cy.wait(3000)
       }
 
       clickViewOpenCompetiotions(){
-        cy.get('div').contains('View Open Competitions').click()
-        cy.wait(3)
+        cy.get('.nav-modal-link').contains('View Open Competitions').click()
+        cy.url().should('include', '/community/competitions/browse')
       }
 
       clickViewMyCompetiotionsEntries(){
-        cy.get('div').contains('View My Competition Entries').click()
-        cy.wait(3)
+        cy.get('.nav-modal-link').contains('View My Competition Entries').click()
+        cy.url().should('include', '/community/competitions/my-competition-registration')
       }
 
       clickJudgingCenter(){
-        cy.get('div').contains('Judging Center').click()
-        cy.wait(3)
+        cy.get('.nav-modal-link').contains('Judging Center').click()
+        cy.url().should('include', '/community/competitions/judging-center')
       }
 
       clickBrowseCommittees(){

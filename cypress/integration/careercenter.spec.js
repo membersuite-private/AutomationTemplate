@@ -1,16 +1,11 @@
-import  HomePage  from '../pos/homepage'
 import  LoginPage from '../pos/loginpage'
 import  CareerCenterPage  from '../pos/careercenterpage'
-import  Utils from '../support/utils'
+
 
 
 describe('Carrer Center', () => {
     beforeEach(() => {
-        LoginPage.navHere()
-        LoginPage.acceptCookies()
-        LoginPage.clickLogin()
         LoginPage.doLogin()
-        HomePage.checkHomeNav(['Home', 'Community', 'Events', 'Shop', 'Donations', 'Certifications'])
         CareerCenterPage.chooseCareerCenterinMenu()
         CareerCenterPage.checkCareerCenterPageElements()
       });

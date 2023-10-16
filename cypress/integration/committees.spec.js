@@ -5,22 +5,16 @@ import  Utils from '../support/utils'
 
 describe('Committees', () => {
     beforeEach(() => {
-        LoginPage.navHere()
-        LoginPage.acceptCookies()
-        LoginPage.clickLogin()
         LoginPage.doLogin()
-        HomePage.checkHomeNav(['Home', 'Community', 'Events', 'Shop', 'Donations', 'Certifications'])
-        Utils.wait(5)
         HomePage.clickCommunity()
+        HomePage.clickCommittees()
       });
 
     it('In order to verify browse Committees page', () => {
-        HomePage.clickCommittees()
-        Utils.wait(5)
-        // HomePage.clickBrowseCommittees()
-        // CommitteesPage.checkBrowseAllCommitteespage()
-        // CommitteesPage.clickNewTestingcommittee()
-        // CommitteesPage.checkNewTestingcommitteeDetails()
+        HomePage.clickBrowseCommittees()
+        CommitteesPage.checkBrowseAllCommitteespage()
+        CommitteesPage.clickNewTestingcommittee()
+        CommitteesPage.checkNewTestingcommitteeDetails()
     })
 
 });

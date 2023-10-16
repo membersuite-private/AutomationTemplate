@@ -65,7 +65,7 @@ class ShopPage{
   }
 
   fillFormUsingExistingValuesInvoice(){
-    cy.get('.mat-radio-label-content').eq(0).click({force: true})
+    cy.get('.mat-radio-label-content').eq(1).click({force: true})
     cy.get('[data-test="shipping-address-existing-0"]').click()
     cy.get('.button.button-blue').should('have.text',' Checkout ').click({force: true})
   }
