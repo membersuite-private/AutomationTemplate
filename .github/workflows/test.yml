@@ -15,4 +15,6 @@ jobs:
       - name: Check Cypress install
         run: npx cypress version  
       - name: Run Cypress tests
-        run: npx cypress run
+        env:
+          SUPER_SECRET: ${{secrets.CYPRESS_KEY}}
+        run: npx cypress run --record --key "%CYPRESS_KEY%"
