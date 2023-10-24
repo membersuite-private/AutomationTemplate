@@ -6,5 +6,10 @@
   "realuser": {
             "email": "testautomation@yoip.com",
             "passwd": "Password1!"
-        }
+        },
+  "orgUser": {
+            "email": "testautomation_org@yoip.com",
+            "passwd": "Password1!"
+        }     
+        
 }

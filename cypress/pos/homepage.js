@@ -124,9 +124,7 @@ class HomePage {
       }
 
       clickEvents(){
-        // cy.get(':nth-child(3) > a > [data-test="community-tab"] > .inner-text').click()
         cy.get('.inner-text').eq(2).click()
-        // cy.get('div').contains('Browse Events').click()
       }
 
       clickMyEvents(){
@@ -142,6 +140,7 @@ class HomePage {
       }
 
       clickDonations(){
+        cy.wait(3000)
         cy.get(':nth-child(5) > a > [data-test="community-tab"] > .inner-text').click()
       }
 
@@ -194,6 +193,12 @@ class HomePage {
 
       clickNotifications(){
         cy.get('[ng-reflect-ng-class="fa-lg"]').click()
+      }
+
+      changeToOrg(){
+        cy.get('.switch-profile-user-image.ng-star-inserted').eq(1).click({force: true})
+        cy.get('[data-test="profile-icon"]').click()
+        cy.get('.switch-profile-user-name').contains('Music City Hall').click()
       }
 
 }

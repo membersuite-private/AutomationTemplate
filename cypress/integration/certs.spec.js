@@ -2,11 +2,12 @@ import  HomePage  from '../pos/homepage'
 import  LoginPage from '../pos/loginpage'
 import  CertificationsPage  from '../pos/certificationspage'
 import  Utils from '../support/utils'
+import example from '../fixtures/example.json'
 
 
 describe('Certifications', () => {
     beforeEach(() => {
-        LoginPage.doLogin()
+        LoginPage.doLogin(example.realuser.email,example.realuser.passwd)
         HomePage.clickCertifications()
       });
 
@@ -18,6 +19,38 @@ describe('Certifications', () => {
         CertificationsPage.checkMyCEUCreditHistory()
     });
 
+
+    it('In order to Edit CEU Credits', () => {
+        HomePage.clickReportCEUCredits()
+        CertificationsPage.checkReportEditCEUCreditsPopUp()
+        CertificationsPage.fillCEUCreditsForm()
+        CertificationsPage.checkMyCEUCreditHistory()
+        CertificationsPage.editCEUCredit()
+    });
+
+    it('In order to Delete CEU Credits', () => {
+        HomePage.clickReportCEUCredits()
+        CertificationsPage.checkReportEditCEUCreditsPopUp()
+        CertificationsPage.fillCEUCreditsForm()
+        CertificationsPage.checkMyCEUCreditHistory()
+        CertificationsPage.deleteCEUCredit()
+    });
+
+    it('In order to Print CEU Credits', () => {
+        HomePage.clickReportCEUCredits()
+        CertificationsPage.checkReportEditCEUCreditsPopUp()
+        CertificationsPage.fillCEUCreditsForm()
+        CertificationsPage.checkMyCEUCreditHistory()
+        CertificationsPage.printCEUCredit()
+    });
+
+    it('In order to Download Transcripts Credits', () => {
+        HomePage.clickReportCEUCredits()
+        CertificationsPage.checkReportEditCEUCreditsPopUp()
+        CertificationsPage.fillCEUCreditsForm()
+        CertificationsPage.checkMyCEUCreditHistory()
+        CertificationsPage.transcriptCEUCredit()
+    });
   
 
 });

@@ -26,13 +26,13 @@ class LoginPage {
       );
     }
 
-    fillEmail() {
-      return cy.get('input[type="text"]').type(example.realuser.email);
+    fillEmail(email) {
+      return cy.get('input[type="text"]').type(email);
     }
 
-    fillPassword() {
+    fillPassword(passwd) {
 
-      return cy.get('input[type="password"]').type(example.realuser.passwd);
+      return cy.get('input[type="password"]').type(passwd);
     }
 
     submitLoginForm() {
@@ -48,12 +48,12 @@ class LoginPage {
       return cy.contains(errelem, errmessage) && cy.url().should('include', '/auth/portal-login');
     }
 
-    doLogin(form) {
+    doLogin(email,passwd) {
       this.navHere()
       this.acceptCookies()
       this.clickLogin()
-      this.fillEmail();
-      this.fillPassword();
+      this.fillEmail(email);
+      this.fillPassword(passwd);
       this.submitLoginForm();
       HomePage.checkHomeNav(['Home', 'Community', 'Events', 'Shop', 'Donations', 'Certifications'])
       return cy.url().should('include', '/auth/login');

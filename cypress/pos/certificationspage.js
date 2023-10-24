@@ -28,6 +28,29 @@ class CertificationsPage{
       cy.get('button').contains('+ Report CEU Credits').should('be.visible')
     }
 
+    editCEUCredit(){
+      cy.get('.mat-radio-container').eq(0).click()
+      cy.get('.text-area').contains('Edit').click({force: true})
+      cy.get('[name="quantity"]').type('2')
+      cy.get('button').contains('Save').click()
+    }
+
+    deleteCEUCredit(){
+      cy.get('.mat-radio-container').eq(0).click()
+      cy.get('.text-area').contains('Delete').click({force: true})
+      cy.get('button').contains('Delete').click()
+    }
+
+    printCEUCredit(){
+      cy.get('.mat-radio-container').eq(0).click()
+      cy.get('.text-area').contains('Print').click({force: true})
+    }
+
+    transcriptCEUCredit(){
+      cy.get('.mat-radio-container').eq(0).click()
+      cy.get('.fa > .reine-filter').contains('Download Transcript').click({force: true})
+    }
+
     
   }
   

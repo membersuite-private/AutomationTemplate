@@ -1,3 +1,7 @@
+import  HomePage  from '../pos/homepage'
+import  LoginPage from '../pos/loginpage'
+import ShopPage from '../pos/shoppage'
+
 class Utils {
     wait(timer){
         cy.wait(timer)
@@ -21,6 +25,14 @@ class Utils {
       const mail = month+day+year+hours+minutes;
       const random = this.randomNumber();
       return mail+random+"@yopmail.com"
+    }
+
+    shoppingInitial(){
+      HomePage.clickShop()
+      HomePage.clickBrowseShop()
+      ShopPage.checkBrowseShopPage()
+      ShopPage.clickBluePay()
+      ShopPage.checkBluepayPage()
     }
 }
 

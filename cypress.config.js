@@ -6,7 +6,7 @@ module.exports = defineConfig({
   projectId: "vjt9tx",
   env: {
     // url: "https://mrpbpap.users.purple.membersuite.com/home",
-    url:"https://mrpbpap.users.purple.membersuite.com/home",
+    url:"https://mrpbpap.users.purple.membersuite.com",
   },
 
 
@@ -16,8 +16,9 @@ module.exports = defineConfig({
       return config;
     },
     defaultCommandTimeout: 20000,
-    // baseUrl: "https://mrpbpap.users.purple.membersuite.com/home",
-    baseUrl:"https://mrpbpap.users.purple.membersuite.com/home",
+    numTestsKeptInMemory: 5,
+    // baseUrl: "https://mrpbpag.users.green.membersuite.com",
+    baseUrl:"https://mrpbpap.users.purple.membersuite.com",
     retries: {
       runMode: 3,
       openMode: 0,

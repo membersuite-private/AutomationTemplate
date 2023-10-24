@@ -5,7 +5,7 @@ class ShopPage{
   }
 
   clickBluePay(){
-    cy.get('[data-test="product-name"]').eq(5).click()
+    cy.get('[data-test="product-name"]').contains('BluePay').click({force: true})
   }
 
   clickPenny(){
@@ -142,16 +142,16 @@ class ShopPage{
   }
 
   checkInvalidCardNumber(){
-    cy.get('.mat-error.ng-tns-c82-7').should('have.text',' Please enter a valid card number \\d* ')
+    cy.get('.mat-error').should('have.text',' Please enter a valid card number \\d* ')
   }
 
   checkPopUpFailedProcessing(){
     cy.get('.error-title.ng-star-inserted').should('be.visible')
   }
 
-  checkThankYouPopUp(){
+  checkThankYouPopUp(mail){
     cy.get('.title').should('have.text',' Thank you!  ')
-    cy.get('.col-10 > .col-12').should('have.text',' Order Successful testautomation@yoip.com  ')
+    cy.get('.col-10 > .col-12').should('have.text',' Order Successful '+ mail + '  ')
     cy.get('.buttons > .button').click()
   }
 
@@ -166,6 +166,11 @@ class ShopPage{
     cy.get('[data-test="product-total-0"]').should('have.text',productTotal)
     cy.get('[data-test="tax-price"]').should('have.text',taxPrice)
     cy.get('.total-price').eq(1).should('have.text',productTotal)
+  }
+
+  deleteSavedACH(){
+    cy.get('[data-test-id="saved-payment-method-1"] > .col > a').click({force: true})
+    cy.get('.buttons > .col-12').click()
   }
 
   
