@@ -1,11 +1,11 @@
 import  HomePage  from '../pos/homepage'
 import  LoginPage from '../pos/loginpage'
 import  DiscussionsPage  from '../pos/discussionspage'
-import  Utils from '../support/utils'
+import example from '../fixtures/example.json'
 
 describe('Discussions', () => {
     beforeEach(() => {
-        LoginPage.doLogin()
+        LoginPage.doLogin(example.realuser.email,example.realuser.passwd)
         HomePage.clickCommunity()
         HomePage.clickDiscussions()
       });

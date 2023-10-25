@@ -18,6 +18,10 @@ class CareerCenterPage {
         cy.get('button').contains('Search').click()
     }
 
+    clickPostaJob(){
+        cy.get('a').contains('Post a Job').click()
+    }
+
     click130pm(){
         cy.get('h3').contains('130 pm').click()
     }
@@ -62,6 +66,38 @@ class CareerCenterPage {
         cy.get('span').contains('abcdefg').should('be.visible');
         cy.get('p').contains('Company 1').should('be.visible');
         cy.get('div').contains(' June 26, 2023').should('be.visible');
+    }
+
+    fillJobPosting(){
+        cy.get('#mat-input-0').type('Company A')
+        cy.get('#mat-input-2').type('Job Title')
+        cy.get('#mat-input-3').type('email@email.com')
+        cy.get('[title="Rich Text Editor, editor1"]').should('be.visible')
+                .then(($iframe) => {
+                    const $body = $iframe.contents().find('body')
+        cy.wrap($body).find('p').type('Job info')           
+        })
+
+        cy.get('button').contains('Preview').click()
+    }
+
+    checkJobPostingPage(){
+        cy.get('h4').contains('[Preview] Job Title').should('be.visible')
+        cy.get('p').contains('Job info')
+        cy.get('button').contains('Confirm')
+        cy.get('span').contains('Back to Editing')
+    }
+
+    clickConfirm(){
+        cy.get('button').contains('Confirm').click()
+        cy.get('h3').contains('Job Posting Confirmation')
+        cy.get('.col-md-5.col-11.button-blue').contains('Confirm').click({force: true})
+    }
+
+    jobConfirmation(){
+        cy.get('h3').should('have.text',' Job Posting Confirmation ')
+        cy.get('p').contains('Job posting has successfully been created.').should('be.visible')
+        cy.get('button').contains('My Job Postings').click()
     }
 
 }

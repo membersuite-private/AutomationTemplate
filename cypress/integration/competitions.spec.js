@@ -1,11 +1,12 @@
 import  HomePage  from '../pos/homepage'
 import  LoginPage from '../pos/loginpage'
 import CompetitionsPage from '../pos/competitionspage'
+import example from '../fixtures/example.json'
 
 
 describe('Competitions',() => {
     beforeEach(() => {
-        LoginPage.doLogin()
+        LoginPage.doLogin(example.realuser.email,example.realuser.passwd)
         HomePage.clickCommunity()
         HomePage.clickCompetitions()
 

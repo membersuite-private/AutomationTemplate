@@ -4,12 +4,18 @@
   "passwd": "Password1!",
   "body": "Fixtures are a great way to mock data for responses to routes",
   "realuser": {
-            "email": "testautomation@yoip.com",
-            "passwd": "Password1!"
-        },
+    "email": "testautomation@yoip.com",
+    "passwd": "Password1!"
+  },
   "orgUser": {
-            "email": "testautomation_org@yoip.com",
-            "passwd": "Password1!"
-        }     
+      "email": "testautomation_org@yoip.com",
+      "passwd": "Password1!"
+  },
+
+  "environment":{
+    "green":"https://mrpbpag.users.green.membersuite.com",
+    "purple":"https://mrpbpap.users.purple.membersuite.com",
+    "production":"https://mrpbpap.users.membersuite.com"
+  }
         
 }

@@ -1,21 +1,12 @@
 import  HomePage  from '../pos/homepage'
 import  LoginPage from '../pos/loginpage'
-import  Utils from '../support/utils'
+import example from '../fixtures/example.json'
 
 
 describe('Login Individual', () => {
 
-  const credentials = {
-      realuser: {
-          email: 'testautomation@yoip.com',
-          passwd: 'Password1!',
-      },
-  }
-
-
     it('In order to verify Login Functionality', () => {
-      LoginPage.doLogin()
-      // HomePage.checkHomeNav(['Home', 'Community', 'Events', 'Shop', 'Donations', 'Certifications'])
+      LoginPage.doLogin(example.realuser.email,example.realuser.passwd)
     });
 
     it('In order to verify invalid password', () => {

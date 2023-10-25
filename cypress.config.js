@@ -4,6 +4,7 @@ const allureWriter = require('@shelex/cypress-allure-plugin/writer');
 
 module.exports = defineConfig({
   projectId: "vjt9tx",
+  chromeWebSecurity: false,
   env: {
     // url: "https://mrpbpap.users.purple.membersuite.com/home",
     url:"https://mrpbpap.users.purple.membersuite.com",
@@ -19,6 +20,7 @@ module.exports = defineConfig({
     numTestsKeptInMemory: 5,
     // baseUrl: "https://mrpbpag.users.green.membersuite.com",
     baseUrl:"https://mrpbpap.users.purple.membersuite.com",
+    // baseUrl:"https://mrpbpap.users.membersuite.com",
     retries: {
       runMode: 3,
       openMode: 0,

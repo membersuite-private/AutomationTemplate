@@ -1,11 +1,11 @@
 import  HomePage  from '../pos/homepage'
 import  LoginPage from '../pos/loginpage'
 import  CommitteesPage  from '../pos/committeespage'
-import  Utils from '../support/utils'
+import example from '../fixtures/example.json'
 
 describe('Committees', () => {
     beforeEach(() => {
-        LoginPage.doLogin()
+        LoginPage.doLogin(example.realuser.email,example.realuser.passwd)
         HomePage.clickCommunity()
         HomePage.clickCommittees()
       });
