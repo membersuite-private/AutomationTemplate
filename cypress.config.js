@@ -7,13 +7,21 @@ module.exports = defineConfig({
   chromeWebSecurity: false,
   env: {
     // url: "https://mrpbpap.users.purple.membersuite.com/home",
-    url:"https://mrpbpap.users.purple.membersuite.com",
+    // url:"https://mrpbpap.users.purple.membersuite.com",
   },
 
-
+  reporter: 'cypress-mochawesome-reporter',
+  reporterOptions: {
+    charts: true,
+    reportPageTitle: 'custom-title',
+    embeddedScreenshots: true,
+    inlineAssets: true,
+    saveAllAttempts: false,
+  },
   e2e: {
     setupNodeEvents(on, config) {
       allureWriter(on, config);
+      require('cypress-mochawesome-reporter/plugin')(on);
       return config;
     },
     defaultCommandTimeout: 20000,

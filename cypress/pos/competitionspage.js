@@ -43,6 +43,7 @@ class CompetitionsPage{
   }
 
   checkMyCompetitionEntriesPage(){
+      cy.wait(10000)
       cy.get("mat-card-title").contains("My Competition Entries").should("be.visible")
       cy.get("div").contains("My Competition Entries Tasks").should("be.visible")
       cy.get("a").contains("Browse Competitions").should("be.visible")

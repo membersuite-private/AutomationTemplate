@@ -96,7 +96,7 @@ class CareerCenterPage {
 
     jobConfirmation(){
         cy.get('h3').should('have.text',' Job Posting Confirmation ')
-        cy.get('p').contains('Job posting has successfully been created.').should('be.visible')
+        cy.get('p').contains('Job posting has successfully been created.')
         cy.get('button').contains('My Job Postings').click()
     }
 

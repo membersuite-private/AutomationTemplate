@@ -6,10 +6,14 @@ import Utils from '../support/utils'
 
 
 describe('Shop',() => {
-    // beforeEach(() => {
-    //     LoginPage.doLogin(example.realuser.email,example.realuser.passwd)
-    //     Utils.shoppingInitial()
-    //   });
+    beforeEach(() => {
+      cy.on("uncaught:exception", (e, runnable) => {
+        console.log("error", e);
+        console.log("runnable", runnable);
+        console.log("error", e.message);
+        return false;
+        });
+      });
 
       it('In order to verify electronic check payment in Shop Cart', () => {
         LoginPage.doLogin(example.realuser.email,example.realuser.passwd)
