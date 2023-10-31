@@ -17,5 +17,16 @@
 import './commands'
 import '@shelex/cypress-allure-plugin';
 import 'cypress-mochawesome-reporter/register'
+require('cypress-grep')()
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+
+beforeEach(() => {
+    cy.log('I run before every test in every spec file!!!!!!')
+    cy.on("uncaught:exception", (e, runnable) => {
+        console.log("error", e);
+        console.log("runnable", runnable);
+        console.log("error", e.message);
+        return false;
+    });
+  })

@@ -7,15 +7,9 @@ import Utils from '../support/utils'
 
 describe('Shop',() => {
     beforeEach(() => {
-      cy.on("uncaught:exception", (e, runnable) => {
-        console.log("error", e);
-        console.log("runnable", runnable);
-        console.log("error", e.message);
-        return false;
-        });
       });
 
-      it('In order to verify electronic check payment in Shop Cart', () => {
+      it('[PURPLE][GREEN] In order to verify electronic check payment in Shop Cart', () => {
         LoginPage.doLogin(example.realuser.email,example.realuser.passwd)
         Utils.shoppingInitial()
         ShopPage.clickAddToCart()
@@ -28,7 +22,7 @@ describe('Shop',() => {
 
       });
 
-      it('In order to verify add two itens in Shop Cart', () => {
+      it('[PURPLE][GREEN] In order to verify add two itens in Shop Cart', () => {
         LoginPage.doLogin(example.realuser.email,example.realuser.passwd)
         Utils.shoppingInitial()
         ShopPage.clickAddTwoItensToCart()
@@ -40,7 +34,7 @@ describe('Shop',() => {
         ShopPage.checkThankYouPopUp('testautomation@yoip.com')
       });
 
-      it('In order to pay with a card with invalid expiration date', () =>{
+      it('[PURPLE][GREEN][PRODUCTION]In order to pay with a card with invalid expiration date', () =>{
         LoginPage.doLogin(example.realuser.email,example.realuser.passwd)
         Utils.shoppingInitial()
         ShopPage.clickAddToCart()
@@ -52,7 +46,7 @@ describe('Shop',() => {
         ShopPage.checkPopUpFailedProcessing()
       });
 
-      it('In order to pay with a card with invalid card number', () =>{
+      it('[PURPLE][GREEN][PRODUCTION] In order to pay with a card with invalid card number', () =>{
         LoginPage.doLogin(example.realuser.email,example.realuser.passwd)
         Utils.shoppingInitial()
         ShopPage.clickAddToCart()
@@ -64,7 +58,7 @@ describe('Shop',() => {
         ShopPage.checkInvalidCardNumber()
       });
 
-      it('In order to use a valid discount code', () =>{
+      it('[PURPLE][GREEN] In order to use a valid discount code', () =>{
         LoginPage.doLogin(example.realuser.email,example.realuser.passwd)
         Utils.shoppingInitial()
         ShopPage.clickAddToCart()
@@ -76,7 +70,7 @@ describe('Shop',() => {
         ShopPage.checkThankYouPopUp('testautomation@yoip.com')
       });
 
-      it('In order to pay using ACH', () => {
+      it('[PURPLE][GREEN] In order to pay using ACH', () => {
         LoginPage.doLogin(example.realuser.email,example.realuser.passwd)
         Utils.shoppingInitial()
         ShopPage.clickAddToCart()
@@ -99,7 +93,7 @@ describe('Shop',() => {
         ShopPage.deleteSavedACH()
       });
 
-      it('In order to add cart with Org profile', () =>{
+      it('[PURPLE][GREEN] In order to add cart with Org profile', () =>{
         LoginPage.doLogin(example.orgUser.email,example.orgUser.passwd)
         HomePage.changeToOrg()
         Utils.shoppingInitial()

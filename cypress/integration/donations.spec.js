@@ -4,20 +4,14 @@ import  DonationsPage  from '../pos/donationspage'
 import example from '../fixtures/example.json';
 
 describe('Donations', () => {
-  it('In order to verify view Donations page', () => {
-    cy.on("uncaught:exception", (e, runnable) => {
-      console.log("error", e);
-      console.log("runnable", runnable);
-      console.log("error", e.message);
-      return false;
-      });
+  it('[PURPLE][GREEN][PRODUCTION] In order to verify view Donations page', () => {
     LoginPage.doLogin(example.realuser.email,example.realuser.passwd)
     HomePage.clickDonations()
     HomePage.clickViewMyGivingDonations()
     DonationsPage.checkDonationsHistory()
   });
 
-  it('In order to verify Making Donations', () => {
+  it('[PURPLE][GREEN] In order to verify Making Donations', () => {
     LoginPage.doLogin(example.realuser.email,example.realuser.passwd)
     HomePage.clickDonations()
     HomePage.clickMakingDonations()
@@ -28,7 +22,7 @@ describe('Donations', () => {
 
   });
 
-  it('In order to Making Donations as Organization', () => {
+  it('[PURPLE][GREEN] In order to Making Donations as Organization', () => {
     LoginPage.doLogin(example.orgUser.email,example.orgUser.passwd)
     HomePage.changeToOrg()
     HomePage.clickDonations()

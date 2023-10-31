@@ -5,17 +5,12 @@ import example from '../fixtures/example.json'
 
 describe('Events', () => {
     beforeEach(() => {
-        cy.on("uncaught:exception", (e, runnable) => {
-            console.log("error", e);
-            console.log("runnable", runnable);
-            console.log("error", e.message);
-            return false;
-            });
-        LoginPage.doLogin(example.realuser.email,example.realuser.passwd)
-        HomePage.clickEvents()
+
       });
 
-    it('In order to verify my Event Registrations', () => {
+    it('[PURPLE][GREEN][PRODUCTION] In order to verify my Event Registrations', () => {
+        LoginPage.doLogin(example.realuser.email,example.realuser.passwd)
+        HomePage.clickEvents()
         EventsPage.checkEventsPage()
         EventsPage.clickOnGrpEvent()
         EventsPage.checkEventDetails()
@@ -23,9 +18,22 @@ describe('Events', () => {
 
     })
 
-    it('In order to verify my Exhibits', () => {
+    it('[PURPLE][GREEN][PRODUCTION] In order to verify my Exhibits', () => {
         // HomePage.clickEvents()
+        LoginPage.doLogin(example.realuser.email,example.realuser.passwd)
+        HomePage.clickEvents()
         HomePage.clickMyExhibits()
+
+    })
+
+    it('[PURPLE][GREEN][PRODUCTION] In order to verify my Event Registrations as a Organization', () => {
+        // HomePage.clickEvents()
+        LoginPage.doLogin(example.orgUser.email,example.orgUser.passwd)
+        HomePage.changeToOrg()
+        EventsPage.checkEventsPage()
+        EventsPage.clickOnGrpEvent()
+        EventsPage.checkEventDetails()
+        EventsPage.clickRegister()
 
     })
 

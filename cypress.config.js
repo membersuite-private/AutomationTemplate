@@ -22,12 +22,13 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       allureWriter(on, config);
       require('cypress-mochawesome-reporter/plugin')(on);
+      require('cypress-grep/src/plugin')(config);
       return config;
     },
     defaultCommandTimeout: 20000,
     numTestsKeptInMemory: 5,
-    // baseUrl: "https://mrpbpag.users.green.membersuite.com",
-    baseUrl:"https://mrpbpap.users.purple.membersuite.com",
+    baseUrl: "https://mrpbpag.users.green.membersuite.com",
+    // baseUrl:"https://mrpbpap.users.purple.membersuite.com",
     // baseUrl:"https://mrpbpap.users.membersuite.com",
     retries: {
       runMode: 3,

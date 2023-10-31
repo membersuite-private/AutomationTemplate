@@ -198,7 +198,10 @@ class HomePage {
       changeToOrg(){
         cy.get('.switch-profile-user-image.ng-star-inserted').eq(1).click({force: true})
         cy.get('[data-test="profile-icon"]').click()
-        cy.get('.switch-profile-user-name').contains('Music City Hall').click()
+        cy.get('[data-test="menu-join"]').should('be.visible')
+        cy.wait(3000)
+        cy.get('.switch-profile-user-name').contains('Music City Hall').click({force: true})
+        
       }
 
 }

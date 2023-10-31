@@ -6,19 +6,13 @@ import example from '../fixtures/example.json'
 
 describe('Competitions',() => {
     beforeEach(() => {
-      cy.on("uncaught:exception", (e, runnable) => {
-        console.log("error", e);
-        console.log("runnable", runnable);
-        console.log("error", e.message);
-        return false;
-        });  
       LoginPage.doLogin(example.realuser.email,example.realuser.passwd)
       HomePage.clickCommunity()
       HomePage.clickCompetitions()
 
       });
 
-      it('In order to view open competitions page', () => {
+      it('[PURPLE][GREEN][PRODUCTION] In order to view open competitions page', () => {
         HomePage.clickViewOpenCompetiotions()
         CompetitionsPage.checkBrowseCompetitionsPage()
         CompetitionsPage.clickTumonat10competition()
@@ -32,14 +26,14 @@ describe('Competitions',() => {
 
       });
 
-      it('In order to view  my competition entries page', () => {
+      it('[PURPLE][GREEN][PRODUCTION] In order to view  my competition entries page', () => {
         HomePage.clickViewMyCompetiotionsEntries()
         CompetitionsPage.checkMyCompetitionEntriesPage()
 
       });
 
 
-      it('In order to view  judging center page', () => {
+      it('[PURPLE][GREEN][PRODUCTION] In order to view  judging center page', () => {
         HomePage.clickJudgingCenter()
         CompetitionsPage.checkJudgeCenterPage()
 
