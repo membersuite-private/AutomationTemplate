@@ -10,12 +10,7 @@
   "orgUser": {
       "email": "testautomation_org@yoip.com",
       "passwd": "Password1!"
-  },
-
-  "environment":{
-    "green":"https://mrpbpag.users.green.membersuite.com",
-    "purple":"https://mrpbpap.users.purple.membersuite.com",
-    "production":"https://mrpbpap.users.membersuite.com"
   }
+
         
 }

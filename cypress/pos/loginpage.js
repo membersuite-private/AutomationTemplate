@@ -104,7 +104,21 @@ class LoginPage {
     }
 
     goToProfile(){
-      cy.visit('https://purplepps.users.purple.membersuite.com/profile')
+      cy.visit('/profile')
+    }
+
+    goToMembershipRegistration(){
+      cy.visit('/membership/registration')
+      cy.get('.mat-radio-outer-circle').click({force: true})
+      cy.get('button').click()
+      cy.get('button').click()
+      cy.wait(5000)
+      cy.get('.mat-radio-outer-circle').click({force: true})
+      cy.get('button').click()
+      cy.get('button').click()
+      cy.get('button').click()
+      cy.wait(5000)
+      cy.get('button').contains('Checkout').click()
     }
   }
   export default new LoginPage

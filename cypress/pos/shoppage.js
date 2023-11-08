@@ -121,7 +121,7 @@ class ShopPage{
     cy.get('[data-test="input-exp-month"] > .mat-select-trigger > .mat-select-value > .mat-select-placeholder').click({ force: true })
     cy.get('#mat-option-4 > .mat-option-text').click({ force: true })
     cy.get('[data-test="input-exp-year"] > .mat-select-trigger > .mat-select-value > .mat-select-placeholder').click({ force: true })
-    cy.get('#mat-option-14 > .mat-option-text').click({ force: true })
+    cy.get('#mat-option-13 > .mat-option-text').click({ force: true })
     cy.get('[data-test="input-sec-code"]').type('123', { force: true })
     cy.get('[data-test="shipping-address-existing-0"] > .mat-radio-label > .mat-radio-container > .mat-radio-outer-circle').click({ force: true })
     cy.get('button').eq(2).should('have.text',' Checkout ').click({force: true})
@@ -152,6 +152,7 @@ class ShopPage{
   checkThankYouPopUp(mail){
     cy.get('.title').should('have.text',' Thank you!  ')
     cy.get('.col-10 > .col-12').should('have.text',' Order Successful '+ mail + '  ')
+    cy.wait(5000)
     cy.get('.buttons > .button').click()
   }
 
@@ -171,6 +172,31 @@ class ShopPage{
   deleteSavedACH(){
     cy.get('[data-test-id="saved-payment-method-1"] > .col > a').click({force: true})
     cy.get('.buttons > .col-12').click()
+  }
+
+  checkShoppingCart(){
+    cy.visit('/home')
+    // cy.get('.icon-cart').click()
+    // cy.get('.cart-items-indicator').then((btn) => {
+    cy.get('.icon-cart').then((btn) => {
+      if(cy.get('.cart-items-indicator')){
+        cy.wait(3000)
+        cy.get('.icon-cart').click() 
+        cy.wait(3000) 
+        cy.get('.item-remove').click()
+      } else {
+        cy.get(':nth-child(1) > a > [data-test="community-tab"] > .inner-text').click()
+      }
+      // if (btn.is('visible')) {
+      //   cy.get('.item-remove').click()
+        
+      // } else {
+      //   cy.get(':nth-child(1) > a > [data-test="community-tab"] > .inner-text').click()
+      // }
+    })
+    // if(cy.get('[data-test="store-search"]').should('be.visible')){
+    //   cy.get(':nth-child(1) > a > [data-test="community-tab"] > .inner-text').click()
+    // }   
   }
 
   

@@ -17,6 +17,7 @@ module.exports = defineConfig({
     embeddedScreenshots: true,
     inlineAssets: true,
     saveAllAttempts: false,
+    overwrite: true,
   },
   e2e: {
     setupNodeEvents(on, config) {
@@ -26,14 +27,15 @@ module.exports = defineConfig({
       return config;
     },
     defaultCommandTimeout: 20000,
-    numTestsKeptInMemory: 5,
-    baseUrl: "https://mrpbpag.users.green.membersuite.com",
+    numTestsKeptInMemory: 3,
+    // baseUrl: "https://mrpbpag.users.green.membersuite.com",
     // baseUrl:"https://mrpbpap.users.purple.membersuite.com",
-    // baseUrl:"https://mrpbpap.users.membersuite.com",
+    baseUrl:"https://mrpbpap.users.membersuite.com",
     retries: {
       runMode: 3,
       openMode: 0,
     },
+    experimentalRunAllSpecs: true,
     specPattern: 'cypress/integration/*.spec.js'
 
   },

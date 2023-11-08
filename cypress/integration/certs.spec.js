@@ -12,7 +12,7 @@ describe('Certifications', () => {
       });
 
 
-    it('[PURPLE][GREEN][PRODUCTION] In order to Report CEU Credits', () => {
+    it('[PURPLE] In order to Report CEU Credits', () => {
         HomePage.clickReportCEUCredits()
         CertificationsPage.checkReportEditCEUCreditsPopUp()
         CertificationsPage.fillCEUCreditsForm()
@@ -20,7 +20,7 @@ describe('Certifications', () => {
     });
 
 
-    it('[PURPLE][GREEN][PRODUCTION] In order to Edit CEU Credits', () => {
+    it('[PURPLE] In order to Edit CEU Credits', () => {
         HomePage.clickReportCEUCredits()
         CertificationsPage.checkReportEditCEUCreditsPopUp()
         CertificationsPage.fillCEUCreditsForm()
@@ -28,7 +28,7 @@ describe('Certifications', () => {
         CertificationsPage.editCEUCredit()
     });
 
-    it('[PURPLE][GREEN][PRODUCTION] In order to Delete CEU Credits', () => {
+    it('[PURPLE] In order to Delete CEU Credits', () => {
         HomePage.clickReportCEUCredits()
         CertificationsPage.checkReportEditCEUCreditsPopUp()
         CertificationsPage.fillCEUCreditsForm()
@@ -36,7 +36,7 @@ describe('Certifications', () => {
         CertificationsPage.deleteCEUCredit()
     });
 
-    it('[PURPLE][GREEN][PRODUCTION] In order to Print CEU Credits', () => {
+    it('[PURPLE] In order to Print CEU Credits', () => {
         HomePage.clickReportCEUCredits()
         CertificationsPage.checkReportEditCEUCreditsPopUp()
         CertificationsPage.fillCEUCreditsForm()
@@ -44,7 +44,7 @@ describe('Certifications', () => {
         CertificationsPage.printCEUCredit()
     });
 
-    it('[PURPLE][GREEN][PRODUCTION] In order to Download Transcripts Credits', () => {
+    it('[PURPLE] In order to Download Transcripts Credits', () => {
         HomePage.clickReportCEUCredits()
         CertificationsPage.checkReportEditCEUCreditsPopUp()
         CertificationsPage.fillCEUCreditsForm()
