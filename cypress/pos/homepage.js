@@ -185,9 +185,11 @@ class HomePage {
       }
 
       clickViewSubscription(){
+        cy.wait(5000)
         cy.visit('/shop/subscriptions/history')
         // cy.get(':nth-child(2) > .nav-modal-link-bar > .nav-modal-link').click()
         // cy.get(':nth-child(2) > .nav-modal-link').click()
+        
       }
 
       clickBrowseShop(){
