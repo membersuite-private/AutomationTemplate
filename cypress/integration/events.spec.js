@@ -30,6 +30,7 @@ describe('Events', () => {
         // HomePage.clickEvents()
         LoginPage.doLogin(example.orgUser.email,example.orgUser.passwd)
         HomePage.changeToOrg()
+        HomePage.clickEvents()
         EventsPage.checkEventsPage()
         EventsPage.clickOnGrpEvent()
         EventsPage.checkEventDetails()

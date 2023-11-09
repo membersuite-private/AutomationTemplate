@@ -124,12 +124,14 @@ class HomePage {
       }
 
       clickEvents(){
-        cy.get('.inner-text').eq(2).click()
+        // cy.get('.inner-text').eq(2).click()
+        cy.visit('/events/browse')
       }
 
       clickMyEvents(){
-        this.clickEvents()
-        cy.get(':nth-child(2) > .nav-modal-link-bar > .nav-modal-link').click()
+        // this.clickEvents()
+        // cy.get(':nth-child(2) > .nav-modal-link-bar > .nav-modal-link').click()
+        cy.visit('/events/myEventRegistration')
         cy.wait(3)
       }
 
@@ -183,8 +185,9 @@ class HomePage {
       }
 
       clickViewSubscription(){
-        cy.get(':nth-child(2) > .nav-modal-link-bar > .nav-modal-link').click()
-        cy.get(':nth-child(2) > .nav-modal-link').click()
+        cy.visit('/shop/subscriptions/history')
+        // cy.get(':nth-child(2) > .nav-modal-link-bar > .nav-modal-link').click()
+        // cy.get(':nth-child(2) > .nav-modal-link').click()
       }
 
       clickBrowseShop(){
