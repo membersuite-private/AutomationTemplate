@@ -119,9 +119,9 @@ class ShopPage{
     cy.get('[data-test="input-card-number"]').type('4242424242424242', { force: true })
     cy.get('[data-test="input-holder-name"]').type('MemberSuite Test', { force: true })
     cy.get('[data-test="input-exp-month"] > .mat-select-trigger > .mat-select-value > .mat-select-placeholder').click({ force: true })
-    cy.get('#mat-option-4 > .mat-option-text').click({ force: true })
+    cy.get('.mat-option-text').contains('01').click({ force: true })
     cy.get('[data-test="input-exp-year"] > .mat-select-trigger > .mat-select-value > .mat-select-placeholder').click({ force: true })
-    cy.get('#mat-option-13 > .mat-option-text').click({ force: true })
+    cy.get('.mat-option-text').contains('23').click({ force: true })
     cy.get('[data-test="input-sec-code"]').type('123', { force: true })
     cy.get('[data-test="shipping-address-existing-0"] > .mat-radio-label > .mat-radio-container > .mat-radio-outer-circle').click({ force: true })
     cy.get('button').eq(2).should('have.text',' Checkout ').click({force: true})
@@ -175,11 +175,9 @@ class ShopPage{
   }
 
   checkShoppingCart(){
-    cy.visit('/home')
-    // cy.get('.icon-cart').click()
-    // cy.get('.cart-items-indicator').then((btn) => {
-    cy.get('.icon-cart').then((btn) => {
-      if(cy.get('.cart-items-indicator')){
+    cy.wait(3000)
+    cy.get("body").then($body => {
+      if ($body.find(".cart-items-indicator").length > 0) {   
         cy.wait(3000)
         cy.get('.icon-cart').click() 
         cy.wait(3000) 
@@ -187,18 +185,8 @@ class ShopPage{
       } else {
         cy.get(':nth-child(1) > a > [data-test="community-tab"] > .inner-text').click()
       }
-      // if (btn.is('visible')) {
-      //   cy.get('.item-remove').click()
-        
-      // } else {
-      //   cy.get(':nth-child(1) > a > [data-test="community-tab"] > .inner-text').click()
-      // }
-    })
-    // if(cy.get('[data-test="store-search"]').should('be.visible')){
-    //   cy.get(':nth-child(1) > a > [data-test="community-tab"] > .inner-text').click()
-    // }   
+    });
   }
-
   
 }
 

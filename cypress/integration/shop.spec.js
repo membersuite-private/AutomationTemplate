@@ -44,7 +44,6 @@ describe('Shop',() => {
         ShopPage.checkSummary(' $5.00  x  1 ',' $5.00 ',' $0.00 ')
         ShopPage.fillFormUsingInvalidExpiration()
         ShopPage.checkPopUpFailedProcessing()
-        ShopPage.checkShoppingCart()
       });
 
       it('[PURPLE][GREEN][PRODUCTION] In order to pay with a card with invalid card number', () =>{
@@ -57,7 +56,6 @@ describe('Shop',() => {
         ShopPage.checkSummary(' $5.00  x  1 ',' $5.00 ',' $0.00 ')
         ShopPage.fillFormUsingInvalidCard()
         ShopPage.checkInvalidCardNumber()
-        ShopPage.checkShoppingCart()
       });
 
       it('[PURPLE][GREEN] In order to use a valid discount code', () =>{
@@ -93,7 +91,6 @@ describe('Shop',() => {
         ShopPage.clickContinueToCart()
         ShopPage.clickCheckout('BluePay',' $5.00 ')
         ShopPage.deleteSavedACH()
-        ShopPage.checkShoppingCart()
       });
 
       it('[PURPLE][GREEN] In order to add cart with Org profile', () =>{
