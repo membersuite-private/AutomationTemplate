@@ -28,7 +28,7 @@ class Utils {
     }
 
     shoppingInitial(){
-      // ShopPage.checkShoppingCart()
+      ShopPage.checkShoppingCart()
       HomePage.clickShop()
       HomePage.clickBrowseShop()
       ShopPage.checkBrowseShopPage()
