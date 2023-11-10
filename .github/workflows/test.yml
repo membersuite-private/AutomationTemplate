@@ -11,7 +11,7 @@ jobs:
         with:
           node-version: 20
       - name: Clean cache
-        run: cache clean --force         
+        run: npm cache clean --force         
       - name: Install dependencies
         run: npm install --force
       - name: Check Cypress install
