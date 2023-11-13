@@ -17,12 +17,12 @@ jobs:
           runTests: false
           build: npm install --force
 
-      - name: Save build folder
-        uses: actions/upload-artifact@v3
-        with:
-          name: build
-          if-no-files-found: error
-          path: dist
+      # - name: Save build folder
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: build
+      #     if-no-files-found: error
+      #     path: dist
 
   test:
     runs-on: ubuntu-latest
