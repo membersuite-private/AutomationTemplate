@@ -51,4 +51,4 @@ jobs:
         with:
           record: true
           parallel: true
-        run: npx cypress run --record --key ${{ secrets.CYPRESS_KEY }} --env grep="[PRODUCTION]"
+          start: npx cypress run --record --key ${{ secrets.CYPRESS_KEY }} --env grep="[PRODUCTION]"
