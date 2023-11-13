@@ -48,7 +48,8 @@ jobs:
       - name: Run Cypress tests
         env:
           SUPER_SECRET: ${{secrets.CYPRESS_KEY}}        
+        run: npx cypress run --record --key ${{ secrets.CYPRESS_KEY }} --env grep="[PRODUCTION]"
         with:
           record: true
           parallel: true
-          start: npx cypress run --record --key ${{ secrets.CYPRESS_KEY }} --env grep="[PRODUCTION]"
+        
