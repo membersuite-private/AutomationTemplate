@@ -5,8 +5,9 @@ class HomePage {
     }
 
     clickLogin(){
-        cy.get('span').eq(6).click()
-        cy.get('[data-test="menu-login"]').eq(1).click()
+        // cy.get('span').eq(6).click()
+        // cy.get('[data-test="menu-login"]').eq(1).click()
+        cy.visit('/auth/portal-login')
     }
 
     fillEmail(){
@@ -80,13 +81,15 @@ class HomePage {
       }
 
       clickCarrerCenter(){
-        cy.get('div').contains('Career Center').click()
-        cy.wait(3)
+        // cy.get('div').contains('Career Center').click()
+        // cy.wait(3)
+        cy.visit('/community/career-center/gateway')
       }
 
       clickReportCEUCredits(){
-        cy.get(':nth-child(2) > .nav-modal-link-bar > .nav-modal-link').click()
-        cy.url().should('include', '/certification/credits-list/create-ceu-report')
+        // cy.get(':nth-child(2) > .nav-modal-link-bar > .nav-modal-link').click()
+        // cy.url().should('include', '/certification/credits-list/create-ceu-report')
+        cy.visit('/certification/credits-list/create-ceu-report')
       }
 
       clickCommittees(){
@@ -106,21 +109,31 @@ class HomePage {
       clickViewOpenCompetiotions(){
         cy.get('.nav-modal-link').contains('View Open Competitions').click()
         cy.url().should('include', '/community/competitions/browse')
+        cy.visit('/community/competitions/browse')
       }
 
       clickViewMyCompetiotionsEntries(){
         cy.get('.nav-modal-link').contains('View My Competition Entries').click()
         cy.url().should('include', '/community/competitions/my-competition-registration')
+        // cy.visit('/community/competitions/my-competition-registration')
       }
 
       clickJudgingCenter(){
         cy.get('.nav-modal-link').contains('Judging Center').click()
         cy.url().should('include', '/community/competitions/judging-center')
+        // cy.visit('/community/competitions/judging-center')
       }
 
       clickBrowseCommittees(){
-        cy.get(':nth-child(2) > .nav-modal-link').click()
-        cy.wait(3)
+        // cy.get(':nth-child(2) > .nav-modal-link').click()
+        // cy.wait(3)
+        cy.visit('/community/committee/committee-browse')
+      }
+
+      clickViewMyCommittees(){
+        // cy.get(':nth-child(2) > .nav-modal-link').click()
+        // cy.wait(3)
+        cy.visit('/community/committee/my-committee')
       }
 
       clickEvents(){
