@@ -7,8 +7,6 @@ import { it } from 'mocha';
 describe('Committees', () => {
     beforeEach(() => {
         LoginPage.doLogin(example.realuser.email,example.realuser.passwd)
-        // HomePage.clickCommunity()
-        // HomePage.clickCommittees()
       });
 
     it('[PURPLE][GREEN][PRODUCTION] In order to verify browse Committees page', () => {

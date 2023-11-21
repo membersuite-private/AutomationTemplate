@@ -5,8 +5,6 @@ class HomePage {
     }
 
     clickLogin(){
-        // cy.get('span').eq(6).click()
-        // cy.get('[data-test="menu-login"]').eq(1).click()
         cy.visit('/auth/portal-login')
     }
 
@@ -63,15 +61,6 @@ class HomePage {
         return cy.contains(elem, label);
       }
 
-      // checkHomepage(){
-      //   cy.get('span').contains('Home').should('be.visible')
-      //   cy.get('span').contains('Community').should('be.visible')
-      //   cy.get('span').contains('Events').should('be.visible')
-      //   cy.get('span').contains('Shop').should('be.visible')
-      //   cy.get('span').contains('Donations').should('be.visible')
-      //   cy.get('span').contains('Certifications').should('be.visible')
-      // }
-
       clickCommunity(){
         cy.get('span').contains('Community').click()
       }
@@ -81,14 +70,10 @@ class HomePage {
       }
 
       clickCarrerCenter(){
-        // cy.get('div').contains('Career Center').click()
-        // cy.wait(3)
         cy.visit('/community/career-center/gateway')
       }
 
       clickReportCEUCredits(){
-        // cy.get(':nth-child(2) > .nav-modal-link-bar > .nav-modal-link').click()
-        // cy.url().should('include', '/certification/credits-list/create-ceu-report')
         cy.visit('/certification/credits-list/create-ceu-report')
       }
 
@@ -115,35 +100,26 @@ class HomePage {
       clickViewMyCompetiotionsEntries(){
         cy.get('.nav-modal-link').contains('View My Competition Entries').click()
         cy.url().should('include', '/community/competitions/my-competition-registration')
-        // cy.visit('/community/competitions/my-competition-registration')
       }
 
       clickJudgingCenter(){
         cy.get('.nav-modal-link').contains('Judging Center').click()
         cy.url().should('include', '/community/competitions/judging-center')
-        // cy.visit('/community/competitions/judging-center')
       }
 
       clickBrowseCommittees(){
-        // cy.get(':nth-child(2) > .nav-modal-link').click()
-        // cy.wait(3)
         cy.visit('/community/committee/committee-browse')
       }
 
       clickViewMyCommittees(){
-        // cy.get(':nth-child(2) > .nav-modal-link').click()
-        // cy.wait(3)
         cy.visit('/community/committee/my-committee')
       }
 
       clickEvents(){
-        // cy.get('.inner-text').eq(2).click()
         cy.visit('/events/browse')
       }
 
       clickMyEvents(){
-        // this.clickEvents()
-        // cy.get(':nth-child(2) > .nav-modal-link-bar > .nav-modal-link').click()
         cy.visit('/events/myEventRegistration')
         cy.wait(3)
       }
@@ -200,9 +176,6 @@ class HomePage {
       clickViewSubscription(){
         cy.wait(5000)
         cy.visit('/shop/subscriptions/history')
-        // cy.get(':nth-child(2) > .nav-modal-link-bar > .nav-modal-link').click()
-        // cy.get(':nth-child(2) > .nav-modal-link').click()
-        
       }
 
       clickBrowseShop(){
