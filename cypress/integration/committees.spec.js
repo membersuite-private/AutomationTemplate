@@ -1,32 +1,20 @@
 import  HomePage  from '../pos/homepage'
 import  LoginPage from '../pos/loginpage'
 import  CommitteesPage  from '../pos/committeespage'
-import  Utils from '../support/utils'
+import example from '../fixtures/example.json'
 
 describe('Committees', () => {
     beforeEach(() => {
-        const credentials = {
-            realuser: {
-                email: 'testautomation@yoip.com',
-                passwd: 'Password1!',
-            },
-        }
-        LoginPage.navHere()
-        LoginPage.acceptCookies()
-        LoginPage.clickLogin()
-        LoginPage.doLogin(credentials.realuser)
-        HomePage.checkHomeNav(['Home', 'Community', 'Events', 'Shop', 'Donations', 'Certifications'])
-        Utils.wait(5)
+        LoginPage.doLogin(example.realuser.email,example.realuser.passwd)
         HomePage.clickCommunity()
+        HomePage.clickCommittees()
       });
 
-    it('In order to verify browse Committees page', () => {
-        HomePage.clickCommittees()
-        Utils.wait(5)
-        // HomePage.clickBrowseCommittees()
-        // CommitteesPage.checkBrowseAllCommitteespage()
-        // CommitteesPage.clickNewTestingcommittee()
-        // CommitteesPage.checkNewTestingcommitteeDetails()
+    it('[PURPLE][GREEN][PRODUCTION] In order to verify browse Committees page', () => {
+        HomePage.clickBrowseCommittees()
+        CommitteesPage.checkBrowseAllCommitteespage()
+        CommitteesPage.clickNewTestingcommittee()
+        CommitteesPage.checkNewTestingcommitteeDetails()
     })
 
 });

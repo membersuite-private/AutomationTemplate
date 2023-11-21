@@ -1,47 +1,32 @@
 import  HomePage  from '../pos/homepage'
 import  LoginPage from '../pos/loginpage'
-import  Utils from '../support/utils'
+import example from '../fixtures/example.json'
 
 
 describe('Login Individual', () => {
+  beforeEach(() => {
 
-  const credentials = {
-      realuser: {
-          email: 'testautomation@yoip.com',
-          passwd: 'Password1!',
-      },
-  }
+  });
 
-    beforeEach(() => {
-
-        LoginPage.navHere()
-        LoginPage.acceptCookies()
-        LoginPage.clickLogin()
-
-
-      });
-
-
-    it('In order to verify Login Functionality', () => {
-      LoginPage.doLogin(credentials.realuser)
-      HomePage.checkHomeNav(['Home', 'Community', 'Events', 'Shop', 'Donations', 'Certifications'])
+    it('[PURPLE][GREEN][PRODUCTION] In order to verify Login Functionality', () => {
+      LoginPage.doLogin(example.realuser.email,example.realuser.passwd)
     });
 
-    it('In order to verify invalid password', () => {
-
+    it('[PURPLE][GREEN][PRODUCTION] In order to verify invalid password', () => {
+      LoginPage.checkInvalidPassword()
     });
 
-    it('In order to verify invalid username', () => {
-
+    it('[PURPLE][GREEN][PRODUCTION] In order to verify invalid username', () => {
+      LoginPage.checkInvalidUsername()
     });
 
-    it('In order to verify invalid username and password', () => {
-
+    it('[PURPLE][GREEN][PRODUCTION] In order to verify invalid username and password', () => {
+      LoginPage.checkInvalidUsernamePassword()
     });
 
-    it('In order to change password from multiple Associations', () => {
+    // it('In order to change password from multiple Associations', () => {
 
-    });
+    // });
 
 
 

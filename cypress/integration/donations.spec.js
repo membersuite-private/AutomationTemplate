@@ -1,38 +1,38 @@
 import  HomePage  from '../pos/homepage'
 import  LoginPage from '../pos/loginpage'
 import  DonationsPage  from '../pos/donationspage'
+import example from '../fixtures/example.json';
 
 describe('Donations', () => {
-    beforeEach(() => {
-        const credentials = {
-            realuser: {
-                email: 'testautomation@yoip.com',
-                passwd: 'Password1!',
-            },
-        }
-        LoginPage.navHere()
-        LoginPage.acceptCookies()
-        LoginPage.clickLogin()
-        LoginPage.doLogin(credentials.realuser)
-        HomePage.checkHomeNav(['Home', 'Community', 'Events', 'Shop', 'Donations', 'Certifications'])
-        HomePage.clickDonations()
+  it('[PURPLE][GREEN][PRODUCTION] In order to verify view Donations page', () => {
+    LoginPage.doLogin(example.realuser.email,example.realuser.passwd)
+    HomePage.clickDonations()
+    HomePage.clickViewMyGivingDonations()
+    DonationsPage.checkDonationsHistory()
+  });
 
-      });
+  it('[PURPLE][GREEN] In order to verify Making Donations', () => {
+    LoginPage.doLogin(example.realuser.email,example.realuser.passwd)
+    HomePage.clickDonations()
+    HomePage.clickMakingDonations()
+    DonationsPage.clickFundraisingProduct01()
+    DonationsPage.fillDonationForm()
+    DonationsPage.checkCheckoutPage()
+    DonationsPage.donationSuccessfulPopUp()
 
+  });
 
-    it('In order to verify view Donations page', () => {
-      HomePage.clickViewMyGivingDonations()
-      DonationsPage.checkDonationsHistory()
-    });
+  it('[PURPLE][GREEN] In order to Making Donations as Organization', () => {
+    LoginPage.doLogin(example.orgUser.email,example.orgUser.passwd)
+    HomePage.changeToOrg()
+    HomePage.clickDonations()
+    HomePage.clickMakingDonations()
+    DonationsPage.clickFundraisingProduct01()
+    DonationsPage.fillDonationForm()
+    DonationsPage.checkCheckoutPage()
+    DonationsPage.donationSuccessfulPopUp()
 
-    it('In order to verify Making Donations', () => {
-      HomePage.clickMakingDonations()
-      DonationsPage.clickFundraisingProduct01()
-      DonationsPage.fillDonationForm()
-      DonationsPage.checkCheckoutPage()
-      DonationsPage.donationSuccessfulPopUp()
-
-    });
+  });
 
 
 

@@ -1,26 +1,16 @@
 import  HomePage  from '../pos/homepage'
 import  LoginPage from '../pos/loginpage'
 import  DiscussionsPage  from '../pos/discussionspage'
-import  Utils from '../support/utils'
+import example from '../fixtures/example.json'
 
 describe('Discussions', () => {
     beforeEach(() => {
-        const credentials = {
-            realuser: {
-                email: 'testautomation@yoip.com',
-                passwd: 'Password1!',
-            },
-        }
-        LoginPage.navHere()
-        LoginPage.acceptCookies()
-        LoginPage.clickLogin()
-        LoginPage.doLogin(credentials.realuser)
-        HomePage.checkHomeNav(['Home', 'Community', 'Events', 'Shop', 'Donations', 'Certifications'])
+        LoginPage.doLogin(example.realuser.email,example.realuser.passwd)
         HomePage.clickCommunity()
         HomePage.clickDiscussions()
       });
 
-    it('In order to verify view Discussion Board', () => {
+    it('[PURPLE][GREEN][PRODUCTION] In order to verify view Discussion Board', () => {
         HomePage.clickViewDiscussionBoard()
         DiscussionsPage.checkDiscussionBoard()
         DiscussionsPage.clickWhatsColorIsTheBest()
@@ -28,7 +18,7 @@ describe('Discussions', () => {
 
     })
 
-    it('In order to verify view My Topic Subscriptions', () => {
+    it('[PURPLE][GREEN][PRODUCTION] In order to verify view My Topic Subscriptions', () => {
         HomePage.clickViewMyTopicSubscriptions()
         DiscussionsPage.checkMyTopicSubscriptions()
 

@@ -5,7 +5,21 @@ class ShopPage{
   }
 
   clickBluePay(){
-    cy.get('[data-test="product-name"]').eq(5).click()
+    cy.get('[data-test="product-name"]').contains('BluePay').click({force: true})
+  }
+
+  clickPenny(){
+    cy.get('[data-test="product-name"]').eq(21).should('have.text','Penny').click()
+  }
+
+  clickItem(){
+    cy.get('[data-test="product-name"]').as('productName')
+    cy.get('@productName').each(($el,index,$list) => {
+      const textProduct=$el.find('span.product-name').text()
+      if(textProduct.includes('Penny')){
+        cy.wrap($el).click()
+      }
+    })
   }
 
   checkBluepayPage(){
@@ -38,8 +52,8 @@ class ShopPage{
     cy.get('.continue-to-cart').click()
   }
 
-  clickCheckout(price){
-    cy.get('[data-test="product-name"]').should('have.text', 'BluePay')
+  clickCheckout(name,price){
+    cy.get('[data-test="product-name"]').should('have.text', name)
     cy.get('[data-test="product-price"]').should('have.text', price)
     cy.get('[data-test="checkout-button"]').click()
   }
@@ -51,7 +65,7 @@ class ShopPage{
   }
 
   fillFormUsingExistingValuesInvoice(){
-    cy.get('.mat-radio-label-content').eq(0).click({force: true})
+    cy.get('.mat-radio-label-content').eq(1).click({force: true})
     cy.get('[data-test="shipping-address-existing-0"]').click()
     cy.get('.button.button-blue').should('have.text',' Checkout ').click({force: true})
   }
@@ -105,9 +119,9 @@ class ShopPage{
     cy.get('[data-test="input-card-number"]').type('4242424242424242', { force: true })
     cy.get('[data-test="input-holder-name"]').type('MemberSuite Test', { force: true })
     cy.get('[data-test="input-exp-month"] > .mat-select-trigger > .mat-select-value > .mat-select-placeholder').click({ force: true })
-    cy.get('#mat-option-4 > .mat-option-text').click({ force: true })
+    cy.get('.mat-option-text').contains('01').click({ force: true })
     cy.get('[data-test="input-exp-year"] > .mat-select-trigger > .mat-select-value > .mat-select-placeholder').click({ force: true })
-    cy.get('#mat-option-14 > .mat-option-text').click({ force: true })
+    cy.get('.mat-option-text').contains('23').click({ force: true })
     cy.get('[data-test="input-sec-code"]').type('123', { force: true })
     cy.get('[data-test="shipping-address-existing-0"] > .mat-radio-label > .mat-radio-container > .mat-radio-outer-circle').click({ force: true })
     cy.get('button').eq(2).should('have.text',' Checkout ').click({force: true})
@@ -128,16 +142,17 @@ class ShopPage{
   }
 
   checkInvalidCardNumber(){
-    cy.get('.mat-error.ng-tns-c82-7').should('have.text',' Please enter a valid card number \\d* ')
+    cy.get('.mat-error').should('have.text',' Please enter a valid card number \\d* ')
   }
 
   checkPopUpFailedProcessing(){
     cy.get('.error-title.ng-star-inserted').should('be.visible')
   }
 
-  checkThankYouPopUp(){
+  checkThankYouPopUp(mail){
     cy.get('.title').should('have.text',' Thank you!  ')
-    cy.get('.col-10 > .col-12').should('have.text',' Order Successful testautomation@yoip.com  ')
+    cy.get('.col-10 > .col-12').should('have.text',' Order Successful '+ mail + '  ')
+    cy.wait(5000)
     cy.get('.buttons > .button').click()
   }
 
@@ -154,6 +169,24 @@ class ShopPage{
     cy.get('.total-price').eq(1).should('have.text',productTotal)
   }
 
+  deleteSavedACH(){
+    cy.get('[data-test-id="saved-payment-method-1"] > .col > a').click({force: true})
+    cy.get('.buttons > .col-12').click()
+  }
+
+  checkShoppingCart(){
+    cy.wait(3000)
+    cy.get("body").then($body => {
+      if ($body.find(".cart-items-indicator").length > 0) {   
+        cy.wait(3000)
+        cy.get('.icon-cart').click() 
+        cy.wait(3000) 
+        cy.get('.item-remove').click()
+      } else {
+        cy.get(':nth-child(1) > a > [data-test="community-tab"] > .inner-text').click()
+      }
+    });
+  }
   
 }
 

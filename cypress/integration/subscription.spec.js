@@ -2,26 +2,17 @@ import  HomePage  from '../pos/homepage'
 import  LoginPage from '../pos/loginpage'
 import  SubscriptionPage  from '../pos/subscriptionpage'
 import ShopPage from '../pos/shoppage'
+import example from '../fixtures/example.json'
 
 describe('Subscriptions', () => {
     beforeEach(() => {
-        const credentials = {
-            realuser: {
-                email: 'testautomation@yoip.com',
-                passwd: 'Password1!',
-            },
-        }
-        LoginPage.navHere()
-        LoginPage.acceptCookies()
-        LoginPage.clickLogin()
-        LoginPage.doLogin(credentials.realuser)
-        HomePage.checkHomeNav(['Home', 'Community', 'Events', 'Shop', 'Donations', 'Certifications'])
+        LoginPage.doLogin(example.realuser.email,example.realuser.passwd)
         HomePage.clickShop()
 
       });
 
 
-    it('In order to verify pay later Subscribe Publication', () => {
+    it('[PURPLE][GREEN][PRODUCTION] In order to verify pay later Subscribe Publication', () => {
       HomePage.clickSubscribetoaPublication()
       SubscriptionPage.checkPublicationPage()
       SubscriptionPage.clickAddtoCart()
@@ -29,7 +20,7 @@ describe('Subscriptions', () => {
       SubscriptionPage.thankyoupopup()
     });
 
-    it('In order to verify electronic check payment Subscribe Publication', () => {
+    it('[PURPLE][GREEN] In order to verify electronic check payment Subscribe Publication', () => {
       HomePage.clickSubscribetoaPublication()
       SubscriptionPage.checkPublicationPage()
       SubscriptionPage.clickAddtoCart()
@@ -37,7 +28,7 @@ describe('Subscriptions', () => {
       SubscriptionPage.thankyoupopup()
     });
 
-    it('In order to verify view my subscriptions', () => {
+    it('[PURPLE][GREEN][PRODUCTION] In order to verify view my subscriptions', () => {
       HomePage.clickViewSubscription()
       SubscriptionPage.checkMySubscription()
     });

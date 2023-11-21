@@ -1,27 +1,18 @@
 import  HomePage  from '../pos/homepage'
 import  LoginPage from '../pos/loginpage'
 import CompetitionsPage from '../pos/competitionspage'
+import example from '../fixtures/example.json'
 
 
 describe('Competitions',() => {
     beforeEach(() => {
-        const credentials = {
-            realuser: {
-                email: 'testautomation@yoip.com',
-                passwd: 'Password1!',
-            },
-        }
-        LoginPage.navHere()
-        LoginPage.acceptCookies()
-        LoginPage.clickLogin()
-        LoginPage.doLogin(credentials.realuser)
-        HomePage.checkHomeNav(['Home', 'Community', 'Events', 'Shop', 'Donations', 'Certifications'])
-        HomePage.clickCommunity()
-        HomePage.clickCompetitions()
+      LoginPage.doLogin(example.realuser.email,example.realuser.passwd)
+      HomePage.clickCommunity()
+      HomePage.clickCompetitions()
 
       });
 
-      it('In order to view open competitions page', () => {
+      it('[PURPLE][GREEN][PRODUCTION] In order to view open competitions page', () => {
         HomePage.clickViewOpenCompetiotions()
         CompetitionsPage.checkBrowseCompetitionsPage()
         CompetitionsPage.clickTumonat10competition()
@@ -35,14 +26,14 @@ describe('Competitions',() => {
 
       });
 
-      it('In order to view  my competition entries page', () => {
+      it('[PURPLE][GREEN][PRODUCTION] In order to view  my competition entries page', () => {
         HomePage.clickViewMyCompetiotionsEntries()
         CompetitionsPage.checkMyCompetitionEntriesPage()
 
       });
 
 
-      it('In order to view  judging center page', () => {
+      it('[PURPLE][GREEN][PRODUCTION] In order to view  judging center page', () => {
         HomePage.clickJudgingCenter()
         CompetitionsPage.checkJudgeCenterPage()
 

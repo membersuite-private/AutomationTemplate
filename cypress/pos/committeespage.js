@@ -15,7 +15,7 @@ class CommitteesPage {
         cy.get("span").contains("New testing committee").should("be.visible")
         cy.get("b").contains("Committee Tasks :").should("be.visible")
         cy.get("a").contains("View Discussions").should("be.visible")
-        cy.get("div").contains(" Join this Committee ").should("be.visible")
+        cy.get('div.ng-star-inserted').contains("Join this Committee").should("be.visible")
     }
 
     clickMyCommittees(){

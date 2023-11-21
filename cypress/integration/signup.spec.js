@@ -11,7 +11,7 @@ describe('Sign Up', () => {
 
       });
 
-      it('Sign up new user  not affiliated to a Organization', () => {
+      it('[PURPLE][GREEN][PRODUCTION] Sign up new user  not affiliated to a Organization', () => {
           const email = Utils.createMail()
           SignupPage.fillFirstPageForm(email)
           SignupPage.fillCreateAccountForm()
@@ -21,25 +21,25 @@ describe('Sign Up', () => {
 
       });
 
-      it('Sign up without First Name', () => {
+      it('[PURPLE][GREEN][PRODUCTION] Sign up without First Name', () => {
           const email = Utils.createMail()
           SignupPage.fillCreateAccountWithoutFirstName(email)
 
       });
 
-      it('Sign up without Last Name', () => {
+      it('[PURPLE][GREEN][PRODUCTION] Sign up without Last Name', () => {
           const email = Utils.createMail()
           SignupPage.fillCreateAccountWithoutLastName(email)
 
       });
 
-      it('Sign up without Email', () => {
+      it('[PURPLE][GREEN][PRODUCTION] Sign up without Email', () => {
           const email = Utils.createMail()
           SignupPage.fillCreateAccountWithoutEmail(email)
 
       });
 
-      it('Sign up new user affiliated to a Organization', () => {
+      it('[PURPLE][GREEN][PRODUCTION] Sign up new user affiliated to a Organization', () => {
           const email = Utils.createMail()
           SignupPage.fillFirstPageForm(email)
           SignupPage.fillCreateAccountForm()
