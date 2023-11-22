@@ -56,7 +56,9 @@ class CompetitionsPage{
   }
 
   clickFilterCompetitionType(){
-    cy.get(".mat-select-arrow.ng-tns-c86-5").click()
+    cy.get(".mat-select-placeholder.ng-tns-c86-5").click({force: true})
+    cy.get(".mat-select-placeholder.ng-tns-c86-5").type('{downArrow}')
+    cy.get('.mat-accordion > .filters > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix > [data-test="input-competitions-type"] > .mat-select-trigger > .mat-select-value').click()
     cy.get('.mat-option-text').contains(' Competition Type 1 ').click()
   }
 

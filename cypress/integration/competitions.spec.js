@@ -14,7 +14,7 @@ describe('Competitions',() => {
 
       });
 
-      it.skip('[PURPLE][GREEN][PRODUCTION] In order to view open competitions page', () => {
+      it('[PURPLE][GREEN][PRODUCTION] In order to view open competitions page', () => {
         HomePage.clickViewOpenCompetiotions()
         CompetitionsPage.checkBrowseCompetitionsPage()
         CompetitionsPage.clickTumonat10competition()
@@ -26,14 +26,14 @@ describe('Competitions',() => {
         CompetitionsPage.clickGoHome()
       });
 
-      it.skip('[PURPLE][GREEN][PRODUCTION] In order to view  my competition entries page', () => {
+      it('[PURPLE][GREEN][PRODUCTION] In order to view  my competition entries page', () => {
         HomePage.clickViewMyCompetiotionsEntries()
         CompetitionsPage.checkMyCompetitionEntriesPage()
 
       });
 
 
-      it.skip('[PURPLE][GREEN][PRODUCTION] In order to view  judging center page', () => {
+      it('[PURPLE][GREEN][PRODUCTION] In order to view  judging center page', () => {
         HomePage.clickJudgingCenter()
         CompetitionsPage.checkJudgeCenterPage()
 
@@ -45,7 +45,7 @@ describe('Competitions',() => {
         CompetitionsPage.clickFilterCompetitionType()
       });
 
-      it.skip('[PURPLE][GREEN] In order to validate if user can continue from a drafted competition', () => {
+      it('[PURPLE][GREEN] In order to validate if user can continue from a drafted competition', () => {
         HomePage.clickViewMyCompetiotionsEntries()
         CompetitionsPage.checkMyCompetitionEntriesPage()
         CompetitionsPage.sortByStatus()
@@ -53,7 +53,7 @@ describe('Competitions',() => {
         CompetitionsPage.checkCompetitionEntryConfirmation()
       });
 
-      it.skip('[PURPLE][GREEN][PRODUCTION] In order to registered judge being able to validate a round', () => {
+      it('[PURPLE][GREEN][PRODUCTION] In order to registered judge being able to validate a round', () => {
         const randomScore = Utils.generateRandomNumbers(1,100)
         HomePage.clickJudgingCenter()
         CompetitionsPage.checkJudgeCenterPage()
