@@ -26,6 +26,7 @@ class CertificationsPage{
       cy.get('span').contains('Refine').should('be.visible')
       cy.get('span').contains('Download Transcript').should('be.visible')
       cy.get('button').contains('+ Report CEU Credits').should('be.visible')
+      cy.wait(5000)
     }
 
     editCEUCredit(){
@@ -36,7 +37,8 @@ class CertificationsPage{
     }
 
     deleteCEUCredit(){
-      cy.get('.mat-radio-container').eq(0).click()
+      cy.get('.mat-radio-container').eq(0).should('be.visible')
+      cy.get('.mat-radio-container').eq(0).click({force: true})
       cy.get('.text-area').contains('Delete').click({force: true})
       cy.get('button').contains('Delete').click()
     }

@@ -1,6 +1,6 @@
-import  HomePage  from '../pos/homepage'
-import  LoginPage from '../pos/loginpage'
-import ShopPage from '../pos/shoppage'
+import  HomePage  from '../pos/homePage'
+import  LoginPage from '../pos/loginPage'
+import ShopPage from '../pos/shopPage'
 
 class Utils {
     wait(timer){
@@ -9,6 +9,16 @@ class Utils {
 
     randomNumber(){
       return Math.random()
+    }
+
+    generateRandomNumbers(min, max) {
+      const randomNumbers = [];
+      for (let i = 0; i < max; i++) {
+        let randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+        randomNumbers.push(randomNumber);
+      }
+    
+      return randomNumbers[1];
     }
 
     createMail(){

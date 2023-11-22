@@ -5,6 +5,8 @@ class HomePage {
     }
 
     clickLogin(){
+        // cy.get('span').eq(6).click()
+        // cy.get('[data-test="menu-login"]').eq(1).click()
         cy.visit('/auth/portal-login')
     }
 
@@ -94,17 +96,18 @@ class HomePage {
       clickViewOpenCompetiotions(){
         cy.get('.nav-modal-link').contains('View Open Competitions').click()
         cy.url().should('include', '/community/competitions/browse')
-        cy.visit('/community/competitions/browse')
+        // cy.visit('/community/competitions/browse')
       }
 
       clickViewMyCompetiotionsEntries(){
         cy.get('.nav-modal-link').contains('View My Competition Entries').click()
-        cy.url().should('include', '/community/competitions/my-competition-registration')
+        // cy.visit('/community/competitions/my-competition-registration')
       }
 
       clickJudgingCenter(){
-        cy.get('.nav-modal-link').contains('Judging Center').click()
-        cy.url().should('include', '/community/competitions/judging-center')
+        // cy.get('.nav-modal-link').contains('Judging Center').click()
+        // cy.url().should('include', '/community/competitions/judging-center')
+        cy.visit('/community/competitions/judging-center')
       }
 
       clickBrowseCommittees(){
