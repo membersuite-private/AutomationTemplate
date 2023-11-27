@@ -40,3 +40,9 @@ Choose what browser do you want to use to run the tests than click in `Start E2E
 Choose which test plan do you want to run clicking on a specific module.spec.js or run all tests clicking `Run 12 specs`
 ![](images/Choose_Test.png)
 
+### Run with Command Line
+ ```
+npx cypress run --env grep="[PURPLE]"
+npx cypress run --env grep="[GREEN]"
+npx cypress run --env grep="[PRODUCTION]"
+```
