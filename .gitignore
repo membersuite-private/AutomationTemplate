@@ -30,3 +30,4 @@ replay_pid*
 /build/
 .settings/
 debug.log%
+node_modules
