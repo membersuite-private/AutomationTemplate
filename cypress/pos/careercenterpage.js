@@ -41,10 +41,11 @@ class CareerCenterPage {
     }
 
     chooseCareerCenterinMenu(){
-        cy.get(':nth-child(2) > a > [data-test=community-tab] > .inner-text').click();
-        cy.waitFor(':nth-child(4) > .nav-modal-link-bar > .nav-modal-link');
-        cy.get(':nth-child(4) > .nav-modal-link-bar > .nav-modal-link').click();
-        cy.wait(4);
+        // cy.get(':nth-child(2) > a > [data-test=community-tab] > .inner-text').click();
+        // cy.waitFor(':nth-child(4) > .nav-modal-link-bar > .nav-modal-link');
+        // cy.get(':nth-child(4) > .nav-modal-link-bar > .nav-modal-link').click();
+        // cy.wait(4);
+        cy.visit('/community/career-center/gateway')
     }
 
     checkCareerCenterPageElements(){

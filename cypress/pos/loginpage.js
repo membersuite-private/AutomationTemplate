@@ -1,6 +1,6 @@
 // LoginPage Class
 import example from '../fixtures/example.json';
-import  HomePage  from '../pos/homepage'
+import  HomePage  from './homePage'
 
 class LoginPage {
     navHere() {

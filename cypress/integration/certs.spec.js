@@ -1,7 +1,6 @@
-import  HomePage  from '../pos/homepage'
-import  LoginPage from '../pos/loginpage'
-import  CertificationsPage  from '../pos/certificationspage'
-import  Utils from '../support/utils'
+import  HomePage  from '../pos/homePage'
+import  LoginPage from '../pos/loginPage'
+import  CertificationsPage  from '../pos/certificationsPage'
 import example from '../fixtures/example.json'
 
 

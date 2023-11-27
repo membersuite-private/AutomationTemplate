@@ -1,6 +1,6 @@
-import  HomePage  from '../pos/homepage'
-import  LoginPage from '../pos/loginpage'
-import ShopPage from '../pos/shoppage'
+import  HomePage  from '../pos/homePage'
+import  LoginPage from '../pos/loginPage'
+import ShopPage from '../pos/shopPage'
 import example from '../fixtures/example.json'
 import Utils from '../support/utils'
 
