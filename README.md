@@ -1,7 +1,7 @@
 # AutomationTemplate
 ## Requirements
  - Node v20 or above - https://nodejs.org/en/download
- - Cypress v13 or above
+ - Cypress v13 or above - https://docs.cypress.io/guides/getting-started/installing-cypress
 
 
 ## First Steps
