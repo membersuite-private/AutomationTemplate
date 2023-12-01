@@ -27,6 +27,9 @@ class DonationsPage{
     cy.get('[data-test="input-exp-year"] > .mat-select-trigger > .mat-select-value > .mat-select-placeholder').click()
     cy.get('#donation-option-27 > .mat-option-text').click()
     cy.get('[data-test="input-sec-code"]').type('123')
+  }
+
+  clickContinue(){
     cy.xpath("//button[normalize-space()='Continue']").click()
   }
 
@@ -44,6 +47,12 @@ class DonationsPage{
     cy.get('#donation-option-23 > .mat-option-text').click()
     cy.get('[data-test="input-sec-code"]').type('123')
     cy.xpath("//button[normalize-space()='Continue']").click()
+  }
+
+  fillValueWithNegativeValue(){
+    cy.get('#donation-input1-FundraisingProduct01').type('-3')
+    cy.get('mat-form-field').should('have.class', 'input-error')
+    cy.get('button').should('have.class', 'button-disabled')
   }
 
   checkCheckoutPage(){
