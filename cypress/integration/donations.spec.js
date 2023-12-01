@@ -46,14 +46,14 @@ describe('Donations', () => {
     DonationsPage.checkCheckoutPage()
   })
 
-  // it('[PURPLE][GREEN] In order to validate if user can’t make a donation with a negative value', () =>{
-  //   LoginPage.doLogin(example.realuser.email,example.realuser.passwd)
-  //   HomePage.clickDonations()
-  //   HomePage.clickMakingDonations()
-  //   DonationsPage.clickFundraisingProduct01()
-  //   DonationsPage.fillValueWithNegativeValue()
-  //   DonationsPage.fillDonationForm()
-  // })
+  it('[PURPLE][GREEN] In order to validate if user can’t make a donation with a negative value', () =>{
+    LoginPage.doLogin(example.realuser.email,example.realuser.passwd)
+    HomePage.clickDonations()
+    HomePage.clickMakingDonations()
+    DonationsPage.clickFundraisingProduct01()
+    DonationsPage.fillValueWithNegativeValue()
+    DonationsPage.fillDonationForm()
+  })
 
 
 });
