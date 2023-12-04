@@ -1,3 +1,5 @@
+import  HomePage  from '../pos/homepage'
+
 class DonationsPage{
   checkDonationsHistory(){
       cy.get('h2').contains('My Giving History').should('be.visible')
@@ -73,6 +75,12 @@ class DonationsPage{
   donationFailedCardExpired(){
     cy.get('#modal-4704ae47-a3e4-4b4c-b144-08583eb5367d').should('have.text', 'Processing Failed')
     cy.get('#modal-72290bb7-115b-4648-a4f4-94642e28f95d').should('have.text', 'Card Expired')
+  }
+
+  closeForm(){
+    cy.get('.icon-cross').click()
+    cy.get('button').eq(2).contains('Continue').click()
+    HomePage.checkHomeNav(['Home', 'Community', 'Events', 'Shop', 'Donations', 'Certifications'])
   }
 
 }
