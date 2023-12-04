@@ -52,7 +52,7 @@ class DonationsPage{
   }
 
   fillValueWithNegativeValue(){
-    cy.get('#donation-input1-FundraisingProduct01').type('-3')
+    cy.get('#donation-input1-FundraisingProduct01').type('-3',{force: true})
     cy.get('mat-form-field').should('have.class', 'input-error')
     cy.get('button').should('have.class', 'button-disabled')
   }
@@ -81,6 +81,18 @@ class DonationsPage{
     cy.get('.icon-cross').click()
     cy.get('button').eq(2).contains('Continue').click()
     HomePage.checkHomeNav(['Home', 'Community', 'Events', 'Shop', 'Donations', 'Certifications'])
+  }
+
+  list10items(){
+    cy.get('.mat-select-value').click()
+    cy.get('.mat-option-text').contains('10').click()
+    cy.get('mat-row').should('have.length',10)
+  }
+
+  list25items(){
+    cy.get('.mat-select-value').click()
+    cy.get('.mat-option-text').contains('25').click()
+    cy.get('mat-row').should('have.length',25)
   }
 
 }
