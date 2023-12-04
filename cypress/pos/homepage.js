@@ -139,13 +139,15 @@ class HomePage {
       }
 
       clickViewMyGivingDonations(){
-        cy.wait(2)
-        cy.get('[class*="nav-modal-link"]').eq(3).click()
+        // cy.wait(2)
+        // cy.get('[class*="nav-modal-link"]').eq(3).click()
+        cy.visit('/donations/donations-history')
       }
 
       clickMakingDonations(){
-        cy.wait(2)
-        cy.get('[class*="nav-modal-link"]').eq(1).click()
+        // cy.wait(2)
+        // cy.get('[class*="nav-modal-link"]').eq(1).click()
+        cy.visit('/donations/donations-workflow')
       }
 
       checkUserProfile(){
