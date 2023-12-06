@@ -75,6 +75,10 @@ class HomePage {
         cy.visit('/community/career-center/gateway')
       }
 
+      clickViewMyCreditHistory(){
+        cy.visit('/certification/credits-list')
+      }
+
       clickReportCEUCredits(){
         cy.visit('/certification/credits-list/create-ceu-report')
       }

@@ -83,6 +83,7 @@ class CareerCenterPage {
     }
 
     checkJobPostingPage(){
+        cy.wait(15000)
         cy.get('h4').contains('[Preview] Job Title').should('be.visible')
         cy.get('p').contains('Job info')
         cy.get('button').contains('Confirm')
