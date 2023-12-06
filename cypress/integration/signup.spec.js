@@ -34,8 +34,7 @@ describe('Sign Up', () => {
       });
 
       it('[PURPLE][GREEN][PRODUCTION] Sign up without Email', () => {
-          const email = Utils.createMail()
-          SignupPage.fillCreateAccountWithoutEmail(email)
+          SignupPage.fillCreateAccountWithoutEmail()
 
       });
 
