@@ -184,7 +184,8 @@ class HomePage {
       }
 
       clickBrowseShop(){
-        cy.get(':nth-child(1) > .nav-modal-link-bar > .nav-modal-link').click()
+        // cy.get(':nth-child(1) > .nav-modal-link-bar > .nav-modal-link').click()
+        cy.visit('/shop/store/browse')
       }
 
       clickNotifications(){
