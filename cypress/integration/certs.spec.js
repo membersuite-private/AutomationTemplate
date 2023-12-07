@@ -1,6 +1,6 @@
-import  HomePage  from '../pos/homepage'
+import HomePage from '../pos/homePage';
 import  LoginPage from '../pos/loginpage'
-import  CertificationsPage  from '../pos/certificationsPage'
+import  CertificationsPage  from '../pos/certificationspage'
 import example from '../fixtures/example.json'
 
 
@@ -11,7 +11,7 @@ describe('Certifications', () => {
       });
 
 
-    it('[PURPLE] In order to Report CEU Credits', () => {
+    it('[PURPLE][GREEN] In order to Report CEU Credits', () => {
         HomePage.clickReportCEUCredits()
         CertificationsPage.checkReportEditCEUCreditsPopUp()
         CertificationsPage.fillCEUCreditsForm()
@@ -19,22 +19,22 @@ describe('Certifications', () => {
     });
 
 
-    it('[PURPLE] In order to Edit CEU Credits', () => {
+    it('[PURPLE][GREEN] In order to Edit CEU Credits', () => {
         HomePage.clickViewMyCreditHistory()
         CertificationsPage.editCEUCredit()
     });
 
-    it('[PURPLE] In order to Delete CEU Credits', () => {
+    it('[PURPLE][GREEN] In order to Delete CEU Credits', () => {
         HomePage.clickViewMyCreditHistory()
         CertificationsPage.deleteCEUCredit()
     });
 
-    it('[PURPLE] In order to Print CEU Credits', () => {
+    it('[PURPLE][GREEN] In order to Print CEU Credits', () => {
         HomePage.clickViewMyCreditHistory()
         CertificationsPage.printCEUCredit()
     });
 
-    it('[PURPLE] In order to Download Transcripts Credits', () => {
+    it('[PURPLE][GREEN] In order to Download Transcripts Credits', () => {
 
         HomePage.clickViewMyCreditHistory()
         CertificationsPage.transcriptCEUCredit()

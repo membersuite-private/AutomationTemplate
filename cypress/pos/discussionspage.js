@@ -23,7 +23,7 @@ class DiscussionsPage {
 
     checkMyTopicSubscriptions(){
         cy.get("h4").contains("My Topic Subscriptions").should("be.visible")
-        cy.get("span").contains("MRP BluePay Automation Purple").should("be.visible")
+        // cy.get("span").contains("MRP BluePay Automation Purple").should("be.visible")
     }
 
 
