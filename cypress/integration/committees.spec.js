@@ -1,6 +1,6 @@
-import  HomePage  from '../pos/homePage'
-import  LoginPage from '../pos/loginPage'
-import  CommitteesPage  from '../pos/committeesPage'
+import  HomePage  from '../pos/homepage'
+import  LoginPage from '../pos/loginpage'
+import  CommitteesPage  from '../pos/committeespage'
 import example from '../fixtures/example.json'
 import { it } from 'mocha';
 
