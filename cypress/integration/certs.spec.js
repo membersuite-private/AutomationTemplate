@@ -1,4 +1,4 @@
-import HomePage from '../pos/homePage';
+import HomePage from '../pos/homepage';
 import  LoginPage from '../pos/loginpage'
 import  CertificationsPage  from '../pos/certificationspage'
 import example from '../fixtures/example.json'
