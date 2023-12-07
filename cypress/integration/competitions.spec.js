@@ -1,7 +1,7 @@
-import  HomePage  from '../pos/homePage'
-import  LoginPage from '../pos/loginPage'
+import  HomePage  from '../pos/homepage'
+import  LoginPage from '../pos/loginpage'
 import Utils from '../support/utils'
-import CompetitionsPage from '../pos/competitionsPage'
+import CompetitionsPage from '../pos/competitionspage'
 import example from '../fixtures/example.json'
 // import { util } from 'chai'
 
