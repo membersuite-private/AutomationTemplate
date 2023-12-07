@@ -1,6 +1,6 @@
 import  HomePage  from '../pos/homepage'
 import  LoginPage from '../pos/loginpage'
-import ShopPage from '../pos/shopPage'
+import ShopPage from '../pos/shoppage'
 
 class Utils {
     wait(timer){
