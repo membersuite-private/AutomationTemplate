@@ -18,7 +18,7 @@ class CertificationsPage{
         cy.get('#mat-input-1').type('10/11/2023')
         cy.get('#mat-input-2').type('Description')
         cy.get('button').contains('Save').click()
-    }
+      }
 
     checkMyCEUCreditHistory(){
       cy.get('h4').contains('My CEU Credit History')  
@@ -26,7 +26,6 @@ class CertificationsPage{
       cy.get('span').contains('Refine').should('be.visible')
       cy.get('span').contains('Download Transcript').should('be.visible')
       cy.get('button').contains('+ Report CEU Credits').should('be.visible')
-      cy.wait(5000)
     }
 
     editCEUCredit(){

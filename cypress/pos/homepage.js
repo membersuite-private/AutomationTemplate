@@ -75,6 +75,10 @@ class HomePage {
         cy.visit('/community/career-center/gateway')
       }
 
+      clickViewMyCreditHistory(){
+        cy.visit('/certification/credits-list')
+      }
+
       clickReportCEUCredits(){
         cy.visit('/certification/credits-list/create-ceu-report')
       }
@@ -184,7 +188,8 @@ class HomePage {
       }
 
       clickBrowseShop(){
-        cy.get(':nth-child(1) > .nav-modal-link-bar > .nav-modal-link').click()
+        // cy.get(':nth-child(1) > .nav-modal-link-bar > .nav-modal-link').click()
+        cy.visit('/shop/store/browse')
       }
 
       clickNotifications(){

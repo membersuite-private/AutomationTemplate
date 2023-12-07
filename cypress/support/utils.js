@@ -1,5 +1,5 @@
-import  HomePage  from '../pos/homePage'
-import  LoginPage from '../pos/loginPage'
+import  HomePage  from '../pos/homepage'
+import  LoginPage from '../pos/loginpage'
 import ShopPage from '../pos/shopPage'
 
 class Utils {
@@ -39,7 +39,7 @@ class Utils {
 
     shoppingInitial(){
       ShopPage.checkShoppingCart()
-      HomePage.clickShop()
+      // HomePage.clickShop()
       HomePage.clickBrowseShop()
       ShopPage.checkBrowseShopPage()
       ShopPage.clickBluePay()
