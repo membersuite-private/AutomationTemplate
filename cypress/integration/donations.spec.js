@@ -2,7 +2,7 @@ import  HomePage  from '../pos/homepage'
 import  LoginPage from '../pos/loginpage'
 import  DonationsPage  from '../pos/donationspage'
 import example from '../fixtures/example.json';
-import ShopPage from '../pos/shopPage';
+import ShopPage from '../pos/shoppage';
 
 describe('Donations', () => {
   it('[PURPLE][GREEN][PRODUCTION] In order to verify view Donations page', () => {
