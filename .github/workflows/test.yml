@@ -1,7 +1,7 @@
 name: Cypress Test
 on:
   push:
-    branches: [main,MRP_E2E]
+    branches: [main,MRP_E2E, MS-204-implement-cypress-automated-tests-against-purple]
 jobs:
   install: 
     runs-on: ubuntu-22.04
