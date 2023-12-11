@@ -46,7 +46,7 @@ jobs:
           echo "${{ secrets.SECRET_USERNAME_PASSWORD }}" > secret.txt
           echo "${{ secrets.TLS_KEY }}" > tls.key   
       - name: Connect VPN
-        run: sudo openvpn --config ".github/vpn/config.ovpn" --log "vpn.log" --daemon
+        run: sudo openvpn --config ".github/vpn/client.ovpn" --log "vpn.log" --daemon
       - name: Check Connect VPN
         run: echo ${{ steps.connect_vpn.outputs.STATUS }}
       - name: Checkout
