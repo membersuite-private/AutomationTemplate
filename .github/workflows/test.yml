@@ -36,17 +36,16 @@ jobs:
     steps:
       - name: Install OpenVPN
         run: |
-          sudo apt-get update
-          sudo apt-get --assume-yes --no-install-recommends install openvpn  
-      - name: Connect VPN
-        run: |
-          echo "${{ secrets.CA_CRT }}" > ca.crt
-          echo "${{ secrets.USER_CRT }}" > user.crt
-          echo "${{ secrets.USER_KEY }}" > user.key
-          echo "${{ secrets.SECRET_USERNAME_PASSWORD }}" > secret.txt
-          echo "${{ secrets.TLS_KEY }}" > tls.key   
-      - name: Connect VPN
-        run: sudo openvpn --config ".github/vpn/client.ovpn" --log "vpn.log" --daemon
+          sudo apt update
+          sudo apt install -y openvpn openvpn-systemd-resolved
+      - name: Connect to VPN
+        uses: "kota65535/github-openvpn-connect-action@v2"
+        with:
+          config_file: .github/workflows/client.ovpn
+          username: ${{ secrets.USERNAME_VPN }}
+          password: ${{ secrets.PASSWORD_VPN }}
+          client_key: ${{ secrets.USER_KEY }}
+          tls_auth_key: ${{ secrets.TLS_AUTH }}
       - name: Check Connect VPN
         run: echo ${{ steps.connect_vpn.outputs.STATUS }}
       - name: Checkout
