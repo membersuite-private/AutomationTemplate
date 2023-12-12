@@ -53,6 +53,11 @@ jobs:
 
       - name: Check Connect VPN
         run: echo ${{ steps.connect_vpn.outputs.STATUS }}
+
+      - name: Wait for a VPN connection
+        timeout-minutes: 1
+        run: until ping -c1 10.0.1.168; do sleep 2; done
+    
       - name: Node v20 Install
         uses: actions/setup-node@v3
         with:
@@ -66,5 +71,10 @@ jobs:
       - name: Run Cypress tests
         env:
           SUPER_SECRET: ${{secrets.CYPRESS_KEY}}        
-        run: npx cypress run --record --key ${{ secrets.CYPRESS_KEY }} --env grep="[PRODUCTION]" --tag "PRODUCTION"
+        run: npx cypress run --record --key ${{ secrets.CYPRESS_KEY }} --env grep="[PURPLE]" --tag "PURPLE"
         
+      - name: Kill VPN connection
+        if: always()
+        run: |
+          sudo chmod 777 vpn.log
+          sudo killall openvpn            
