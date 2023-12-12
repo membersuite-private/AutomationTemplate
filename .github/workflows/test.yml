@@ -36,30 +36,23 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Install OpenVPN
+        run: |
+          sudo apt-get update
+          sudo apt-get --assume-yes --no-install-recommends install openvpn          
+      - name: Setup VPN config
+        run: |
+          echo "${{ secrets.CA_CRT }}" > ca.crt
+          echo "${{ secrets.USER_CRT }}" > user.crt
+          echo "${{ secrets.USER_KEY }}" > user.key
+          echo "${{ secrets.SECRET_USERNAME_PASSWORD }}" > secret.txt
+          echo "${{ secrets.TLS_KEY }}" > tls.key          
+
       - name: Connect VPN
-        uses: ./
-        with:
-          host: ${{ secrets.VPN_HOST }}
-          username: ${{ secrets.USERNAME_VPN }}
-          password: ${{ secrets.PASSWORD_VPN }}
-          ovpn-config: .github/vpn/client.ovpn #optional (default is .github/vpn/config.ovpn)
-          ca: ${{ secrets.CA_CRT }} #optional
-          cert: ${{ secrets.USER_CRT }} #optional
-          cert-key: ${{ secrets.USER_KEY }} #optional
-          test-ping-ip-host: 10.0.1.168 #optional
-          logs: true #optional     
-      # - name: Connect to VPN
-      #   uses: "kota65535/github-openvpn-connect-action@v2"
-      #   with:
-      #     config_file: .github/workflows/client.ovpn
-      #     username: ${{ secrets.USERNAME_VPN }}
-      #     password: ${{ secrets.PASSWORD_VPN }}
-      #     client_key: ${{ secrets.USER_KEY }}
-      #     tls_auth_key: ${{ secrets.TLS_AUTH }}
+        run: sudo openvpn --config ".github/vpn/client.ovpn" --log "vpn.log" --daemon
+
       - name: Check Connect VPN
         run: echo ${{ steps.connect_vpn.outputs.STATUS }}
-      - name: Checkout
-        uses: actions/checkout@v4
       - name: Node v20 Install
         uses: actions/setup-node@v3
         with:
