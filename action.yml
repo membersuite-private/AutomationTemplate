@@ -1,0 +1,127 @@
+name: 'Connect OpenVPN'
+description: 'A GitHub Action for connecting to an OpenVPN SSL server '
+author: 'Raphael Büchi aka swissbuechi'
+branding:
+  icon: lock
+  color: orange
+inputs:
+  host:
+    description: 'DNS or IP of OpenVPN server'
+    required: true
+  username:
+    description: 'VPN username'
+    required: true
+  password:
+    description: 'VPN password'
+    required: true
+  logs:
+    description: 'Show VPN logs in console'
+    required: false
+    default: 'false'
+  dns-server:
+    description: 'DNS server to use over the VPN'
+    required: false
+  ovpn-config:
+    description: 'Path to .ovpn config'
+    required: false
+    default: '.github/vpn/config.ovpn'
+  test-ping-ip-host:
+    description: 'Host IP to ping for VPN connection test, DNS names not supported, use test-dns-host instead'
+    required: false
+  test-dns-host:
+    description: 'Hostname to resolve via VPN DNS server for VPN connection test'
+    required: false
+  port:
+    description: 'Port of OpenVPN server'
+    required: false
+    default: '443'
+  otp-hex:
+    description: 'OTP hex string'
+    required: false
+  otp-timezone:
+    description: 'Timezone for OTP'
+    required: false
+  ca:
+    description: 'VPN config CA'
+    required: false
+  cert:
+    description: 'VPN config Cert'
+    required: false
+  cert-key:
+    description: 'VPN config Cert Key'
+    required: false
+outputs:
+  random-number:
+    description: "Random number"
+    value: ${{ steps.random-number-generator.outputs.random-number }}
+runs:
+  using: "composite"
+  steps:
+    - name: Set Timezone
+      uses: szenius/set-timezone@v1.2
+      with:
+        timezoneLinux: ${{ inputs.otp-timezone }}
+      if: inputs.otp-timezone != null
+
+    - name: Install OpenVPN
+      run: |
+        sudo apt update
+        sudo apt --assume-yes --no-install-recommends install openvpn oathtool resolvconf
+      shell: bash
+
+    - name: Setup VPN config
+      run: |
+        echo "${{ inputs.ca }}" > ca.crt
+        echo "${{ inputs.cert }}" > cert.crt
+        echo "${{ inputs.cert-key }}" > cert.key
+        echo "${{ inputs.username }}" > secret.txt
+        echo "${{ inputs.password }}" >> secret.txt
+        sed -i 's/AUTO_REPLACED_HOST/'"${{ inputs.host }}"'/g' ${{ inputs.ovpn-config }}
+        sed -i 's/AUTO_REPLACED_PORT/'"${{ inputs.port }}"'/g' ${{ inputs.ovpn-config }}
+      shell: bash
+
+    - name: Add VPN TOTP
+      if: inputs.otp-hex != null
+      run: |
+        OTP=$(oathtool --totp ${{ inputs.otp-hex }})
+        sed -i '$ s/$/'"$OTP"'/' secret.txt
+      shell: bash
+
+    - name: Connect VPN
+      run: sudo openvpn --config ${{ inputs.ovpn-config }} --auth-user-pass secret.txt --log "vpn.log" --daemon
+      shell: bash
+
+    - name: Update DNS server
+      if: (inputs.dns-server != null)
+      run: |
+        sudo chmod 777 /etc/resolvconf/resolv.conf.d/head
+        sudo echo "nameserver ${{ inputs.dns-server }}" >> /etc/resolvconf/resolv.conf.d/head
+        sudo resolvconf -u
+      shell: bash
+
+    - name: Wait for a VPN connection with default DNS test
+      if: (inputs.dns-server != null) && (inputs.test-ping-ip-host == null) && (inputs.test-dns-host == null)
+      run: counter=0; until [ $counter -ge 10 ]; do if dig @${{ inputs.dns-server }} ${{ inputs.dns-server }} A +time=1; then exit 0; fi; counter=$((counter+1)); sleep 2; done; exit 1
+      shell: bash
+
+    - name: Wait for a VPN connection with custom DNS test
+      if: (inputs.dns-server != null) && (inputs.test-dns-host != null)
+      run: counter=0; until [ $counter -ge 10 ]; do if dig @${{ inputs.dns-server }} ${{ inputs.test-dns-host }} A +time=1; then exit 0; fi; counter=$((counter+1)); sleep 2; done; exit 1
+      shell: bash
+
+    - name: Wait for a VPN connection with default test ping ip host
+      if: inputs.test-ping-ip-host != null
+      run: counter=0; until [ $counter -ge 10 ]; do if ping -c1 ${{ inputs.test-ping-ip-host }}; then exit 0; fi; counter=$((counter+1)); sleep 2; done; exit 1
+      shell: bash
+
+    - name: Show VPN log
+      uses: webiny/action-post-run@3.0.0
+      if: always() && (inputs.logs == true)
+      with:
+        run: sudo cat vpn.log
+
+    - name: Kill VPN connection
+      uses: webiny/action-post-run@3.0.0
+      if: always()
+      with:
+        run: sudo killall openvpn
