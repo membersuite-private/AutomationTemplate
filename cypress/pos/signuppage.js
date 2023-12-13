@@ -61,12 +61,15 @@ class SignupPage{
     cy.xpath("//button[.=' Next ']").click()
   }
 
-  checkConfirmationPopUp(){
+  checkConfirmationPopUp(mail){
     cy.get('.col-8').should('have.text','Thank You!')
     cy.get('.account-created-info').should('have.text', ' Your account has been created. ')
+    cy.get('.info-text').contains(mail)
     cy.get(':nth-child(1) > .button').should('be.visible')
     cy.get('[style=""] > .button').click()
   }
+
+
 
 
 }

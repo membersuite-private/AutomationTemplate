@@ -2,10 +2,13 @@
 
 class MyAccountPage {
 
+    goToMyAccount(){
+      cy.visit('/profile')
+    }
 
-    checkMyAccountPage(){
+    checkMyAccountPage(mail){
       cy.get('[data-test="name"]').should('have.text', 'Test Automation')
-      cy.get('[data-test="map-address"] > span').should('have.text','Canton, ')
+      cy.get('[data-test="email"]').should('have.text',' '+mail+' ')
     }
 
     clickMyAccount(){
@@ -14,6 +17,17 @@ class MyAccountPage {
 
     clickMyInfo(){
       cy.get('#mat-tab-label-0-0 > .mat-tab-label-content').click()
+    }
+
+    changeInfo(){
+      cy.get('.edit-button').click()
+    }
+
+    changeEmail(mail){
+      cy.get('[data-test="input-email"]').clear()
+      cy.get('[data-test="input-email"]').type(mail+'+-'+'@yopmail.com')
+      cy.get('[data-test="update-button"]').click()
+      cy.get('button').contains('Yes').click()
     }
 
     AddnewmethodPaymentCreditCard(){
