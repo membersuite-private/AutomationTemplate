@@ -54,5 +54,39 @@ describe('FusionAuth', () => {
         Otherassocpage.changePassword(environment)
     });
 
+    it('[PURPLE][GREEN][PRODUCTION] user with 1+ assoc - changes email to separate the 2 assoc issues - part 1', () =>{
+        const email = Utils.createMailWithSymbols()
+        const environment = 'PURPLE'
+
+        LoginPage.navHome()
+        LoginPage.acceptCookies()
+        LoginPage.clickSignup()
+        SignupPage.fillFirstPageForm(email+"@yopmail.com")
+        SignupPage.fillCreateAccountForm()
+        SignupPage.fillOrganizationFormWithoutOrganization()
+        SignupPage.fillCommunicationPreferences()
+        SignupPage.checkConfirmationPopUp(email)
+
+        //SECOND ASSOC
+        Otherassocpage.visitDemonstration(environment)
+        Otherassocpage.joinDemonstration(environment)
+        LoginPage.acceptCookies()
+        SignupPage.fillFirstPageForm(email+"@yopmail.com")
+        Otherassocpage.checkMessage()
+        Otherassocpage.fillCreateAccountForm(environment)
+        Otherassocpage.fillOrganizationFormWithoutOrganization(environment)
+        SignupPage.fillCommunicationPreferences()
+        SignupPage.checkConfirmationPopUp(email)
+
+        //CHANGE EMAIL
+        LoginPage.navHome()
+        LoginPage.navHere()
+        LoginPage.clickLogin()
+        MyAccountPage.goToMyAccount()
+        MyAccountPage.checkMyAccountPage(email+"@yopmail.com")
+        MyAccountPage.changeInfo()
+        Otherassocpage.changeEmail(email)
+        Otherassocpage.emailChangeConfirmation(environment)
+    });
 
 });

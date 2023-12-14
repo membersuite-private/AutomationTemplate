@@ -39,7 +39,7 @@ class SignupPage{
     cy.xpath("//input[@formcontrolname='password']").type('Password1!')
     cy.get("[data-test='input-layout-type']").click({force: true})
     cy.xpath("//span[.= 'Individual Type 3']").click({force: true})
-    cy.xpath("//label[@for='phone-number-HomePhone-input']//div[@class='mat-radio-inner-circle']").click()
+    // cy.xpath("//label[@for='phone-number-HomePhone-input']//div[@class='mat-radio-inner-circle']").click()
     cy.xpath("//button[.=' Next ']").click()
   }
 

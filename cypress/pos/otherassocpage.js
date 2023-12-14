@@ -23,7 +23,7 @@ class OtherAssocPage{
             cy.visit('https://quang.users.membersuite.com/auth/portal-login?isSignUp=true')
         }
         else{
-            
+            //EMPTY
         }
 
         
@@ -47,7 +47,7 @@ class OtherAssocPage{
 
         }
         else{
-            
+            //EMPTY
         }
 
 
@@ -95,11 +95,36 @@ class OtherAssocPage{
             cy.get('div').contains('MRP BluePay Automation Production')
             cy.get('div').contains('Michael Le Sandbox SSD6')
         }
-        else{
-            
-        }
 
     }
+
+    emailChangeConfirmation(environment){
+        cy.get('.password-confirm-text').contains(' You are changing your email address which is currently being used to log in to multiple associations. ')
+        
+        if(environment == 'PURPLE'){
+            cy.get('strong').should('have.text','MRP BluePay Automation Purple.')
+        }
+        if(environment == 'GREEN'){
+            cy.get('strong').should('have.text','MRP BluePay Automation Green')
+        }
+        if(environment == 'PRODUCTION'){
+            cy.get('strong').should('have.text','MRP BluePay Automation Production')
+        }
+        
+        cy.get('[data-test="reset-retype"]').type('NewPassword1!')
+        cy.get('.cancel-button').contains('Create').click()
+
+        cy.get('div').contains(' Success ')
+        cy.get('button').contains('Okay').click()
+    }
+
+    changeEmail(mail){
+        cy.get('[data-test="input-email"]').clear()
+        cy.get('[data-test="input-email"]').type('NEW_'+mail+'@yopmail.com')
+        cy.get('[data-test="update-button"]').click()
+      }
+
+
   
   
   
