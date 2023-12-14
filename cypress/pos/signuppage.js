@@ -58,7 +58,7 @@ class SignupPage{
   }
 
   fillCommunicationPreferences(){
-    cy.xpath("//button[.=' Next ']").click()
+    cy.xpath("//button[.=' Next ']").click({force: true})
   }
 
   checkConfirmationPopUp(mail){
