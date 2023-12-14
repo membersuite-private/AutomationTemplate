@@ -7,7 +7,7 @@ import  Utils from '../support/utils'
 
 
 describe('FusionAuth', () => {
-    it.skip('[PURPLE][GREEN][PRODUCTION] User is able to join with symbols in their email address, but are unable to save when they update their profile', () => {
+    it('[PURPLE][GREEN][PRODUCTION] User is able to join with symbols in their email address, but are unable to save when they update their profile', () => {
         LoginPage.navHome()
         LoginPage.acceptCookies()
         LoginPage.clickSignup()
@@ -25,6 +25,7 @@ describe('FusionAuth', () => {
 
     it('[PURPLE][GREEN][PRODUCTION] user with 1+ assoc - changes email to separate the 2 assoc issues - part 1', () =>{
         const email = Utils.createMail()
+        const environment = 'PURPLE'
 
         LoginPage.navHome()
         LoginPage.acceptCookies()
@@ -36,13 +37,13 @@ describe('FusionAuth', () => {
         SignupPage.checkConfirmationPopUp(email)
 
         //SECOND ASSOC
-        Otherassocpage.visitDemonstrationPurple()
-        Otherassocpage.joinDemonstrationPurple()
+        Otherassocpage.visitDemonstration(environment)
+        Otherassocpage.joinDemonstration(environment)
         LoginPage.acceptCookies()
         SignupPage.fillFirstPageForm(email)
         Otherassocpage.checkMessage()
-        Otherassocpage.fillCreateAccountForm()
-        Otherassocpage.fillOrganizationFormWithoutOrganization()
+        Otherassocpage.fillCreateAccountForm(environment)
+        Otherassocpage.fillOrganizationFormWithoutOrganization(environment)
         SignupPage.fillCommunicationPreferences()
         SignupPage.checkConfirmationPopUp(email)
 
@@ -50,10 +51,8 @@ describe('FusionAuth', () => {
         LoginPage.navHome()
         LoginPage.navHere()
         LoginPage.clickLogin()
-        Otherassocpage.changePassword()
+        Otherassocpage.changePassword(environment)
     });
 
-
-  
 
 });
