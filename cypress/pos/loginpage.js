@@ -27,11 +27,12 @@ class LoginPage {
     }
 
     fillEmail(email) {
+      cy.get('input[type="text"]').clear();
       return cy.get('input[type="text"]').type(email);
     }
 
     fillPassword(passwd) {
-
+      cy.get('input[type="password"]').clear();
       return cy.get('input[type="password"]').type(passwd);
     }
 
@@ -61,7 +62,6 @@ class LoginPage {
 
     checkInvalidPassword(){
       this.navHere()
-      this.acceptCookies()
       this.clickLogin()
       cy.get('input[type="text"]').type(example.realuser.email);
       cy.get('input[type="password"]').type('FakePassword');
@@ -69,11 +69,10 @@ class LoginPage {
       cy.get('.has-error').should('have.text','Login credentials were invalid.')
     }
 
-    checkInvalidUsername(){
+    checkInvalidUsername(email){
       this.navHere()
-      this.acceptCookies()
       this.clickLogin()
-      cy.get('input[type="text"]').type('testautomation123@yoip.com');
+      cy.get('input[type="text"]').type(email);
       cy.get('input[type="password"]').type(example.realuser.passwd);
       this.submitLoginForm();
       cy.get('.has-error').should('have.text','User not found')
@@ -101,6 +100,11 @@ class LoginPage {
     clickSignup(){
       cy.get('.profile-text').click()
         cy.get('[data-test="menu-join"]').click()
+    }
+
+    clickLogout(){
+      cy.get('.profile-text').click()
+      cy.get('[data-test="menu-logout"]').click()
     }
 
     goToProfile(){

@@ -23,11 +23,15 @@ class MyAccountPage {
       cy.get('.edit-button').click()
     }
 
+    clickYesButton(){
+      cy.get('button').contains('Yes').click()
+    }
+
     changeEmail(mail){
       cy.get('[data-test="input-email"]').clear()
-      cy.get('[data-test="input-email"]').type(mail+'+-'+'@yopmail.com')
+      cy.get('[data-test="input-email"]').type(mail)
       cy.get('[data-test="update-button"]').click()
-      cy.get('button').contains('Yes').click()
+      
     }
 
     AddnewmethodPaymentCreditCard(){
@@ -65,6 +69,9 @@ class MyAccountPage {
     PayFirstInvoiceFullValue(){
       cy.get('.mat-checkbox-inner-container.mat-checkbox-inner-container-no-side-margin').eq(0).click()
       cy.get('.d-none > .mat-raised-button').click()
+    }
+    checkMessageErrorEmailUsed(){
+      cy.get('.message.ng-star-inserted').contains('The email that you have entered is already associated')
     }
 
   }
