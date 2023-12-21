@@ -116,8 +116,6 @@ describe('FusionAuth', () => {
         SignupPage.checkConfirmationPopUp(email)
 
         cy.visit('growthzone-dev.fusionauth.io/admin')
-        cy.get('#loginId').type('levi.santos@growthzone.com')
-        cy.get('#password').type('$fcfQEjf8almVV')
         cy.get('button').click()
         cy.wait(15000)
         cy.visit('https://growthzone-dev.fusionauth.io/admin/user/')
