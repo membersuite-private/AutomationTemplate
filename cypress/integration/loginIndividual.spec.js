@@ -17,7 +17,7 @@ describe('Login Individual', () => {
     });
 
     it('[PURPLE][GREEN][PRODUCTION] In order to verify invalid username', () => {
-      LoginPage.checkInvalidUsername()
+      LoginPage.checkInvalidUsername('testautomation123@yoip.com')
     });
 
     it('[PURPLE][GREEN][PRODUCTION] In order to verify invalid username and password', () => {

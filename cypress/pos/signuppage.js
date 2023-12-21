@@ -39,7 +39,7 @@ class SignupPage{
     cy.xpath("//input[@formcontrolname='password']").type('Password1!')
     cy.get("[data-test='input-layout-type']").click({force: true})
     cy.xpath("//span[.= 'Individual Type 3']").click({force: true})
-    cy.xpath("//label[@for='phone-number-HomePhone-input']//div[@class='mat-radio-inner-circle']").click()
+    // cy.xpath("//label[@for='phone-number-HomePhone-input']//div[@class='mat-radio-inner-circle']").click()
     cy.xpath("//button[.=' Next ']").click()
   }
 
@@ -61,12 +61,15 @@ class SignupPage{
     cy.xpath("//button[.=' Next ']").click()
   }
 
-  checkConfirmationPopUp(){
+  checkConfirmationPopUp(mail){
     cy.get('.col-8').should('have.text','Thank You!')
     cy.get('.account-created-info').should('have.text', ' Your account has been created. ')
+    cy.get('.info-text').contains(mail)
     cy.get(':nth-child(1) > .button').should('be.visible')
     cy.get('[style=""] > .button').click()
   }
+
+
 
 
 }

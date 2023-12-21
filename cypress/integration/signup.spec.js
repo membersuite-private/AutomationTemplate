@@ -17,7 +17,7 @@ describe('Sign Up', () => {
           SignupPage.fillCreateAccountForm()
           SignupPage.fillOrganizationFormWithoutOrganization()
           SignupPage.fillCommunicationPreferences()
-          SignupPage.checkConfirmationPopUp()
+          SignupPage.checkConfirmationPopUp(email)
 
       });
 
@@ -44,7 +44,7 @@ describe('Sign Up', () => {
           SignupPage.fillCreateAccountForm()
           SignupPage.fillOrganizationFormWithOrganization()
           SignupPage.fillCommunicationPreferences()
-          SignupPage.checkConfirmationPopUp()
+          SignupPage.checkConfirmationPopUp(email)
 
       });
 
