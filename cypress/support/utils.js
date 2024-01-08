@@ -2,6 +2,7 @@ import  HomePage  from '../pos/homepage'
 import  LoginPage from '../pos/loginpage'
 import ShopPage from '../pos/shoppage'
 
+
 class Utils {
     wait(timer){
         cy.wait(timer)
@@ -61,6 +62,14 @@ class Utils {
       ShopPage.clickBluePay()
       ShopPage.checkBluepayPage()
     }
+
+    writePropertiesInFile(email){
+      cy.writeFile('cypress/fixtures/properties.json',{ 
+        email: email, 
+    })
+    
+  }
+
 }
 
 export default new Utils

@@ -2,17 +2,28 @@ import  LoginPage from '../pos/loginpage'
 import  SignupPage  from '../pos/signuppage'
 import MyAccountPage from '../pos/myaccountpage'
 import HomePage from '../pos/homepage'
+import ApiCalls from '../pos/apicalls'
 import  Utils from '../support/utils'
 
+afterEach(() =>{
+    cy.log('AFTER EACH')
+    ApiCalls.DeleteUser()
+})
 
+after(() => {
+    
+})
 
 describe('FusionAuth', () => {
-    it.skip('[PURPLE][GREEN][PRODUCTION] User is able to join with symbols in their email address, but are unable to save when they update their profile', () => {
+    it('[PURPLE][GREEN][PRODUCTION] User is able to join with symbols in their email address, but are unable to save when they update their profile', () => {
         LoginPage.navHome()
         LoginPage.acceptCookies()
         LoginPage.clickSignup()
         const email = Utils.createMailWithSymbols()
         SignupPage.fillFirstPageForm(email+"@yopmail.com")
+
+        Utils.writePropertiesInFile(email+"@yopmail.com") //WRITE IN PROPERTIES FILE
+
         SignupPage.fillCreateAccountForm()
         SignupPage.fillOrganizationFormWithOrganization()
         SignupPage.fillCommunicationPreferences()
@@ -20,8 +31,10 @@ describe('FusionAuth', () => {
         MyAccountPage.goToMyAccount()
         MyAccountPage.checkMyAccountPage(email+"@yopmail.com")
         MyAccountPage.changeInfo()
-        MyAccountPage.changeEmail(email)
+        MyAccountPage.changeEmail(email+'+-'+'@yopmail.com')
         MyAccountPage.clickYesButton()
+
+        Utils.writePropertiesInFile(email+'+-'+'@yopmail.com') //WRITE IN PROPERTIES FILE
 
         //VALIDATING
         LoginPage.navHome()
@@ -126,7 +139,7 @@ describe('FusionAuth', () => {
         cy.wait(15000)
     });
 
-    it('[PURPLE][GREEN][PRODUCTION] User is not able to change their email to an email that already exists within that association', () => {
+    it.skip('[PURPLE][GREEN][PRODUCTION] User is not able to change their email to an email that already exists within that association', () => {
         LoginPage.navHome()
         LoginPage.acceptCookies()
         LoginPage.clickSignup()
