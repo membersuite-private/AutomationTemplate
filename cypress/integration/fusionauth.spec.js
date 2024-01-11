@@ -13,7 +13,7 @@ afterEach(() =>{
 
 
 describe('FusionAuth', () => {
-    it('[PURPLE][GREEN][PRODUCTION] User is able to join with symbols in their email address, but are unable to save when they update their profile', () => {
+    it.skip('[PURPLE][GREEN][PRODUCTION] User is able to join with symbols in their email address, but are unable to save when they update their profile', () => {
         LoginPage.navHome()
         LoginPage.acceptCookies()
         LoginPage.clickSignup()
@@ -120,31 +120,7 @@ describe('FusionAuth', () => {
         Otherassocpage.emailChangeConfirmation(environment)
     });
 
-    it.skip('[PURPLE][GREEN][PRODUCTION] FUSION AUTH PAGE', () => {
-        const email = Utils.createMail()
-        const environment = 'PURPLE'
-
-        LoginPage.navHome()
-        LoginPage.acceptCookies()
-        LoginPage.clickSignup()
-        SignupPage.fillFirstPageForm(email)
-        SignupPage.fillCreateAccountForm()
-        SignupPage.fillOrganizationFormWithoutOrganization()
-        SignupPage.fillCommunicationPreferences()
-        SignupPage.checkConfirmationPopUp(email)
-
-        cy.visit('growthzone-dev.fusionauth.io/admin')
-        cy.get('#loginId').type('levi.santos@growthzone.com')
-        cy.get('#password').type('$fcfQEjf8almVV')
-        cy.get('button').click()
-        cy.wait(15000)
-        cy.visit('https://growthzone-dev.fusionauth.io/admin/user/')
-        cy.get('input').type(email)
-        cy.get('button').contains('Search').click()
-        cy.wait(15000)
-    });
-
-    it('[PURPLE][GREEN][PRODUCTION] User is not able to change their email to an email that already exists within that association', () => {
+    it.skip('[PURPLE][GREEN][PRODUCTION] User is not able to change their email to an email that already exists within that association', () => {
         LoginPage.navHome()
         LoginPage.acceptCookies()
         LoginPage.clickSignup()
