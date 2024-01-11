@@ -4,12 +4,12 @@ class ApiCalls {
       cy.visit('/profile')
     }
 
-    DeleteUser(){
+    DeleteUser(environment){
       cy.fixture('properties').then((properties)  => {
         let email = properties.email
-        cy.GetTokenAuthentication(email)
-        cy.GetOwnerId()
-        cy.DeleteRequest()
+        cy.GetTokenAuthentication(email,environment)
+        cy.GetOwnerId(environment)
+        cy.DeleteRequest(email,environment)
       })
     }
 }
