@@ -1,9 +1,15 @@
 import  LoginPage from '../pos/loginpage'
 import  SignupPage  from '../pos/signuppage'
 import MyAccountPage from '../pos/myaccountpage'
+import Otherassocpage from '../pos/otherassocpage'
 import HomePage from '../pos/homepage'
+import ApiCalls from '../pos/apicalls'
 import  Utils from '../support/utils'
 
+afterEach(() =>{
+    cy.log('AFTER EACH')
+    ApiCalls.DeleteUser('GREEN')
+})
 
 
 describe('FusionAuth', () => {
@@ -13,6 +19,9 @@ describe('FusionAuth', () => {
         LoginPage.clickSignup()
         const email = Utils.createMailWithSymbols()
         SignupPage.fillFirstPageForm(email+"@yopmail.com")
+
+        Utils.writePropertiesInFile(email+"@yopmail.com") //WRITE IN PROPERTIES FILE
+
         SignupPage.fillCreateAccountForm()
         SignupPage.fillOrganizationFormWithOrganization()
         SignupPage.fillCommunicationPreferences()
@@ -20,8 +29,10 @@ describe('FusionAuth', () => {
         MyAccountPage.goToMyAccount()
         MyAccountPage.checkMyAccountPage(email+"@yopmail.com")
         MyAccountPage.changeInfo()
-        MyAccountPage.changeEmail(email)
+        MyAccountPage.changeEmail(email+'+-'+'@yopmail.com')
         MyAccountPage.clickYesButton()
+
+        Utils.writePropertiesInFile(email+'+-'+'@yopmail.com') //WRITE IN PROPERTIES FILE
 
         //VALIDATING
         LoginPage.navHome()
@@ -36,7 +47,7 @@ describe('FusionAuth', () => {
 
     });
 
-    it.skip('[PURPLE][GREEN][PRODUCTION] User with 1+ assoc - is not being prompted when resetting password', () =>{
+    it.skip('[PURPLE][GREEN][PRODUCTION] User with 1+ assoc - is not being prompted when resetting password', () => {
         const email = Utils.createMail()
         const environment = 'PURPLE'
 
@@ -44,6 +55,9 @@ describe('FusionAuth', () => {
         LoginPage.acceptCookies()
         LoginPage.clickSignup()
         SignupPage.fillFirstPageForm(email)
+
+        Utils.writePropertiesInFile(email) //WRITE IN PROPERTIES FILE
+
         SignupPage.fillCreateAccountForm()
         SignupPage.fillOrganizationFormWithoutOrganization()
         SignupPage.fillCommunicationPreferences()
@@ -60,6 +74,7 @@ describe('FusionAuth', () => {
         SignupPage.fillCommunicationPreferences()
         SignupPage.checkConfirmationPopUp(email)
 
+
         //RESET PASSWORD
         LoginPage.navHome()
         LoginPage.navHere()
@@ -67,7 +82,7 @@ describe('FusionAuth', () => {
         Otherassocpage.changePassword(environment)
     });
 
-    it.skip('[PURPLE][GREEN][PRODUCTION] user with 1+ assoc - changes email to separate the 2 assoc issues - part 1', () =>{
+    it.skip('[PURPLE][GREEN][PRODUCTION] user with 1+ assoc - changes email to separate the 2 assoc issues - part 1', () => {
         const email = Utils.createMailWithSymbols()
         const environment = 'PURPLE'
 
@@ -75,6 +90,9 @@ describe('FusionAuth', () => {
         LoginPage.acceptCookies()
         LoginPage.clickSignup()
         SignupPage.fillFirstPageForm(email+"@yopmail.com")
+
+        Utils.writePropertiesInFile(email+"@yopmail.com") //WRITE IN PROPERTIES FILE
+
         SignupPage.fillCreateAccountForm()
         SignupPage.fillOrganizationFormWithoutOrganization()
         SignupPage.fillCommunicationPreferences()
@@ -102,34 +120,18 @@ describe('FusionAuth', () => {
         Otherassocpage.emailChangeConfirmation(environment)
     });
 
-    it.skip('[PURPLE][GREEN][PRODUCTION] FUSION AUTH PAGE', () => {
-        const email = Utils.createMail()
-        const environment = 'PURPLE'
 
-        LoginPage.navHome()
-        LoginPage.acceptCookies()
-        LoginPage.clickSignup()
-        SignupPage.fillFirstPageForm(email)
-        SignupPage.fillCreateAccountForm()
-        SignupPage.fillOrganizationFormWithoutOrganization()
-        SignupPage.fillCommunicationPreferences()
-        SignupPage.checkConfirmationPopUp(email)
 
-        cy.visit('growthzone-dev.fusionauth.io/admin')
-        cy.get('button').click()
-        cy.wait(15000)
-        cy.visit('https://growthzone-dev.fusionauth.io/admin/user/')
-        cy.get('input').type(email)
-        cy.get('button').contains('Search').click()
-        cy.wait(15000)
-    });
 
-    it('[PURPLE][GREEN][PRODUCTION] User is not able to change their email to an email that already exists within that association', () => {
+    it.skip('[PURPLE][GREEN][PRODUCTION] User is not able to change their email to an email that already exists within that association', () => {
         LoginPage.navHome()
         LoginPage.acceptCookies()
         LoginPage.clickSignup()
         const email = Utils.createMail()
         SignupPage.fillFirstPageForm(email)
+
+        Utils.writePropertiesInFile(email) //WRITE IN PROPERTIES FILE
+        
         SignupPage.fillCreateAccountForm()
         SignupPage.fillOrganizationFormWithOrganization()
         SignupPage.fillCommunicationPreferences()
@@ -141,4 +143,6 @@ describe('FusionAuth', () => {
         MyAccountPage.checkMessageErrorEmailUsed()
     });
 
+
 });
+

@@ -121,7 +121,7 @@ class ShopPage{
     cy.get('[data-test="input-exp-month"] > .mat-select-trigger > .mat-select-value > .mat-select-placeholder').click({ force: true })
     cy.get('.mat-option-text').contains('01').click({ force: true })
     cy.get('[data-test="input-exp-year"] > .mat-select-trigger > .mat-select-value > .mat-select-placeholder').click({ force: true })
-    cy.get('.mat-option-text').contains('23').click({ force: true })
+    cy.get('.mat-option-text').contains('24').click({ force: true })
     cy.get('[data-test="input-sec-code"]').type('123', { force: true })
     cy.get('[data-test="shipping-address-existing-0"] > .mat-radio-label > .mat-radio-container > .mat-radio-outer-circle').click({ force: true })
     cy.get('button').eq(2).should('have.text',' Checkout ').click({force: true})
