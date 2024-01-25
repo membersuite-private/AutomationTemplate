@@ -49,7 +49,8 @@ class LoginPage {
       return cy.contains(errelem, errmessage) && cy.url().should('include', '/auth/portal-login');
     }
 
-    doLogin(email,passwd) {
+    doLogin(email,passwd) 
+    {
       this.navHere()
       this.acceptCookies()
       this.clickLogin()
@@ -62,6 +63,7 @@ class LoginPage {
 
     checkInvalidPassword(){
       this.navHere()
+      this.acceptCookies()
       this.clickLogin()
       cy.get('input[type="text"]').type(example.realuser.email);
       cy.get('input[type="password"]').type('FakePassword');
@@ -71,6 +73,7 @@ class LoginPage {
 
     checkInvalidUsername(email){
       this.navHere()
+      this.acceptCookies()
       this.clickLogin()
       cy.get('input[type="text"]').type(email);
       cy.get('input[type="password"]').type(example.realuser.passwd);
